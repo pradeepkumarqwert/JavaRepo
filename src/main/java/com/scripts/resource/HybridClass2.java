@@ -1,0 +1,153 @@
+package com.scripts.resource;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.scripts.basefolder.BaseDataCloud;
+import com.scripts.basefolder.BaseMethodsCloud;
+import com.scripts.basefolder.BaseObjectsCloud;
+import com.scripts.repository.PantaloonsLandingPage;
+
+@Listeners(com.report.listener.ExtentReportManager.class)
+public class HybridClass2 {
+
+    WebDriver webDriver;
+    WebDriver mobileDriver;
+    BaseMethodsCloud baseMethodWeb;
+    BaseMethodsCloud baseMethodMobile;
+    BaseDataCloud baseData;
+    PantaloonsLandingPage pantaloonsPage;
+
+    @Test
+    public void interleavedExecution() throws InterruptedException, MalformedURLException {
+        try {
+            // --------------------------
+            // 1. Initialize Web Driver
+            // --------------------------
+        	String seleniumHubUrlWeb = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=App+Management/";
+            ChromeOptions options = new ChromeOptions();
+            options.setPlatformName("Windows 11");
+            options.setBrowserVersion("131");
+            webDriver = new RemoteWebDriver(new URL(seleniumHubUrlWeb), options);
+            webDriver.manage().window().setSize(new Dimension(1024, 768));
+            baseMethodWeb = new BaseMethodsCloud(webDriver);
+
+            // --------------------------
+            // 2. Initialize Mobile Driver
+            // --------------------------
+        	String seleniumHubUrlMobile = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=App+Management/";
+            DesiredCapabilities capsMobile = new DesiredCapabilities();
+            capsMobile.setCapability("appium:deviceName", "oppo F27 Pro+ 5G");
+            capsMobile.setCapability("platformName", "Android");
+            capsMobile.setCapability("appium:platformVersion", "15");
+            capsMobile.setCapability("appium:browserName", "Chrome");
+            mobileDriver = new RemoteWebDriver(new URL(seleniumHubUrlMobile), capsMobile);
+            baseMethodMobile = new BaseMethodsCloud(mobileDriver);
+
+            // --------------------------
+            // 3. Initialize common objects
+            // --------------------------
+            baseData = new BaseDataCloud();
+            pantaloonsPage = new PantaloonsLandingPage(webDriver); // Use webDriver for object locators
+
+            // --------------------------
+            // 4. Execute Steps Interleaved
+            // --------------------------
+
+            // -------- Web Step 1 --------
+            baseMethodWeb.getString(baseData.getBrowserURL(), "Landed on Google website");
+            takeScreenshot(webDriver, "Web_01_Google");
+
+            // -------- Web Step 2 --------
+            baseMethodWeb.Navigateinto(baseData.getPantaloonspageURL(), "Navigate to Pantaloons landing page");
+            baseMethodWeb.waitForPageLoad(webDriver);
+            baseMethodWeb.ElementIsDisplay(pantaloonsPage.getPantaloonsLogoElement());
+            takeScreenshot(webDriver, "Web_02_Pantaloons_Landing");
+
+            // -------- Mobile Step 1 --------
+            mobileDriver.get("https://www.pantaloons.com/");
+            takeScreenshot(mobileDriver, "Mobile_01_HomePage");
+
+            // -------- Mobile Step 2 --------
+            mobileDriver.findElement(By.cssSelector("div.mobilesearchbox")).click();
+            takeScreenshot(mobileDriver, "Mobile_02_ClickSearch");
+
+            // -------- Mobile Step 3 --------
+            Thread.sleep(2000);
+            mobileDriver.findElement(By.xpath("//input[@placeholder='Search for products,brands and more...']")).sendKeys("Shirt");
+            takeScreenshot(mobileDriver, "Mobile_03_EnterSearch");
+
+            // -------- Mobile Step 4 --------
+            Thread.sleep(2000);
+            mobileDriver.findElement(By.xpath("(//mark[text()='Shirt'])[1]")).click();
+            takeScreenshot(mobileDriver, "Mobile_04_SelectSearchResult");
+
+            // -------- Mobile Step 5 --------
+            Thread.sleep(2000);
+            mobileDriver.findElement(By.cssSelector("span.cartSpriteIcon")).click();
+            takeScreenshot(mobileDriver, "Mobile_05_CartPage");
+
+            // -------- Web Step 3 --------
+            baseMethodWeb.Click(pantaloonsPage.getPantaloonsMainSearchBarElement());
+            baseMethodWeb.TypeText(pantaloonsPage.getPantaloonsMainSearchBarElement(), "Shirts");
+            baseMethodWeb.presskeys(pantaloonsPage.getPantaloonsMainSearchBarElement(), Keys.ENTER,
+                    "Search Shirts on Web");
+            takeScreenshot(webDriver, "Web_03_SearchShirts");
+
+            // -------- Web Step 4 --------
+            baseMethodWeb.MouseHoverOnElement(pantaloonsPage.PantaloonsSearchFilterOptionsElement("Gender"),
+                    "Mouse hover on Gender filter");
+            baseMethodWeb.Click(pantaloonsPage.PantaloonsSearchFilterOptionsElement("Gender"));
+            baseMethodWeb.ClickByPresenceString(pantaloonsPage.PantaloonsSearchedSubFilterOptionsElement("Boys"));
+            takeScreenshot(webDriver, "Web_04_FilterBoys");
+
+            // -------- Mobile Step 6 --------
+            mobileDriver.navigate().refresh(); // Example: continue mobile steps
+            takeScreenshot(mobileDriver, "Mobile_06_AfterRefresh");
+
+            // -------- Mobile Step 7 --------
+            System.out.println("Final mobile page title: " + mobileDriver.getTitle());
+            takeScreenshot(mobileDriver, "Mobile_07_PageTitle");
+
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+            takeScreenshot(webDriver, "99_Exception_Web");
+            takeScreenshot(mobileDriver, "99_Exception_Mobile");
+        } finally {
+            if (webDriver != null) webDriver.quit();
+            if (mobileDriver != null) mobileDriver.quit();
+        }
+    }
+
+    public static void takeScreenshot(WebDriver driver, String fileName) {
+        if (driver == null) return;
+        try {
+            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File dest = new File("C:\\Selenium Grid\\Screenshots\\" + fileName + ".png");
+            dest.getParentFile().mkdirs();
+            Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Screenshot saved: " + dest.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Failed to save screenshot: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Screenshot capture failed: " + e.getMessage());
+        }
+    }
+}

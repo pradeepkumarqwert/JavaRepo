@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
+<suite name="SequentialRowsSuite">
+
+    <!-- Row 1 -->
+    <test name="Row1Test" preserve-order="true">
+        <parameter name="os" value="Windows 11"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="version" value="126"/>
+     
+        <parameter name="timeout" value="40000"/> <!-- 40 seconds -->
+        <classes>   
+        <class name="com.infra.support.InfraClass">
+        <methods>
+        <include name="testB"></include>
+        </methods>
+        </class>
+        
+        </classes>
+    </test>
+
+</suite>

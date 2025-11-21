@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
+<suite name="FireflinkCloudSuite" verbose="1"  parallel="classes" >
+    <listeners>
+    	<listener class-name="com.report.listener.ExtentReportManager"/>
+    </listeners>
+    
+    <test name="FireflinkCloudTest">
+        <classes>
+            <class name="com.web.allbrowser.Web_5_PantaloonsHomepage_mac_Chrome" />
+            <class name="com.web.allbrowser.Web_5_PantaloonsHomepage_mac_Firefox" />
+        </classes>
+    </test>
+</suite>

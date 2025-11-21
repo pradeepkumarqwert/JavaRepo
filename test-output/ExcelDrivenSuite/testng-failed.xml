@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [ExcelDrivenSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="InfraExcelDrivenTest(failed)">
+    <classes>
+      <class name="com.infra.support.InfraAdvancedClass">
+        <methods>
+          <include name="runTestsFromExcel"/>
+        </methods>
+      </class> <!-- com.infra.support.InfraAdvancedClass -->
+    </classes>
+  </test> <!-- InfraExcelDrivenTest(failed) -->
+</suite> <!-- Failed suite [ExcelDrivenSuite] -->

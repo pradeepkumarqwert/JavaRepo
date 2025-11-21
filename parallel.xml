@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "resource/testng-1.0.dtd">
+<suite name="FireflinkCloudSuite" verbose="1"  parallel="classes">
+    <test name="FireflinkCloudTest">
+        <classes>
+           <class name="com.automation.P0andP1._05_Android_MobileBrowser_RealDevice"/>
+           <class name="com.automation.P0andP1._01_Web_Windows_10" />
+        </classes>
+    </test>
+</suite>
+
+

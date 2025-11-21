@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [DistributedSuite]" guice-stage="DEVELOPMENT" verbose="2">
+  <test thread-count="5" name="Web_Tests_Sequential(failed)" verbose="2">
+    <classes>
+      <class name="com.scripts.resource.Web_4_BMWHomePage2">
+        <methods>
+          <include name="driverinitiation"/>
+          <include name="ExitDriver"/>
+          <include name="LaunchHomePage" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.scripts.resource.Web_4_BMWHomePage2 -->
+    </classes>
+  </test> <!-- Web_Tests_Sequential(failed) -->
+</suite> <!-- Failed suite [DistributedSuite] -->

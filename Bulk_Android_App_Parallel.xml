@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
+<suite name="FireflinkCloudSuite" verbose="1"  parallel="none">
+    <listeners>
+    	<listener class-name="com.report.listener.ExtentReportManager"/>
+    </listeners>
+    
+    <test name="FireflinkCloudTest">
+        <classes>
+            <class name="com.bulk.androidapp.ANDROID_2_GeneralStore_Script" />
+            <class name="com.bulk.androidapp.ANDROID_2_GeneralStore_Script10" />
+
+        </classes>
+    </test>
+</suite>
