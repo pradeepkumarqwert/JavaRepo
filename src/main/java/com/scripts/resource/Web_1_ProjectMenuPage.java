@@ -3,46 +3,27 @@ package com.scripts.resource;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.UUID;
 
-import org.apache.http.util.Asserts;
-import org.json.simple.JSONObject;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.springframework.context.annotation.DependsOn;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.beust.jcommander.Parameter;
-import com.report.listener.ExtentReportManager;
 import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.ProjectMenuRepo;
 import com.scripts.repository.SigninAndFindProjectElement;
 import com.scripts.repository.Testdev;
-
-import freemarker.core.ReturnInstruction.Return;
 
 public class Web_1_ProjectMenuPage {
 	WebDriver driver;

@@ -8,13 +8,8 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.springframework.context.annotation.DependsOn;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.scripts.basefolder.BaseDataCloud;
@@ -23,7 +18,6 @@ import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +25,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.HashMap;
 
 public class _02_Web_Windows_11 
 {
@@ -46,12 +39,12 @@ public class _02_Web_Windows_11
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-			String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=Time+Zone/";
-			ChromeOptions browserOptions = new ChromeOptions();
-			browserOptions.setPlatformName("Windows 11");
-			browserOptions.setBrowserVersion("132");
-			driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-			driver.manage().window().setSize(new Dimension(1024, 768));
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9c9f28ff-f15e-4539-8b92-1df2faaca0f5&licenseId=LIC3996&projectName=App+testing/";
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("134");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+            driver.manage().window().setSize(new Dimension(1024, 768));
 
 
 
@@ -64,8 +57,7 @@ public class _02_Web_Windows_11
 
 
 
-
-			 //Fetch system info
+            //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
 		    String browserName = caps.getBrowserName();
 		    String browserVersion = caps.getBrowserVersion();
