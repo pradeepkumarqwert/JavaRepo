@@ -26,29 +26,29 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-public class _03_Web_Linux 
+public class _01_Web_Windows_10_Chrome
 {
 	WebDriver driver;
 	BaseMethodsCloud baseMethod;
 	BaseObjectsCloud baseObject;
 	BaseDataCloud baseData;
 	PantaloonsLandingPage pantaloonsLandingPage;
-	_03_Web_Linux PHpage;
+	_01_Web_Windows_10_Chrome PHpage;
 
 
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-			String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=70ea270c-a174-40aa-88f0-e3855365798c&licenseId=LIC3996&projectName=Autoamtion+Testing/";
-			ChromeOptions browserOptions = new ChromeOptions();
-			browserOptions.setPlatformName("Windows 11");
-			browserOptions.setBrowserVersion("136");
-			driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-			driver.manage().window().setSize(new Dimension(1024, 768));
+            String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b67ddab1-e443-4271-92af-95582a5b912b&licenseId=LIC1026527&projectName=OreoTest/";
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("137");
+            driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
+//            driver.manage().window().setSize(new Dimension(1024, 768));
 
 
 
-			 //Fetch system info
+            //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
 		    String browserName = caps.getBrowserName();
 		    String browserVersion = caps.getBrowserVersion();
@@ -82,7 +82,9 @@ public class _03_Web_Linux
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(800000);
 			baseMethod.waitForPageLoad(driver);
+			Thread.sleep(2000);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.ElementIsDisplay(pantaloonsLandingPage.getPantaloonsLogoElement());
 			takeScreenshot(driver, "04_After_Search_Result_Click");
@@ -100,14 +102,17 @@ public class _03_Web_Linux
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.TypeText(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), product);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(50000);
 			baseMethod.presskeys(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), Keys.ENTER,"Enter button is pressed after search product in search product");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(50000);
 			baseMethod.MouseHoverOnElement(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"),"Mouse hover on gender filter option on searched product list");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Click(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"));
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsSearchedSubFilterOptionsElement("Boys"));
 			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(50000);
 			Thread.sleep(2000);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
