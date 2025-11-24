@@ -39,12 +39,13 @@ public class _01_Web_Windows_10_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accesKey=9c9f28ff-f15e-4539-8b92-1df2faaca0f5&licenseId=LIC3996&projectName=App+testing/";
+            String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b67ddab1-e443-4271-92af-95582a5b912b&licenseId=LIC1026527&projectName=OreoTest/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("133");
-            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-            driver.manage().window().setSize(new Dimension(1024, 768));
+            browserOptions.setBrowserVersion("137");
+            driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
+//            driver.manage().window().setSize(new Dimension(1024, 768));
+
 
 
             //Fetch system info
