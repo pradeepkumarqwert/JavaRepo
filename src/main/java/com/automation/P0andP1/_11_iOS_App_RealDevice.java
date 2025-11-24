@@ -77,7 +77,6 @@ public class _11_iOS_App_RealDevice
 		caps.setCapability("platformName", "iOS");
 		caps.setCapability("appium:platformVersion", "18.5");
 		caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1 (5).zip");
-		driver = new IOSDriver(new URL(seleniumHubUrl), caps);
 
 
 
@@ -126,7 +125,7 @@ public class _11_iOS_App_RealDevice
 
        // 10. Print success message
        System.out.println("BigBasket app automation executed successfully!");
-	   
+
 	}
 	
 	@AfterClass
