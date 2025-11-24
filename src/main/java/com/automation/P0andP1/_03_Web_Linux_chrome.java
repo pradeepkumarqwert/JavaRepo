@@ -26,38 +26,29 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-public class _02_Web_Windows_11 
+public class _03_Web_Linux_chrome
 {
 	WebDriver driver;
 	BaseMethodsCloud baseMethod;
 	BaseObjectsCloud baseObject;
 	BaseDataCloud baseData;
 	PantaloonsLandingPage pantaloonsLandingPage;
-	_02_Web_Windows_11 PHpage;
+	_03_Web_Linux_chrome PHpage;
 
 
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9c9f28ff-f15e-4539-8b92-1df2faaca0f5&licenseId=LIC3996&projectName=App+testing/";
-            ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("134");
-            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-            driver.manage().window().setSize(new Dimension(1024, 768));
+			String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=70ea270c-a174-40aa-88f0-e3855365798c&licenseId=LIC3996&projectName=Autoamtion+Testing/";
+			ChromeOptions browserOptions = new ChromeOptions();
+			browserOptions.setPlatformName("Windows 11");
+			browserOptions.setBrowserVersion("136");
+			driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
+			driver.manage().window().setSize(new Dimension(1024, 768));
 
 
 
-
-
-
-
-
-
-
-
-
-            //Fetch system info
+			 //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
 		    String browserName = caps.getBrowserName();
 		    String browserVersion = caps.getBrowserVersion();
@@ -80,9 +71,6 @@ public class _02_Web_Windows_11
 			baseMethod.MaximizeBrowser(driver,"Browser is maximized");
 			baseMethod.ImplicitWait(driver, 20,"Implicit wait is applied");
 			baseMethod.HardWait(2000,"Hard wait applied");
-			
-			
-			
 			
 		}
 		
