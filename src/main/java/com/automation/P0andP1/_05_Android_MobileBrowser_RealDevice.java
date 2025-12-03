@@ -21,26 +21,30 @@ public class _05_Android_MobileBrowser_RealDevice {
     public void run() throws InterruptedException {
     	
         try {
-        	//String seleniumHubUrl = "http://103.182.210.85:4444";
-        	String seleniumHubUrl = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=hcM5tw1EhPyledeoHVBtjxSLWlDAK3kZq_mpFR70xIa-TsJF26rcWUVsG7VRAgBfcLNt9sCn9zxAC0c62pRpMwC6FeMZRg01gnakxgWCXWNrfOKKW37A51paOhO-sgonWTnbCCLziGx4hAZwoyEKuZsyQKU-3Kal8YU4XyQtB0XnmLevczmUpYtEAqNGf3caqLXyYEaxRpXlXSFnZMGXP0jIOPKqWLbrIOxt8qkPjuaezqtMCxBDGtNjBLLN_BCTark4OqZ7Jk4bK8qJB1nYuafWBws1rL6KEl7FoREmBpTAzvyKf70W&licenseId=LIC4732&projectName=Project+1/";
-        	DesiredCapabilities caps = new DesiredCapabilities();
-        	caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
-        	caps.setCapability("platformName", "Android");
-        	caps.setCapability("appium:platformVersion", "12");
-        	caps.setCapability("appium:browserName", "Chrome");
-        	driver = new RemoteWebDriver(new URL(seleniumHubUrl), caps);
+
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b357377b-9ff7-433e-9e77-827d4c62bd25&licenseId=LIC4751&projectName=web+and+mob/";
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
+            caps.setCapability("platformName", "Android");
+            caps.setCapability("appium:platformVersion", "12");
+            caps.setCapability("appium:browserName", "Chrome");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
 
 
-        	
-        	
-           //caps.setCapability("appium:chromedriverAutodownload", true);
+
+
+
+
+
+            //caps.setCapability("appium:chromedriverAutodownload", true);
 
             driver.get("https://www.pantaloons.com/");
             System.out.println("Opened Pantaloons in mobile browser.");
             takeScreenshot(driver, "01_HomePage");
 
-            Thread.sleep(3000);
+            Thread.sleep(30000);
+
 
             driver.findElement(By.cssSelector("div.mobilesearchbox")).click();
             System.out.println("Clicked.");

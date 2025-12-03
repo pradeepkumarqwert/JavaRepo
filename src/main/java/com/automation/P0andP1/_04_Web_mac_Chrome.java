@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -39,16 +40,15 @@ public class _04_Web_mac_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-			String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=Time+Zone/";
-			SafariOptions browserOptions = new SafariOptions();
-			browserOptions.setPlatformName("mac");
-			browserOptions.setBrowserVersion("26.0.1");
-			driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-			driver.manage().window().setSize(new Dimension(1024, 768));
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setPlatformName("mac");
+            browserOptions.setBrowserVersion("127");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+            driver.manage().window().setSize(new Dimension(1024, 768));
 
 
-
-			 //Fetch system info
+            //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
 		    String browserName = caps.getBrowserName();
 		    String browserVersion = caps.getBrowserVersion();
@@ -57,27 +57,27 @@ public class _04_Web_mac_Chrome
 		    System.out.println("Browser: " + browserName);
 		    System.out.println("Version: " + browserVersion);
 		    System.out.println("Platform: " + platform);
-			
 
 
-			
-			
-			
+
+
+
+
 			this.baseMethod = new BaseMethodsCloud(driver);
 			this.baseObject = new BaseObjectsCloud(driver);
 			this.baseData = new BaseDataCloud();
-			
+
 			pantaloonsLandingPage = new PantaloonsLandingPage(driver);
 			baseMethod.MaximizeBrowser(driver,"Browser is maximized");
 			baseMethod.ImplicitWait(driver, 20,"Implicit wait is applied");
 			baseMethod.HardWait(2000,"Hard wait applied");
-			
+
 		}
-		
+
 		@Test(invocationCount = 1)
 		public void VerifyPantaloonsLandingPageMethod() throws InterruptedException
 		{
-			
+          Thread.sleep(50000);
 			baseMethod.getString(baseData.getBrowserURL(),"Landed on Google website");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
@@ -90,9 +90,9 @@ public class _04_Web_mac_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			
-			
-			
+
+
+
 		}
 		public void SearchScenarios(String product) throws InterruptedException
 		{
@@ -114,18 +114,18 @@ public class _04_Web_mac_Chrome
 			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
 			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			
-			
-			
+
+
+
 		}
 		@AfterClass
 		public void QuitBrowser()
 		{
 			driver.quit();
 		}
-		
-		
-		 public static void takeScreenshot(WebDriver driver, String fileName) 
+
+
+		 public static void takeScreenshot(WebDriver driver, String fileName)
 		    {
 		        if (driver == null) {
 					return;
@@ -142,6 +142,6 @@ public class _04_Web_mac_Chrome
 		            System.out.println("Screenshot capture failed: " + e.getMessage());
 		        }
 		    }
-		
+
 
 }

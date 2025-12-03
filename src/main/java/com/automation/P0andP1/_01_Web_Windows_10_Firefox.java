@@ -6,6 +6,7 @@ import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -31,10 +32,10 @@ public class _01_Web_Windows_10_Firefox
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accesKey=9c9f28ff-f15e-4539-8b92-1df2faaca0f5&licenseId=LIC3996&projectName=App+testing/";
-            ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("133");
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b357377b-9ff7-433e-9e77-827d4c62bd25&licenseId=LIC4751&projectName=web+and+mob/";
+            FirefoxOptions browserOptions = new FirefoxOptions();
+            browserOptions.setPlatformName("Windows 10");
+            browserOptions.setBrowserVersion("135");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
@@ -73,7 +74,7 @@ public class _01_Web_Windows_10_Firefox
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			Thread.sleep(800000);
+			Thread.sleep(8000);
 			baseMethod.waitForPageLoad(driver);
 			Thread.sleep(2000);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
@@ -93,17 +94,17 @@ public class _01_Web_Windows_10_Firefox
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.TypeText(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), product);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			Thread.sleep(50000);
+			Thread.sleep(5000);
 			baseMethod.presskeys(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), Keys.ENTER,"Enter button is pressed after search product in search product");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			Thread.sleep(50000);
+			Thread.sleep(5000);
 			baseMethod.MouseHoverOnElement(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"),"Mouse hover on gender filter option on searched product list");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Click(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"));
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsSearchedSubFilterOptionsElement("Boys"));
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			Thread.sleep(50000);
+			Thread.sleep(5000);
 			Thread.sleep(2000);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");

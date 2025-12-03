@@ -13,13 +13,13 @@ public class Web_5_PantaloonsHomepage2 {
     public static void run(String[] args) throws InterruptedException {
         WebDriver driver = null;
         try {
-        	String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9adfe132-9652-4329-a206-4c8ee67e0281&licenseId=LIC3943&projectName=project+5/";
-        	DesiredCapabilities caps = new DesiredCapabilities();
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            DesiredCapabilities caps = new DesiredCapabilities();
         	caps.setCapability("appium:deviceName", "iPhone 11");
         	caps.setCapability("platformName", "iOS");
         	caps.setCapability("appium:platformVersion", "15.5");
         	caps.setCapability("appium:browserName", "Safari");
-        	driver = new RemoteWebDriver(new URL(seleniumHubUrl), caps);
+        	driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
 
             // caps.setCapability("appium:chromedriverAutodownload", true);

@@ -29,13 +29,13 @@ public class _08_iOS_MobileBrowser_Simulator {
         try {
         	//String seleniumHubUrl = "http://103.182.210.85:4444";
 
-        	String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=Time+Zone/";
-        	DesiredCapabilities caps = new DesiredCapabilities();
-        	caps.setCapability("appium:deviceName", "Simulator iPhone 16");
-        	caps.setCapability("platformName", "iOS");
-        	caps.setCapability("appium:platformVersion", "18.4");
-        	caps.setCapability("appium:browserName", "Safari");
-        	driver = new RemoteWebDriver(new URL(seleniumHubUrl), caps);
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
+            caps.setCapability("platformName", "iOS");
+            caps.setCapability("appium:platformVersion", "18.4");
+            caps.setCapability("appium:browserName", "Safari");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
 
 
@@ -43,7 +43,9 @@ public class _08_iOS_MobileBrowser_Simulator {
 
 
 
-        	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             Actions actions = new Actions(driver);
     		  
             driver.get("https://www.wikipedia.org/");
@@ -53,29 +55,40 @@ public class _08_iOS_MobileBrowser_Simulator {
 
             Thread.sleep(2000);
             searchInput.sendKeys("iPhone");
+            takeScreenshot(driver, "Captured");
+
+
 
             Thread.sleep(2000);
             driver.findElement(By.cssSelector("button[type='submit']")).click();
 
+            takeScreenshot(driver, "Captured");
+
             Thread.sleep(2000);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1")));
+            takeScreenshot(driver, "Captured");
 
             Thread.sleep(2000);
             System.out.println("Title after search: " + driver.getTitle());
+            takeScreenshot(driver, "Captured");
 
             Thread.sleep(2000);
             actions.sendKeys(Keys.PAGE_DOWN).perform();
             Thread.sleep(1000);
+            takeScreenshot(driver, "Captured");
 
             Thread.sleep(2000);
             actions.sendKeys(Keys.PAGE_DOWN).perform();
+            takeScreenshot(driver, "Captured");
 
             Thread.sleep(2000);
             WebElement link = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(@href,'Apple')])[1]")));
             link.click();
+            takeScreenshot(driver, "Captured");
 
             Thread.sleep(2000);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
+            takeScreenshot(driver, "Captured");
 
             Thread.sleep(2000);
             WebElement heading = driver.findElement(By.tagName("h1"));
