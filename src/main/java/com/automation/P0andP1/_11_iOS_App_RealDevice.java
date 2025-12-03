@@ -68,24 +68,22 @@ public class _11_iOS_App_RealDevice
 //	
 //		caps.setCapability("appium:bundleId", "null");//Pls change the bundleId value to proper value.
 //		IOSDriver driver = new IOSDriver(new URL(seleniumHubUrl), caps);
-		
-		
-	
-		String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=Time+Zone/";
-		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("appium:deviceName", "iPhone 14");
-		caps.setCapability("platformName", "iOS");
-		caps.setCapability("appium:platformVersion", "18.5");
-		caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1 (5).zip");
 
 
 
-		caps.setCapability("appium:automationName", "XCUITest");
+        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("appium:deviceName", "iPhone 13");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("appium:platformVersion", "18.4.1");
+        caps.setCapability("appium:app", "bigbasket.ipa");
+        caps.setCapability("appium:bundleId", "com.bigbasket.mobileapp");
+        caps.setCapability("appium:automationName", "XCUITest");
 		caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups
 		caps.setCapability("appium:fullReset", true);
 	
 //Pls change the bundleId value to proper value.
-		driver = new IOSDriver(new URL(seleniumHubUrl), caps);
+		driver = new IOSDriver(new URL(device_farm_hub_url), caps);
 
 
 	}

@@ -3,17 +3,16 @@ package com.scripts.resource;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.UUID;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -40,15 +39,13 @@ public class Web_1_ProjectMenuPage {
 	@BeforeClass
 	public void initilizeBrowser() throws MalformedURLException {
 		// 1. Initialize driver first
-//		String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=736d95c1-64e3-46ba-8f86-cf4086a93045&licenseId=LIC3943&projectName=Sanity/";
-//		ChromeOptions browserOptions = new ChromeOptions();
-//		browserOptions.setPlatformName("Windows 11");
-//		browserOptions.setBrowserVersion("129");
-//		driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-//		driver.manage().window().setSize(new Dimension(1024, 768));
-		driver = new ChromeDriver();
+        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+        ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setPlatformName("Windows 11");
+        browserOptions.setBrowserVersion("136");
+        driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+        driver.manage().window().setSize(new Dimension(1024, 768));
 
-//		driver = new ChromeDriver();
 
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

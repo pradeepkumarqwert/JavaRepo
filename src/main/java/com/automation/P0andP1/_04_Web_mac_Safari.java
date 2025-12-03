@@ -5,8 +5,8 @@ import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,29 +18,31 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-public class _03_Web_Linux_Edge
+public class _04_Web_mac_Safari
 {
 	WebDriver driver;
 	BaseMethodsCloud baseMethod;
 	BaseObjectsCloud baseObject;
 	BaseDataCloud baseData;
 	PantaloonsLandingPage pantaloonsLandingPage;
-	_03_Web_Linux_Edge PHpage;
+	_04_Web_mac_Safari PHpage;
 
 
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-			String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=70ea270c-a174-40aa-88f0-e3855365798c&licenseId=LIC3996&projectName=Autoamtion+Testing/";
-			ChromeOptions browserOptions = new ChromeOptions();
-			browserOptions.setPlatformName("Windows 11");
-			browserOptions.setBrowserVersion("136");
-			driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-			driver.manage().window().setSize(new Dimension(1024, 768));
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            SafariOptions browserOptions = new SafariOptions();
+            browserOptions.setPlatformName("mac");
+            browserOptions.setBrowserVersion("18.2");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+            driver.manage().window().setSize(new Dimension(1024, 768));
 
 
 
-			 //Fetch system info
+
+
+            //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
 		    String browserName = caps.getBrowserName();
 		    String browserVersion = caps.getBrowserVersion();

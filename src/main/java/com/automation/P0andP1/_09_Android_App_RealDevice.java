@@ -41,13 +41,13 @@ public class _09_Android_App_RealDevice {
         */
 
         // For Fireflink Cloud
-    	String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=aeedf5e8-d698-4876-9ab0-aeab6a084b86&licenseId=LIC1026493&projectName=Project+for+Demo/";
-    	DesiredCapabilities caps = new DesiredCapabilities();
-    	caps.setCapability("appium:deviceName", "Vivo V40 Pro");
-    	caps.setCapability("platformName", "Android");
-    	caps.setCapability("appium:platformVersion", "14");
-    	caps.setCapability("appium:app", "General-Store-final (1).apk");
-    	driver = new AndroidDriver(new URL(seleniumHubUrl), caps);
+        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("appium:platformVersion", "14");
+        caps.setCapability("appium:app", "General-Store-final (1).apk");
+        driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
 
 
 

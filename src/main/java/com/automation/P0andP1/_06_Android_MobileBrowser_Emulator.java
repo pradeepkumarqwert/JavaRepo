@@ -21,22 +21,14 @@ public class _06_Android_MobileBrowser_Emulator {
     public void run() throws InterruptedException {
     	
         try {
-        	//String seleniumHubUrl = "http://103.182.210.85:4444";
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appium:deviceName", "Pixel 7");
+            caps.setCapability("platformName", "Android");
+            caps.setCapability("appium:platformVersion", "15");
+            caps.setCapability("appium:browserName", "Chrome");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
-        	String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=Time+Zone/";
-        	DesiredCapabilities caps = new DesiredCapabilities();
-        	caps.setCapability("appium:deviceName", "Pixel 7 Pro");
-        	caps.setCapability("platformName", "Android");
-        	caps.setCapability("appium:platformVersion", "15");
-        	caps.setCapability("appium:browserName", "Chrome");
-        	driver = new RemoteWebDriver(new URL(seleniumHubUrl), caps);
-
-
-
-
-
-        	
-           //caps.setCapability("appium:chromedriverAutodownload", true);
 
             driver.get("https://www.pantaloons.com/");
             System.out.println("Opened Pantaloons in mobile browser.");

@@ -8,6 +8,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -39,22 +40,12 @@ public class _01_Web_Windows_10_Edge
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9c9f28ff-f15e-4539-8b92-1df2faaca0f5&licenseId=LIC3996&projectName=App+testing/";
-            ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("134");
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            EdgeOptions browserOptions = new EdgeOptions();
+            browserOptions.setPlatformName("Windows 10");
+            browserOptions.setBrowserVersion("132");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
-
-
-
-
-
-
-
-
-
 
 
             //Fetch system info
