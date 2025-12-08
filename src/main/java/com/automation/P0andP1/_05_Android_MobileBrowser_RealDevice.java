@@ -22,15 +22,13 @@ public class _05_Android_MobileBrowser_RealDevice {
     	
         try {
 
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b357377b-9ff7-433e-9e77-827d4c62bd25&licenseId=LIC4751&projectName=web+and+mob/";
+            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=abc/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
+            caps.setCapability("appium:deviceName", "Vivo X 100");
             caps.setCapability("platformName", "Android");
-            caps.setCapability("appium:platformVersion", "12");
+            caps.setCapability("appium:platformVersion", "14");
             caps.setCapability("appium:browserName", "Chrome");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
-
 
 
 

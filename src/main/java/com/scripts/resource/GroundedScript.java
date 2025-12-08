@@ -12,8 +12,9 @@
 	import org.openqa.selenium.chrome.ChromeDriver;
 	import org.openqa.selenium.chrome.ChromeOptions;
 	import org.openqa.selenium.remote.RemoteWebDriver;
-	
-	import java.io.File;
+    import org.openqa.selenium.safari.SafariOptions;
+
+    import java.io.File;
 	import java.io.IOException;
     import java.net.MalformedURLException;
     import java.net.URL;
@@ -25,20 +26,17 @@
 	    public static void main(String[] args) throws InterruptedException, MalformedURLException {
 	
 	        WebDriver driver = null;
-	
-
-	            // --------------------------
-                String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=219f1975-be3b-489a-9813-8b75ec37a53c&licenseId=LIC4745&projectName=TestTedt/";
-                ChromeOptions browserOptions = new ChromeOptions();
-                browserOptions.setPlatformName("Windows 11");
-                browserOptions.setBrowserVersion("134");
-                driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-                driver.manage().window().setSize(new Dimension(1024, 768));
 
 
+            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a318d063-eab5-488a-bd38-dbac1c2a8758&licenseId=LIC1026562&projectName=Web+Bulk+Execution/";
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setPlatformName("Windows 10");
+            browserOptions.setBrowserVersion("140");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+            driver.manage().window().setSize(new Dimension(1024, 768));
 
 
-                // --------------------------
+            // --------------------------
 	            // 2. Navigate to Google
 	            // --------------------------
 	            driver.get("https://www.google.com");

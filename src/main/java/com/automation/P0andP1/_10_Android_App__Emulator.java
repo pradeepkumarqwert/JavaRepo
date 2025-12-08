@@ -41,12 +41,12 @@ public class _10_Android_App__Emulator {
         */
 
         // For Fireflink Cloud
-        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+        String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "Pixel 7");
+        caps.setCapability("appium:deviceName", "Pixel 6 Pro");
         caps.setCapability("platformName", "Android");
-        caps.setCapability("appium:platformVersion", "14");
-        caps.setCapability("appium:app", "General-Store-final (1).apk");
+        caps.setCapability("appium:platformVersion", "15");
+        caps.setCapability("appium:app", "General-Store-final (4).apk");
         driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
 
 

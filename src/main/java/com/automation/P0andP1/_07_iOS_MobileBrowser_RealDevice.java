@@ -27,12 +27,11 @@ public class _07_iOS_MobileBrowser_RealDevice {
     public void run() throws InterruptedException {
     	
         try {
-        	//String seleniumHubUrl = "http://103.182.210.85:4444";
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b357377b-9ff7-433e-9e77-827d4c62bd25&licenseId=LIC4751&projectName=web+and+mob/";
+            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "iPhone 11");
+            caps.setCapability("appium:deviceName", "iPhone 13");
             caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "15.5");
+            caps.setCapability("appium:platformVersion", "18.4.1");
             caps.setCapability("appium:browserName", "Safari");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 

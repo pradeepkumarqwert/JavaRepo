@@ -13,16 +13,12 @@ public class _12_iOS_App_Simulator
 	 @Test
 	 public void test() throws MalformedURLException, InterruptedException
 	 {
-         String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+         String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
          DesiredCapabilities caps = new DesiredCapabilities();
-         caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
+         caps.setCapability("appium:deviceName", "Simulator iPhone 16 Pro Max");
          caps.setCapability("platformName", "iOS");
          caps.setCapability("appium:platformVersion", "18.4");
-         caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1.zip");
-
-
-
-
+         caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.zip");
 
          caps.setCapability("appium:automationName", "XCUITest");
          caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups

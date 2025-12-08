@@ -71,18 +71,17 @@ public class _11_iOS_App_RealDevice
 
 
 
-        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8085832a-28e1-45ee-bf7c-30056258ba5e&licenseId=LIC4745&projectName=Automation+Testing/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "iPhone 13");
+        caps.setCapability("appium:deviceName", "iPhone 11");
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:platformVersion", "18.4.1");
+        caps.setCapability("appium:platformVersion", "15.5");
         caps.setCapability("appium:app", "bigbasket.ipa");
         caps.setCapability("appium:bundleId", "com.bigbasket.mobileapp");
         caps.setCapability("appium:automationName", "XCUITest");
 		caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups
 		caps.setCapability("appium:fullReset", true);
-	
-//Pls change the bundleId value to proper value.
+
 		driver = new IOSDriver(new URL(device_farm_hub_url), caps);
 
 

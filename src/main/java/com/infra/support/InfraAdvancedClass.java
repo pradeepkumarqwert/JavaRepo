@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -28,7 +29,7 @@ import java.util.concurrent.*;
 public class InfraAdvancedClass {
 
     private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\EnviData.xlsx";
-    private static final String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=DemoInfra/";
+    private static final String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=Bulk+execution+Web/";
    
 
     @Test
@@ -89,17 +90,22 @@ public class InfraAdvancedClass {
                 ChromeOptions options = new ChromeOptions();
                 options.setPlatformName(os);
                 options.setBrowserVersion(version);
-                driver = new RemoteWebDriver(new URL(seleniumHubUrl), options);
+                driver = new RemoteWebDriver(new URL(device_farm_hub_url), options);
             } else if (browser.equalsIgnoreCase("Firefox")) {
                 FirefoxOptions options = new FirefoxOptions();
                 options.setPlatformName(os);
                 options.setBrowserVersion(version);
-                driver = new RemoteWebDriver(new URL(seleniumHubUrl), options);
+                driver = new RemoteWebDriver(new URL(device_farm_hub_url), options);
             } else if (browser.equalsIgnoreCase("Edge")) {
                 EdgeOptions options = new EdgeOptions();
                 options.setPlatformName(os);
                 options.setBrowserVersion(version);
-                driver = new RemoteWebDriver(new URL(seleniumHubUrl), options);
+                driver = new RemoteWebDriver(new URL(device_farm_hub_url), options);
+            } else if(browser.equalsIgnoreCase("Safari")){
+                SafariOptions options = new SafariOptions();
+                options.setPlatformName(os);
+                options.setBrowserVersion(version);
+                driver = new RemoteWebDriver(new URL(device_farm_hub_url), options);
             }
 
             driver.manage().window().setSize(new Dimension(1024, 768));

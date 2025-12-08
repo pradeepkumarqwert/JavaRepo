@@ -32,10 +32,10 @@ public class _01_Web_Windows_10_Firefox
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b357377b-9ff7-433e-9e77-827d4c62bd25&licenseId=LIC4751&projectName=web+and+mob/";
+            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
             FirefoxOptions browserOptions = new FirefoxOptions();
             browserOptions.setPlatformName("Windows 10");
-            browserOptions.setBrowserVersion("135");
+            browserOptions.setBrowserVersion("143");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 

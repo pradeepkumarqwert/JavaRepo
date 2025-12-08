@@ -21,13 +21,14 @@ public class _06_Android_MobileBrowser_Emulator {
     public void run() throws InterruptedException {
     	
         try {
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Pixel 7");
+            caps.setCapability("appium:deviceName", "Pixel 8 Pro");
             caps.setCapability("platformName", "Android");
             caps.setCapability("appium:platformVersion", "15");
             caps.setCapability("appium:browserName", "Chrome");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
+
 
 
             driver.get("https://www.pantaloons.com/");

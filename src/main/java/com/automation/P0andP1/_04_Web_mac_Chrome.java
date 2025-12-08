@@ -40,10 +40,11 @@ public class _04_Web_mac_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
-            ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setPlatformName("mac");
-            browserOptions.setBrowserVersion("127");
+
+            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=Bulk+execution+Web/";
+            SafariOptions browserOptions = new SafariOptions();
+            browserOptions.setPlatformName("mac Sequoia");
+            browserOptions.setBrowserVersion("18.5");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
@@ -77,7 +78,7 @@ public class _04_Web_mac_Chrome
 		@Test(invocationCount = 1)
 		public void VerifyPantaloonsLandingPageMethod() throws InterruptedException
 		{
-          Thread.sleep(50000);
+          Thread.sleep(5000);
 			baseMethod.getString(baseData.getBrowserURL(),"Landed on Google website");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
