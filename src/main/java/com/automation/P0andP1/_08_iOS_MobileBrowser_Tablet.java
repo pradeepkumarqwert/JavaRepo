@@ -24,13 +24,14 @@ public class _08_iOS_MobileBrowser_Tablet {
         try {
         	//String seleniumHubUrl = "http://103.182.210.85:4444";
 
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8085832a-28e1-45ee-bf7c-30056258ba5e&licenseId=LIC4745&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
             caps.setCapability("platformName", "iOS");
             caps.setCapability("appium:platformVersion", "18.4");
             caps.setCapability("appium:browserName", "Safari");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
+
 
 
 

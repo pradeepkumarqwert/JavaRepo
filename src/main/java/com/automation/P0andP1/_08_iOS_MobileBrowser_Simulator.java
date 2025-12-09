@@ -28,13 +28,14 @@ public class _08_iOS_MobileBrowser_Simulator {
     	
         try {
         	//String seleniumHubUrl = "http://103.182.210.85:4444";
-            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Simulator iPhone 15 Pro Max");
+            caps.setCapability("appium:deviceName", "iPhone 11");
             caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "17.5");
-            caps.setCapability("appium:browserName", "Safari");
+            caps.setCapability("appium:platformVersion", "18.3.1");
+            caps.setCapability("appium:browserName", "Chrome");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
+
 
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));

@@ -41,10 +41,10 @@ public class _04_Web_mac_Chrome
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
 
-            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=Bulk+execution+Web/";
-            SafariOptions browserOptions = new SafariOptions();
-            browserOptions.setPlatformName("mac Sequoia");
-            browserOptions.setBrowserVersion("18.5");
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setPlatformName("mac");
+            browserOptions.setBrowserVersion("139");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 

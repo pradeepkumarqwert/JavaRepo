@@ -12,6 +12,7 @@ import java.util.UUID;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -39,16 +40,17 @@ public class Web_1_ProjectMenuPage {
 	@BeforeClass
 	public void initilizeBrowser() throws MalformedURLException {
 		// 1. Initialize driver first
-        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+        String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=Bulk+execution+Web/";
         ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setPlatformName("Windows 11");
-        browserOptions.setBrowserVersion("136");
+        browserOptions.setBrowserVersion("137");
         driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
         driver.manage().window().setSize(new Dimension(1024, 768));
 
 
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.manage().window().maximize();
 
 		// 2. Only then create your base objects
@@ -177,6 +179,8 @@ public class Web_1_ProjectMenuPage {
 		baseMethod.Click(projectMenuRepo.getCreateButtonInCreateProjectSliderElementInProjectMenu());
 		// Validate that after creation of project it should landed in testdev script
 		// section by default
+
+        Thread.sleep(20000);
 		ValidateTestDevSectionOfCreatedProject();
 		// navigate to All project menu
 
@@ -237,6 +241,7 @@ public class Web_1_ProjectMenuPage {
 	public void OpenToCloseProjectMethod() throws InterruptedException
 
 	{
+
 
 		System.out.println("indisee test 2");
 		// 1.Mouse hovered on the created project card
@@ -318,8 +323,10 @@ public class Web_1_ProjectMenuPage {
 		System.out.println("indisee test 2 complted");
 
 		// 18.Navigate inside the created project
-		baseMethod.Click(projectMenuRepo.getCreatedProjectNameColumnElementInProjectMenu(projectName));
-		Thread.sleep(10000);
+        Actions act2 = new Actions(driver);
+        act2.doubleClick(projectMenuRepo.getCreatedProjectNameColumnElementInProjectMenu(projectName));
+//		baseMethod.Click(projectMenuRepo.getCreatedProjectNameColumnElementInProjectMenu(projectName));
+		Thread.sleep(20000);
 
 		// 19.Check weather that created project is in view access state in side the
 		// project
@@ -424,7 +431,7 @@ public class Web_1_ProjectMenuPage {
 		driver.get("https://www.google.com/");
 		 takeScreenshot(driver, "01_After_landed_on_Google");
 		// driver.navigate().to("https://app.v3.fireflink.com/");
-		driver.navigate().to("https://test3.fireflink.com/");
+		driver.navigate().to("https://app.v3.fireflink.com/");
 		takeScreenshot(driver, "02_After_landed_on_fireflink");
 		Thread.sleep(10000);
 		System.out.println("landed 1");
@@ -447,8 +454,7 @@ public class Web_1_ProjectMenuPage {
 
 		// Entering Email
 		baseMethod.Click(SaPE.getEmailTextField());
-		baseMethod.TypeText(SaPE.getEmailTextField(), "nonfunctional3.0@gmail.com");
-//		baseMethod.TypeText(SaPE.getEmailTextField(), "shirinenvi123@gmail.com");
+		baseMethod.TypeText(SaPE.getEmailTextField(), "democlouduser@yopmail.com");
 		// Entering Password
 		baseMethod.Click(SaPE.getPasswordTextField());
 		baseMethod.TypeText(SaPE.getPasswordTextField(), "Password@123");
@@ -502,7 +508,8 @@ public class Web_1_ProjectMenuPage {
 	}
 
 	// Validate that user is landed on test dev section after create a project
-	public void ValidateTestDevSectionOfCreatedProject() {
+	public void ValidateTestDevSectionOfCreatedProject() throws InterruptedException {
+        Thread.sleep(20000);
 		String attributeClass = testDevRepo.getTopNavBarScriptTab().getAttribute("class");
 		if (attributeClass.contains("ff-app-header-nav-bar-submenu-item--selected")) {
 			baseMethod.PrintValue("Script tab is selected by default");

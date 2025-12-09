@@ -5,7 +5,6 @@ import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
@@ -19,14 +18,14 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-public class _02_Web_Windows_11_Firefox
+public class _02_Web_Windows_81_Firefox
 {
 	WebDriver driver;
 	BaseMethodsCloud baseMethod;
 	BaseObjectsCloud baseObject;
 	BaseDataCloud baseData;
 	PantaloonsLandingPage pantaloonsLandingPage;
-	_02_Web_Windows_11_Firefox PHpage;
+	_02_Web_Windows_81_Firefox PHpage;
 
 
 		@BeforeClass
@@ -35,8 +34,8 @@ public class _02_Web_Windows_11_Firefox
 
             String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
             FirefoxOptions browserOptions = new FirefoxOptions();
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("136");
+            browserOptions.setPlatformName("Windows 8.1");
+            browserOptions.setBrowserVersion("115");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 

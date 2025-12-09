@@ -13,9 +13,9 @@ public class _12_iOS_App_Simulator
 	 @Test
 	 public void test() throws MalformedURLException, InterruptedException
 	 {
-         String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
+         String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
          DesiredCapabilities caps = new DesiredCapabilities();
-         caps.setCapability("appium:deviceName", "Simulator iPhone 16 Pro Max");
+         caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
          caps.setCapability("platformName", "iOS");
          caps.setCapability("appium:platformVersion", "18.4");
          caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.zip");

@@ -32,11 +32,11 @@ public class NewIOSScript
         try {
 
 
-            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=TestSanity+Proj_WebandMob/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "iPhone 13");
+            caps.setCapability("appium:deviceName", "iPhone 11");
             caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "18.4.1");
+            caps.setCapability("appium:platformVersion", "18.3.1");
             caps.setCapability("appium:app", "bigbasket.ipa");
             caps.setCapability("appium:bundleId", "com.bigbasket.mobileapp");
 

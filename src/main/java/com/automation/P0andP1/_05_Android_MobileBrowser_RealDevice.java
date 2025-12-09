@@ -22,14 +22,13 @@ public class _05_Android_MobileBrowser_RealDevice {
     	
         try {
 
-            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=abc/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Vivo X 100");
+            caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
             caps.setCapability("platformName", "Android");
             caps.setCapability("appium:platformVersion", "14");
             caps.setCapability("appium:browserName", "Chrome");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
 
 
 

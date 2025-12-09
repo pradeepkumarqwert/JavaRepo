@@ -41,13 +41,13 @@ public class _09_Android_App_RealDevice {
         */
 
         // For Fireflink Cloud
-        String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
+        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "Vivo X 100 Pro");
+        caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
         caps.setCapability("platformName", "Android");
-        caps.setCapability("appium:platformVersion", "14");
+        caps.setCapability("appium:platformVersion", "12");
         caps.setCapability("appium:app", "General-Store-final (4).apk");
-        driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
+        AndroidDriver driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
 
 
         // Initialize helpers
