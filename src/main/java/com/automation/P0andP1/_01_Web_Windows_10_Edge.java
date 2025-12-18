@@ -40,13 +40,13 @@ public class _01_Web_Windows_10_Edge
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=f37aa61d-7ea3-4356-90d5-cf65de8cb8c0&licenseId=LIC2026595&projectName=Automation+Testing/";
             EdgeOptions browserOptions = new EdgeOptions();
-            browserOptions.setPlatformName("Windows 10");
-            browserOptions.setBrowserVersion("133");
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("140");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();

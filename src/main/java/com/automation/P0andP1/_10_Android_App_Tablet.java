@@ -39,14 +39,13 @@ public class _10_Android_App_Tablet {
         */
 
         // For Fireflink Cloud
-        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
+        String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=Python+Automation/";
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("appium:deviceName", "Pixel Tablet");
         caps.setCapability("platformName", "Android");
-        caps.setCapability("appium:platformVersion", "16");
+        caps.setCapability("appium:platformVersion", "15");
         caps.setCapability("appium:app", "General-Store-final (4).apk");
         driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
-
 
 
 

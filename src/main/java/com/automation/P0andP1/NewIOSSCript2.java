@@ -31,12 +31,11 @@ public class NewIOSSCript2
     public void steps() throws InterruptedException {
         try {
 
-
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
+            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=Bulk+Execution+Mobile/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "iPhone 11");
+            caps.setCapability("appium:deviceName", "iPhone 13");
             caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "18.3.1");
+            caps.setCapability("appium:platformVersion", "18.4.1");
             caps.setCapability("appium:app", "bigbasket.ipa");
             caps.setCapability("appium:bundleId", "com.bigbasket.mobileapp");
 

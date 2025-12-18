@@ -27,10 +27,10 @@ import java.util.concurrent.*;
 @Listeners(ExtentReportManager.class)
 public class Mobile_Parallel_SetOf_Device_Android {
 
-    private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\AndroidAppBulkExecutionAndroid.xlsx";
-    private static final String DEVICE_FARM_HUB_URL = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=Bulk+Execution+Mobile/";
+    private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\CheckMobileAppExecution.xlsx";
+    private static final String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a50ab9e7-b220-471b-8908-d74149f1c0f0&licenseId=LIC1026562&projectName=Web+bulk/";
 
-    private static final int TOTAL_ITERATIONS = 100;          // total iterations
+    private static final int TOTAL_ITERATIONS = 2;          // total iterations
     private static final int DEVICE_TIMEOUT_MINUTES = 4;    // max time per device execution
 
     @Test
@@ -106,7 +106,7 @@ public class Mobile_Parallel_SetOf_Device_Android {
             options.setApp(device.app);
             options.setAutomationName("UiAutomator2");
 
-            driver = new AndroidDriver(new URL(DEVICE_FARM_HUB_URL), options);
+            driver = new AndroidDriver(new URL(device_farm_hub_url), options);
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
             // Test steps

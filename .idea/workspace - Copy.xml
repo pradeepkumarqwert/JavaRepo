@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="04e15b45-f53f-42b3-8f7b-edfe3a00f874" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Instance5Suite.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LearningSelenium/_019_Invoking_multiple_Windows.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/BulkExecutions/Mobile/_01_Mobile_Parallel__Android.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/BulkExecutions/Mobile/_02_Mobile_Parallel_iOS_Real.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/BulkExecutions/Web/_01_Windows_11_Script_Instance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/BulkExecutions/Web/_02_Windows_10_Script_Instance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/BulkExecutions/Web/_03_Linux_Script_Instance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/BulkExecutions/Web/_04_mac_Script_Instance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scripts/resource/GroundedScript2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parallel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/parallel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LearningSelenium/_018_Filter_Web_Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LearningSelenium/_018_Filter_Web_Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/NewIOSSCript2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/NewIOSSCript2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/NewIOSScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/NewIOSScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_01_Web_Windows_10_Chrome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_01_Web_Windows_10_Chrome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_01_Web_Windows_10_Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_01_Web_Windows_10_Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_01_Web_Windows_10_Firefox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_01_Web_Windows_10_Firefox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_02_Web_Windows_11_Chrome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_02_Web_Windows_11_Chrome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_02_Web_Windows_11_Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_02_Web_Windows_11_Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_02_Web_Windows_11_Firefox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_02_Web_Windows_11_Firefox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_04_Web_mac_Chrome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_04_Web_mac_Chrome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_04_Web_mac_Comet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_04_Web_mac_Comet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_04_Web_mac_Safari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_04_Web_mac_Safari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_09_Android_App_RealDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/P0andP1/_09_Android_App_RealDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infra/support/InfraAdvancedClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infra/support/InfraAdvancedClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infra/support/MobileApp_Bulk_Execution_Sequentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infra/support/MobileApp_Bulk_Execution_Sequentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infra/support/Mobile_Parallel_SetOf_Device_Android.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infra/support/Mobile_Parallel_SetOf_Device_Android.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scripts/resource/GroundedScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scripts/resource/GroundedScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/NewIOSSCript2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/NewIOSSCript2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/NewIOSScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/NewIOSScript.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_01_Web_Windows_10_Chrome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_01_Web_Windows_10_Chrome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_01_Web_Windows_10_Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_01_Web_Windows_10_Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_01_Web_Windows_10_Firefox.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_01_Web_Windows_10_Firefox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_11_Chrome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_11_Chrome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_11_Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_11_Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_11_Firefox.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_11_Firefox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_81_Chrome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_81_Chrome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_81_Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_81_Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_81_Firefox.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_02_Web_Windows_81_Firefox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Chrome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Chrome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Comet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Comet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Firefox.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Firefox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Safari.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_04_Web_mac_Safari.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_05_AndroidTablet_MobileBrowser_RealDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_05_AndroidTablet_MobileBrowser_RealDevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_05_Android_MobileBrowser_RealDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_05_Android_MobileBrowser_RealDevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_06_Android_MobileBrowser_Emulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_06_Android_MobileBrowser_Emulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_07_iOS_MobileBrowser_RealDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_07_iOS_MobileBrowser_RealDevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_08_iOS_MobileBrowser_Simulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_08_iOS_MobileBrowser_Simulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_08_iOS_MobileBrowser_Tablet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_08_iOS_MobileBrowser_Tablet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_09_Android_App_RealDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/P0andP1/_09_Android_App_RealDevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infra/support/InfraAdvancedClass$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infra/support/InfraAdvancedClass$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infra/support/InfraAdvancedClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infra/support/InfraAdvancedClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infra/support/MobileApp_Bulk_Execution_Sequentials.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infra/support/MobileApp_Bulk_Execution_Sequentials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infra/support/Mobile_Parallel_SetOf_Device_Android.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infra/support/Mobile_Parallel_SetOf_Device_Android.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scripts/resource/GroundedScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scripts/resource/GroundedScript.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="35mgPxDcAX4k0UG0xaqtV32gDbj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ExtractZip.executor": "Run",
+    "Application.GroundedScript.executor": "Run",
+    "Application.NetworkLogs.executor": "Run",
+    "Application.SandeepsiOSScript.executor": "Run",
+    "Application._015_Streams_One.executor": "Run",
+    "Application._05_AndroidTablet_MobileBrowser_RealDevice.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.C:/Users/User/OneDrive/Desktop/Major Repo/Final_Project/AllTypeSuite.xml.executor": "Run",
+    "TestNG.C:/Users/User/OneDrive/Desktop/Major Repo/Final_Project/InfraAdvancedMobileApp.xml.executor": "Run",
+    "TestNG.C:/Users/User/OneDrive/Desktop/Major Repo/Final_Project/InfraAdvancedMobileAppANDROID.xml.executor": "Run",
+    "TestNG.C:/Users/User/OneDrive/Desktop/Major Repo/Final_Project/InfraAdvancedMobileAppiOSReal.xML.executor": "Run",
+    "TestNG.C:/Users/User/OneDrive/Desktop/Major Repo/Final_Project/Instance5Suite.xml.executor": "Run",
+    "TestNG.C:/Users/User/OneDrive/Desktop/Major Repo/Final_Project/infraAdvanceWeb.xml.executor": "Run",
+    "TestNG.C:/Users/User/OneDrive/Desktop/Major Repo/Final_Project/parallel.xml.executor": "Run",
+    "TestNG.ChromeOptionUpdationInCapabilities.executor": "Run",
+    "TestNG.ChromeOptionUpdationInCapabilities.run.executor": "Run",
+    "TestNG.ChromeOptionUpdationInCapabilities2ios (1).executor": "Run",
+    "TestNG.ChromeOptionUpdationInCapabilities2ios.executor": "Run",
+    "TestNG.ChromeOptionUpdationInCapabilities2ios.initialization.executor": "Run",
+    "TestNG.ChromeOptionUpdationInCapabilities3emulators.executor": "Run",
+    "TestNG.ChromeOptionUpdationInCapabilities3emulators.run.executor": "Run",
+    "TestNG.DominosScript (1).executor": "Run",
+    "TestNG.DominosScript.executor": "Run",
+    "TestNG.InfraAdvancedClass.executor": "Run",
+    "TestNG.MobileApp_Bulk_Execution_Sequentials (1).executor": "Run",
+    "TestNG.MobileApp_Bulk_Execution_Sequentials.executor": "Run",
+    "TestNG.MobileApp_Bulk_Execution_Sequentials.runTestsFromExcel.executor": "Run",
+    "TestNG.MobileApp_Bulk_Executions (1).executor": "Run",
+    "TestNG.MobileApp_Bulk_Executions (2).executor": "Run",
+    "TestNG.MobileApp_Bulk_Executions.executor": "Run",
+    "TestNG.MobileApp_Bulk_Executions.runTestsFromExcel (1).executor": "Run",
+    "TestNG.MobileApp_Bulk_Executions.runTestsFromExcel.executor": "Run",
+    "TestNG.Mobile_Bulk_Executions.runTestsFromExcel.executor": "Run",
+    "TestNG.Mobile_Parallel_SetOf_Device.executor": "Run",
+    "TestNG.Mobile_Parallel_SetOf_Device_Android.executor": "Run",
+    "TestNG.Mobile_Parallel_SetOf_Device_iOS_Simulators.executor": "Run",
+    "TestNG.Mobile_Parallel_SetOf_device_iOS_Real (1).executor": "Run",
+    "TestNG.Mobile_Parallel_SetOf_device_iOS_Real.executor": "Run",
+    "TestNG.NewIOSSCript2.executor": "Run",
+    "TestNG.NewIOSSCript2.steps.executor": "Run",
+    "TestNG.NewIOSScript.Steps.executor": "Run",
+    "TestNG.NewIOSScript.executor": "Run",
+    "TestNG.NewIOSScript.steps.executor": "Run",
+    "TestNG.SSLCertificateHandling.executor": "Run",
+    "TestNG.SSLCertificateHandling.run.executor": "Run",
+    "TestNG.WebParallelRunScript.run.executor": "Run",
+    "TestNG.WebParallelRunScript2.run.executor": "Run",
+    "TestNG.Web_1_ProjectMenuPage (1).executor": "Run",
+    "TestNG.Web_1_ProjectMenuPage (2).executor": "Run",
+    "TestNG.Web_1_ProjectMenuPage.executor": "Run",
+    "TestNG.ZZZZZZZZZ_Practice.run.executor": "Run",
+    "TestNG._010_SSLCertificateHandling.executor": "Run",
+    "TestNG._010_SSLCertificateHandling.run.executor": "Run",
+    "TestNG._012_BlockPopupWindows.run.executor": "Run",
+    "TestNG._013_TakeScreenshot.run.executor": "Run",
+    "TestNG._014_HandleBrokenLink.executor": "Run",
+    "TestNG._014_HandleBrokenLink.run.executor": "Run",
+    "TestNG._015_Streams_One (1).executor": "Run",
+    "TestNG._015_Streams_One.executor": "Run",
+    "TestNG._015_Streams_One.run1 (1).executor": "Run",
+    "TestNG._015_Streams_One.run1.executor": "Run",
+    "TestNG._015_Streams_One.run2.executor": "Run",
+    "TestNG._015_Streams_One.run3Collector.executor": "Run",
+    "TestNG._016_TableSorting_By_Java_Stream (1).executor": "Run",
+    "TestNG._016_TableSorting_By_Java_Stream.TableSorting.executor": "Run",
+    "TestNG._016_TableSorting_By_Java_Stream.executor": "Run",
+    "TestNG._017_Get_Adjustant_Value_Of_Cell (1).executor": "Run",
+    "TestNG._017_Get_Adjustant_Value_Of_Cell (2).executor": "Run",
+    "TestNG._017_Get_Adjustant_Value_Of_Cell.TableSorting.executor": "Run",
+    "TestNG._017_Get_Adjustant_Value_Of_Cell.executor": "Run",
+    "TestNG._017_Get_Adjustant_Value_Of_Cell.run.executor": "Run",
+    "TestNG._018_Filter_Web_Table.TableSorting.executor": "Run",
+    "TestNG._018_Filter_Web_Table.executor": "Run",
+    "TestNG._01_Frames.executor": "Run",
+    "TestNG._01_Frames.frames.executor": "Run",
+    "TestNG._01_Mobile_Parallel__Android.executor": "Run",
+    "TestNG._01_Mobile_Parallel__Android.runTestsOnAllDevicesPeriodically.executor": "Run",
+    "TestNG._01_Web_Windows_10 (1).executor": "Run",
+    "TestNG._01_Web_Windows_10 (2).executor": "Run",
+    "TestNG._01_Web_Windows_10 (3).executor": "Debug",
+    "TestNG._01_Web_Windows_10.executor": "Run",
+    "TestNG._01_Web_Windows_10_Chrome (1).executor": "Run",
+    "TestNG._01_Web_Windows_10_Chrome (2).executor": "Run",
+    "TestNG._01_Web_Windows_10_Chrome (3).executor": "Run",
+    "TestNG._01_Web_Windows_10_Chrome (4).executor": "Run",
+    "TestNG._01_Web_Windows_10_Chrome (5).executor": "Run",
+    "TestNG._01_Web_Windows_10_Chrome.executor": "Run",
+    "TestNG._01_Web_Windows_10_Edge (1).executor": "Run",
+    "TestNG._01_Web_Windows_10_Edge (2).executor": "Run",
+    "TestNG._01_Web_Windows_10_Edge (3).executor": "Run",
+    "TestNG._01_Web_Windows_10_Edge.executor": "Run",
+    "TestNG._01_Web_Windows_10_Firefox (1).executor": "Run",
+    "TestNG._01_Web_Windows_10_Firefox.executor": "Run",
+    "TestNG._01_Windows_11_Script_Instance.executor": "Run",
+    "TestNG._01_Windows_11_Script_Instance.run.executor": "Run",
+    "TestNG._01_Windows_Script_Instance_1.run.executor": "Run",
+    "TestNG._02_Frames_Assignment.Assignment.executor": "Run",
+    "TestNG._02_Frames_Assignment.executor": "Run",
+    "TestNG._02_LimitTheScopeOfDom.LimitScope.executor": "Run",
+    "TestNG._02_Mobile_Parallel_iOS_Real.executor": "Run",
+    "TestNG._02_Web_Windows_11 (1).executor": "Run",
+    "TestNG._02_Web_Windows_11.executor": "Run",
+    "TestNG._02_Web_Windows_11_Chrome (1).executor": "Run",
+    "TestNG._02_Web_Windows_11_Chrome (2).executor": "Run",
+    "TestNG._02_Web_Windows_11_Chrome (3).executor": "Run",
+    "TestNG._02_Web_Windows_11_Chrome (4).executor": "Run",
+    "TestNG._02_Web_Windows_11_Chrome.VerifyPantaloonsLandingPageMethod.executor": "Run",
+    "TestNG._02_Web_Windows_11_Chrome.executor": "Run",
+    "TestNG._02_Web_Windows_11_Edge.executor": "Run",
+    "TestNG._02_Web_Windows_11_Firefox (1).executor": "Run",
+    "TestNG._02_Web_Windows_11_Firefox.VerifyPantaloonsLandingPageMethod.executor": "Run",
+    "TestNG._02_Web_Windows_11_Firefox.executor": "Run",
+    "TestNG._03_Web_Linux_Firefox.executor": "Run",
+    "TestNG._03_Web_Linux_chrome (1).executor": "Run",
+    "TestNG._03_Web_Linux_chrome (2).executor": "Run",
+    "TestNG._03_Web_Linux_chrome.executor": "Run",
+    "TestNG._04_ClickOnMultipleLinksWithoutOutSwitchPages.LimitScope.executor": "Run",
+    "TestNG._04_Web_mac_Chrome (1).executor": "Run",
+    "TestNG._04_Web_mac_Chrome (2).executor": "Run",
+    "TestNG._04_Web_mac_Chrome (3).executor": "Run",
+    "TestNG._04_Web_mac_Chrome.executor": "Run",
+    "TestNG._04_Web_mac_Comet (1).executor": "Run",
+    "TestNG._04_Web_mac_Comet (2).executor": "Run",
+    "TestNG._04_Web_mac_Comet (3).executor": "Run",
+    "TestNG._04_Web_mac_Comet.executor": "Run",
+    "TestNG._04_Web_mac_Firefox.VerifyPantaloonsLandingPageMethod.executor": "Run",
+    "TestNG._04_Web_mac_Firefox.executor": "Run",
+    "TestNG._04_Web_mac_Safari (1).executor": "Run",
+    "TestNG._04_Web_mac_Safari (2).executor": "Run",
+    "TestNG._04_Web_mac_Safari.executor": "Run",
+    "TestNG._05_AndroidTablet_MobileBrowser_RealDevice.executor": "Run",
+    "TestNG._05_AndroidTablet_MobileBrowser_RealDevice.run (1).executor": "Run",
+    "TestNG._05_AndroidTablet_MobileBrowser_RealDevice.run.executor": "Run",
+    "TestNG._05_Android_MobileBrowser_RealDevice.executor": "Run",
+    "TestNG._05_Android_MobileBrowser_RealDevice.run.executor": "Run",
+    "TestNG._05_Practice_Assignment.test.executor": "Run",
+    "TestNG._06_Android_MobileBrowser_Emulator.run.executor": "Run",
+    "TestNG._06_Handleing_calender.calender.executor": "Run",
+    "TestNG._06_Handleing_calender.executor": "Run",
+    "TestNG._07_ScrollInTable.run.executor": "Run",
+    "TestNG._07_iOS_MobileBrowser_RealDevice.run.executor": "Run",
+    "TestNG._08_AddValuesFromTable.executor": "Run",
+    "TestNG._08_AddValuesFromTable.run.executor": "Run",
+    "TestNG._08_iOS_MobileBrowser_Simulator.run.executor": "Run",
+    "TestNG._09_Android_App_RealDevice (1).executor": "Run",
+    "TestNG._09_Android_App_RealDevice (2).executor": "Run",
+    "TestNG._09_Android_App_RealDevice (3).executor": "Run",
+    "TestNG._09_Android_App_RealDevice.executor": "Run",
+    "TestNG._09_TableAssessment.run (1).executor": "Run",
+    "TestNG._09_TableAssessment.run.executor": "Run",
+    "TestNG._10_Android_App__Emulator (1).executor": "Run",
+    "TestNG._10_Android_App__Emulator.executor": "Run",
+    "TestNG._10_Android_App__Emulator_Tablet.executor": "Run",
+    "TestNG._11_iOS_App_RealDevice.executor": "Run",
+    "TestNG._12_iOS_App_Simulator.executor": "Run",
+    "TestNG._12_iOS_App_Simulator.test.executor": "Run",
+    "git-widget-placeholder": "LearningSelenium/Branch/1.0.1",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/User/Downloads/TestingProject2/Final_Project/src/test/java",
+    "last_opened_file_path": "C:/Users/User/Desktop/Major Repo/Final_Project",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.automation.P0andP1.BulkExecutions.Mobile" />
+      <recent name="com.automation.P0andP1.BulkExecutions.Web" />
+      <recent name="com.automation.P0andP1.BulkExecutions" />
+      <recent name="com.scripts.resource" />
+      <recent name="com.automation.P0andP1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.GroundedScript">
+    <configuration name="GroundedScript" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.scripts.resource.GroundedScript" />
+      <module name="cloudtesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scripts.resource.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="cloudtesting.xml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="cloudtesting.xml" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="cloudtesting.xml" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MobileAppBulkExecution" type="TestNG">
+      <shortenClasspath name="NONE" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/InfraAdvancedMobileApp.xml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_01_Web_Windows_10_Chrome" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="cloudtesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.P0andP1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.P0andP1" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.P0andP1._01_Web_Windows_10_Chrome" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_02_Web_Windows_11_Chrome" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="cloudtesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.P0andP1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.P0andP1" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.P0andP1._02_Web_Windows_11_Chrome" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_04_Web_mac_Chrome (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="cloudtesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.P0andP1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.P0andP1" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.P0andP1._04_Web_mac_Chrome" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_04_Web_mac_Chrome" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="cloudtesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.P0andP1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.P0andP1" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.P0andP1._04_Web_mac_Chrome" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="cloudtesting.xml" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="cloudtesting.xml" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="cloudtesting.xml" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.GroundedScript" />
+      <item itemvalue="TestNG.MobileAppBulkExecution" />
+      <item itemvalue="TestNG._01_Web_Windows_10_Chrome" />
+      <item itemvalue="TestNG._02_Web_Windows_11_Chrome" />
+      <item itemvalue="TestNG._04_Web_mac_Chrome" />
+      <item itemvalue="TestNG._04_Web_mac_Chrome (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GroundedScript" />
+        <item itemvalue="TestNG._01_Web_Windows_10_Chrome" />
+        <item itemvalue="TestNG._02_Web_Windows_11_Chrome" />
+        <item itemvalue="TestNG._04_Web_mac_Chrome (1)" />
+        <item itemvalue="TestNG._04_Web_mac_Chrome" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04e15b45-f53f-42b3-8f7b-edfe3a00f874" name="Changes" comment="" />
+      <created>1763720642879</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763720642879</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

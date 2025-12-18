@@ -31,11 +31,12 @@ public class _04_Web_mac_Comet
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=f37aa61d-7ea3-4356-90d5-cf65de8cb8c0&licenseId=LIC2026595&projectName=Automation+Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setPlatformName("mac Sequoia");
-            browserOptions.setBrowserVersion("140");
-            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+            browserOptions.setBrowserVersion("142.0");
+            WebDriver driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
 

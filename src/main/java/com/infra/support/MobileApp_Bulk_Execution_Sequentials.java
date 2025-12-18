@@ -25,7 +25,7 @@ import java.time.Duration;
 public class MobileApp_Bulk_Execution_Sequentials {
 
     private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\CheckMobileAppExecution.xlsx";
-    private static final String SELENIUM_HUB_URL = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=Web+Bulk+Execution/";
+    private static final String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=TestSanity+Proj_WebandMob/";
 
     @Test
     public void runTestsFromExcel() throws Exception {
@@ -71,7 +71,7 @@ public class MobileApp_Bulk_Execution_Sequentials {
             options.setApp(app);
             options.setAutomationName("UiAutomator2");
 
-            driver = new AndroidDriver(new URL(SELENIUM_HUB_URL), options);
+            driver = new AndroidDriver(new URL(device_farm_hub_url), options);
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
             // Select country

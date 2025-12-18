@@ -1,8 +1,7 @@
 package LearningSelenium;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -11,6 +10,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +33,7 @@ public class _018_Filter_Web_Table {
     }
 
     @Test
-    public void TableSorting() {
+    public void TableSorting() throws IOException {
         driver.get("https://www.google.com");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -44,7 +45,8 @@ public class _018_Filter_Web_Table {
         List<WebElement> afterFilterList = elementList.stream().filter(s->s.getText().contains("er")).collect(Collectors.toList());
         Assert.assertEquals(elementList.size(),afterFilterList.size());
 
-
+        File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(src , new File("C:\\Selenium\\SeleniumScreenShot\\JioMartHomeScreen.png"));
     }
     @AfterClass
     public void tearDown()

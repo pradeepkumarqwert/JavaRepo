@@ -28,8 +28,8 @@ import java.util.concurrent.*;
 @Listeners(ExtentReportManager.class)
 public class InfraAdvancedClass {
 
-    private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\EnviData.xlsx";
-    private static final String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=bc45e508-f7f7-4acd-a3b9-54568f9d8b7b&licenseId=LIC1026562&projectName=Bulk+execution+Web/";
+    private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\CompleteEnviData.xlsx";
+    private static final String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=Bulk+execution+Web/";
    
 
     @Test
@@ -122,8 +122,64 @@ public class InfraAdvancedClass {
 
             baseMethod.MaximizeBrowser(driver, "Browser is maximized");
             takeScreenshot(driver, "After_Load_" + version + "_" + Thread.currentThread().getId());
+            // --------------------------
+            // 2. Navigate to Google
+            // --------------------------
+            driver.get("https://www.google.com");
+            takeScreenshot(driver, "01_Google_Page");
 
-            Thread.sleep(2000); // demo step
+            // --------------------------
+            // 3. Navigate to Pantaloons Landing Page
+            // --------------------------
+            driver.navigate().to("https://www.pantaloons.com");
+            takeScreenshot(driver, "02_Pantaloons_Landing");
+
+            Thread.sleep(2000);
+
+            // --------------------------
+            // 4. Validate Pantaloons Logo
+            // --------------------------
+            WebElement logo = driver.findElement(By.xpath("//div[@class='nav-header-container']//img[@class='svgIconImg' and @alt='logoIcon']"));
+            if (logo.isDisplayed()) {
+                System.out.println("Pantaloons logo is displayed");
+            }
+            takeScreenshot(driver, "03_Logo_Visible");
+
+            // --------------------------
+            // 5. Search for Shirts
+            // --------------------------
+            WebElement searchBar = driver.findElement(By.xpath("//div[@class='nav-links']//input[@placeholder='Search']"));
+            searchBar.click();
+            searchBar.sendKeys("Shirts");
+            takeScreenshot(driver, "04_Typed_Search");
+
+            Thread.sleep(2000);
+            searchBar.sendKeys(Keys.ENTER);
+            takeScreenshot(driver, "05_Search_Results");
+
+            Thread.sleep(4000);
+
+            // --------------------------
+            // 6. Apply Gender Filter → Boys
+            // --------------------------
+            WebElement filterGender = driver.findElement(By.xpath("//p[text()='Gender']"));
+            filterGender.click();
+            takeScreenshot(driver, "06_Gender_Filter_Clicked");
+
+            WebElement boysCheckbox = driver.findElement(By.xpath("//p[text()='Boys']//ancestor::div[contains(@class,'PlpWeb_filter-values')]//input"));
+            boysCheckbox.click();
+            takeScreenshot(driver, "07_Boys_Filter_Clicked");
+
+            Thread.sleep(3000);
+
+            // --------------------------
+            // 7. Clear / Select filters
+            // --------------------------
+            WebElement clearBtn = driver.findElement(By.xpath("//button[@id=':r6:']"));
+            clearBtn.click();
+            takeScreenshot(driver, "08_Filter_Clear");
+
+            System.out.println("Test execution completed successfully.");
 
         } finally {
             long elapsed = System.currentTimeMillis() - startTime;

@@ -25,17 +25,18 @@ public class _04_Web_mac_Safari
 	BaseObjectsCloud baseObject;
 	BaseDataCloud baseData;
 	PantaloonsLandingPage pantaloonsLandingPage;
-	_04_Web_mac_Safari PHpage;
+
 
 
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6c9481bd-2882-4a63-84a3-8e0c1e571b32&licenseId=LIC2026595&projectName=Manual+testing/";
             SafariOptions browserOptions = new SafariOptions();
-            browserOptions.setPlatformName("mac");
-            browserOptions.setBrowserVersion("18.2");
-            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setPlatformName("mac Sequoia");
+            browserOptions.setBrowserVersion("18.5");
+            WebDriver driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
 

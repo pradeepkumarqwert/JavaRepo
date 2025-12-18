@@ -32,13 +32,14 @@ public class NewIOSScript
         try {
 
 
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=219f1975-be3b-489a-9813-8b75ec37a53c&licenseId=LIC4745&projectName=hotFix+Testing/";
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("appium:deviceName", "iPhone 11");
             caps.setCapability("platformName", "iOS");
             caps.setCapability("appium:platformVersion", "18.3.1");
             caps.setCapability("appium:app", "bigbasket.ipa");
             caps.setCapability("appium:bundleId", "com.bigbasket.mobileapp");
+
 
             caps.setCapability("appium:automationName", "XCUITest");
             caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups
@@ -57,7 +58,7 @@ public class NewIOSScript
             driver.perform(Arrays.asList(tap));
             driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Continue as Guest']")).click();
             try {
-                driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Home']/following::XCUIElementTypeStaticText[@value='Categories']")).click();
+                driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='e']/following::XCUIElementTypeStaticText[@value='Categories']")).click();
             } catch (NoSuchElementException e) {
                 driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Categories']")).click();
                 e.printStackTrace();

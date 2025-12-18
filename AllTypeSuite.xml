@@ -10,6 +10,7 @@
             <class name="com.automation.P0andP1._01_Web_Windows_10_Chrome" />
             <class name="com.automation.P0andP1._01_Web_Windows_10_Firefox" />
             <class name="com.automation.P0andP1._01_Web_Windows_10_Edge" />
+            <class name="com.automation.P0andP1._01_Web_Windows_10_Comet"/>
 
             <class name="com.automation.P0andP1._02_Web_Windows_11_Chrome" />
             <class name="com.automation.P0andP1._02_Web_Windows_11_Firefox" />
@@ -36,7 +37,7 @@
             <class name="com.automation.P0andP1._10_Android_App_Tablet"/>
 
 
-			<class name="com.automation.P0andP1.NewIOSSCript2"/>
+			<class name="com.automation.P0andP1._11_iOS_App_RealDevice"/>
             <class name="com.automation.P0andP1._12_iOS_App_Simulator"/>
 
 

@@ -39,13 +39,13 @@ public class _03_Web_Linux_chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=6a6ec671-0070-448a-b734-8c02c345b602&licenseId=LIC1026526&projectName=SanityProd/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=f37aa61d-7ea3-4356-90d5-cf65de8cb8c0&licenseId=LIC2026595&projectName=Automation+Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setCapability("devicefarm:networkLogEnable", true);
             browserOptions.setPlatformName("linux");
-            browserOptions.setBrowserVersion("133");
+            browserOptions.setBrowserVersion("138");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
 
 

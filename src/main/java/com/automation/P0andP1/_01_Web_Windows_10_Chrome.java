@@ -8,6 +8,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -39,7 +40,7 @@ public class _01_Web_Windows_10_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=215e3152-58d0-4a88-a3ac-de34cf8372cb&licenseId=LIC3996&projectName=Sanity/";
+            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9814c6fe-133c-41eb-a9fb-0eec83566b50&licenseId=LIC4745&projectName=HotFix_SanityHotfix_V1013/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setPlatformName("Windows 10");
             browserOptions.setBrowserVersion("136");
@@ -73,7 +74,7 @@ public class _01_Web_Windows_10_Chrome
 			
 		}
 		
-		@Test(invocationCount = 1)
+		@Test(invocationCount = 1, threadPoolSize = 1)
 		public void VerifyPantaloonsLandingPageMethod() throws InterruptedException
 		{
 			
