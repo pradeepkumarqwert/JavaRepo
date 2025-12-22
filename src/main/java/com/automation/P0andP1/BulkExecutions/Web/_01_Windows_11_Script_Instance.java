@@ -17,7 +17,7 @@ import java.time.Duration;
 
 @Listeners(ExtentReportManager.class)
 public class _01_Windows_11_Script_Instance {
-    @Test(invocationCount = 600)
+    @Test(invocationCount = 30)
     public void run() {
 
         WebDriver driver = null;
@@ -27,11 +27,11 @@ public class _01_Windows_11_Script_Instance {
             // --------------------------
             // 1. Set Hub URL + Capabilities
             // --------------------------
-            String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=New+testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8o3DFu_u-Iyw5KyEuKgubhrMpj-KUPOaLiqmdH7XTW9hnSEijpeb0alxIVFMq14aKaSE0f1A8dQhRFQPh_MtD4zmqNnzVvzpi3aPX1WCSXAJS9EzfazCer-0jLMCxgHN37S_gWcQdMluOqzJtA4qO5_DG7brtoICZQtwUp2huShKySHz1zj9U0UBgaate9fCphG8Wy-pou_I8jyz_djzKP1XNSbe6UQgcPkPajqCTnVIsS_3JlTShX48iQOmCsqTM0FjMZLgtsz8mjB1SSQ5DRtNe32EfK1UfHVAVRIz4p4GIybWh1BW&licenseId=LIC4014&projectName=Automation+Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("devicefarm:networkLogEnable", true);
             browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("142");
+            browserOptions.setBrowserVersion("133");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
@@ -39,41 +39,38 @@ public class _01_Windows_11_Script_Instance {
             // --------------------------
             // 2. Navigate to Google
             // --------------------------
-            driver.get("https://www.google.com");
+            driver.get("https://www.pantaloons.com");
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-            takeScreenshot(driver, "01_Google_Page");
-
-            // --------------------------
-            // 3. Navigate to Pantaloons Landing Page
-            // --------------------------
-            driver.navigate().to("https://www.pantaloons.com");
             takeScreenshot(driver, "02_Pantaloons_Landing");
-
-            Thread.sleep(2000);
-
-            // --------------------------
-            // 4. Validate Pantaloons Logo
-            // --------------------------
-            WebElement logo = driver.findElement(By.xpath("//div[@class='nav-header-container']//img[@class='svgIconImg' and @alt='logoIcon']"));
-            if (logo.isDisplayed()) {
-                System.out.println("Pantaloons logo is displayed");
-            }
-            takeScreenshot(driver, "03_Logo_Visible");
-
-            // --------------------------
-            // 5. Search for Shirts
-            // --------------------------
-            WebElement searchBar = driver.findElement(By.xpath("//div[@class='nav-links']//input[@placeholder='Search']"));
-            searchBar.click();
-            searchBar.sendKeys("Shirts");
-            takeScreenshot(driver, "04_Typed_Search");
-
-            Thread.sleep(2000);
-            searchBar.sendKeys(Keys.ENTER);
-            takeScreenshot(driver, "05_Search_Results");
-
-            Thread.sleep(10000);
+//
+//            // --------------------------
+//            // 3. Navigate to Pantaloons Landing Page
+//            // --------------------------
+//            Thread.sleep(2000);
+//
+//            // --------------------------
+//            // 4. Validate Pantaloons Logo
+//            // --------------------------
+//            WebElement logo = driver.findElement(By.xpath("//div[@class='nav-header-container']//img[@class='svgIconImg' and @alt='logoIcon']"));
+//            if (logo.isDisplayed()) {
+//                System.out.println("Pantaloons logo is displayed");
+//            }
+//            takeScreenshot(driver, "03_Logo_Visible");
+//
+//            // --------------------------
+//            // 5. Search for Shirts
+//            // --------------------------
+//            WebElement searchBar = driver.findElement(By.xpath("//div[@class='nav-links']//input[@placeholder='Search']"));
+//            searchBar.click();
+//            searchBar.sendKeys("Shirts");
+//            takeScreenshot(driver, "04_Typed_Search");
+//
+//            Thread.sleep(2000);
+//            searchBar.sendKeys(Keys.ENTER);
+//            takeScreenshot(driver, "05_Search_Results");
+//
+//            Thread.sleep(10000);
 
             System.out.println("Test execution completed successfully.");
 

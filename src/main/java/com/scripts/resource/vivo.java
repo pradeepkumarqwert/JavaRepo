@@ -28,6 +28,9 @@ public class vivo {
             options = new ChromeOptions();
             options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
             options.addArguments("--incognito");
+            options.addArguments("--disable-infobars");
+            options.addArguments("--disable-notifications");
+            options.addArguments("--start-maximized");
             options.setAcceptInsecureCerts(true);
             driver = new ChromeDriver(options);
             act = new Actions(driver);
@@ -45,12 +48,12 @@ public class vivo {
             driver.findElement(By.xpath("//p[contains(@class,'vep-pc-search-icon')]")).click();
             List<WebElement> suggestedDropdownOptions = driver.findElements(By.xpath("//a[contains(@class,'vep-pc-search-hot-link')]"));
             List<String> deviceNames = suggestedDropdownOptions.stream().map(a -> a.getText()).collect(Collectors.toList());
-            System.out.println(deviceNames.size());
+            System.out.println(deviceNames.get(2));
             System.out.println("Device names Extracted successfully");
 
             for (String names : deviceNames) {
                 System.out.println(names);
-                act.moveToElement(driver.findElement(By.xpath("//a[contains(@class,'vep-pc-search-hot-link') and text() = '"+names+"']"))).pause(Duration.ofSeconds(2)).perform();
+                act.moveToElement(driver.findElement(By.xpath("//a[contains(@class,'vep-pc-search-hot-link') and text() = '"+names+"']"))).pause(Duration.ofSeconds(2)).build().perform();
                 Thread.sleep(2000);
                 driver.findElement(By.xpath("//a[contains(@class,'vep-pc-search-hot-link') and text() = '"+names+"']")).click();
                 eachDeviceOverviewDetails();

@@ -32,14 +32,13 @@ public class _02_Web_Windows_11_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=f37aa61d-7ea3-4356-90d5-cf65de8cb8c0&licenseId=LIC2026595&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=s1PZtEniS-UzXgPXgJ4Z-Ghe4ojFBqHpt4VRihkg5bD_YdOAhqoy7KeVCI7kw794qOEJBbPxXtEggg6WAxyN9s1zQkrNUe8sCS4w5_rXmvCkk-zu6lovXjsVWShBj1jgP6Nc0xib7zHu1nYOuWN8cc12xc1ibVDKEz8gHmPOex82nXnILJOJSX6NjdBAe5PGyyWB8_-7oR7alpupPx7GpjPlYh3XOLB3TS-pOqg0n1oKWRFyYliKObC9iFkGpp_AvSE5ni-X4igVbsKIKgLvK8Th0Ddsfl0xoEPFylurNw1QVL97cuBj&licenseId=LIC4014&projectName=Automation+Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", true);
-            browserOptions.setPlatformName("Windows 10");
-            browserOptions.setBrowserVersion("139");
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("134");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
 
 
@@ -121,7 +120,7 @@ public class _02_Web_Windows_11_Chrome
 		@AfterClass
 		public void QuitBrowser()
 		{
-			//driver.quit();
+			driver.quit();
 		}
 		
 		
