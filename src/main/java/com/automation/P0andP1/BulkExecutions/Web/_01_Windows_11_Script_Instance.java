@@ -17,7 +17,7 @@ import java.time.Duration;
 
 @Listeners(ExtentReportManager.class)
 public class _01_Windows_11_Script_Instance {
-    @Test(invocationCount = 30)
+    @Test(invocationCount = 5)
     public void run() {
 
         WebDriver driver = null;
@@ -27,13 +27,14 @@ public class _01_Windows_11_Script_Instance {
             // --------------------------
             // 1. Set Hub URL + Capabilities
             // --------------------------
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8o3DFu_u-Iyw5KyEuKgubhrMpj-KUPOaLiqmdH7XTW9hnSEijpeb0alxIVFMq14aKaSE0f1A8dQhRFQPh_MtD4zmqNnzVvzpi3aPX1WCSXAJS9EzfazCer-0jLMCxgHN37S_gWcQdMluOqzJtA4qO5_DG7brtoICZQtwUp2huShKySHz1zj9U0UBgaate9fCphG8Wy-pou_I8jyz_djzKP1XNSbe6UQgcPkPajqCTnVIsS_3JlTShX48iQOmCsqTM0FjMZLgtsz8mjB1SSQ5DRtNe32EfK1UfHVAVRIz4p4GIybWh1BW&licenseId=LIC4014&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=uHnChthLrrZx7i3tjv6Atsi0rbbNFJI1L6EV9v-v4hJq4gij5X2bKAq75AfDVw1O5ZYv5VVRvt1kfAhFWREi3LqauNaCff0DDPYZe-LanCzWZDt2JrxKD7sjNJalFQOYru3OxKPddfBrPW1OUlqVSIi43sL2gAeyaExiJ7sGgEoY164NYts6axdWnu06sp2aWP3EquBR69Z-pYOQXlFOyLNmd4uKmcsOdpo-t8Dd6AR_gtWMcg3PLopnsAvteZos-m8dAfR3FNBDd6NaJL6JdFD8RUCAGhZJG5vi-fy41NKg-2jpeDbp&licenseId=LIC4014&projectName=New+project/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", true);
             browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("133");
+            browserOptions.setBrowserVersion("132");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
+
 
 
             // --------------------------

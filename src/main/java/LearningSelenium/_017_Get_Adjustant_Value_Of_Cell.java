@@ -27,6 +27,10 @@ public class _017_Get_Adjustant_Value_Of_Cell {
         options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
         options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+        options.addArguments("--incognito");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-notifications");
+        options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         act = new Actions(driver);
     }

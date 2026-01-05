@@ -27,16 +27,13 @@ public class _07_iOS_MobileBrowser_RealDevice {
     public void run() throws InterruptedException {
     	
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=uHnChthLrrZx7i3tjv6Atsi0rbbNFJI1L6EV9v-v4hJq4gij5X2bKAq75AfDVw1O5ZYv5VVRvt1kfAhFWREi3LqauNaCff0DDPYZe-LanCzWZDt2JrxKD7sjNJalFQOYru3OxKPddfBrPW1OUlqVSIi43sL2gAeyaExiJ7sGgEoY164NYts6axdWnu06sp2aWP3EquBR69Z-pYOQXlFOyLNmd4uKmcsOdpo-t8Dd6AR_gtWMcg3PLopnsAvteZos-m8dAfR3FNBDd6NaJL6JdFD8RUCAGhZJG5vi-fy41NKg-2jpeDbp&licenseId=LIC4014&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "iPhone 11");
+            caps.setCapability("appium:deviceName", "iPhone 13");
             caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "18.3.1");
+            caps.setCapability("appium:platformVersion", "18.4.1");
             caps.setCapability("appium:browserName", "Safari");
-            driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
-
-
+            WebDriver driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -44,14 +41,16 @@ public class _07_iOS_MobileBrowser_RealDevice {
     		  
             driver.get("https://www.wikipedia.org/");
             Thread.sleep(2000);
-           
+            takeScreenshot(driver, "Navigate to wikipedia");
             WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("searchInput")));
 
             Thread.sleep(2000);
             searchInput.sendKeys("iPhone");
+            takeScreenshot(driver, "Wikipedia_Type_iPhone");
 
             Thread.sleep(2000);
             driver.findElement(By.cssSelector("button[type='submit']")).click();
+            takeScreenshot(driver, "Wikipedia_Click_On_Element");
 
             Thread.sleep(2000);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1")));
@@ -59,16 +58,20 @@ public class _07_iOS_MobileBrowser_RealDevice {
             Thread.sleep(2000);
             System.out.println("Title after search: " + driver.getTitle());
 
-            Thread.sleep(2000);
-            actions.sendKeys(Keys.PAGE_DOWN).perform();
-            Thread.sleep(1000);
 
             Thread.sleep(2000);
             actions.sendKeys(Keys.PAGE_DOWN).perform();
+            Thread.sleep(1000);
+            takeScreenshot(driver, "Wikipedia_PageDown");
+
+            Thread.sleep(2000);
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+            takeScreenshot(driver, "Wikipedia_PageDown");
 
             Thread.sleep(2000);
             WebElement link = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(@href,'Apple')])[1]")));
             link.click();
+            takeScreenshot(driver, "Wikipedia_Wait_UntilElementToBE_Clickable");
 
             Thread.sleep(2000);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
@@ -76,15 +79,18 @@ public class _07_iOS_MobileBrowser_RealDevice {
             Thread.sleep(2000);
             WebElement heading = driver.findElement(By.tagName("h1"));
             System.out.println("Opened page: " + heading.getText());
+            takeScreenshot(driver, "Wikipedia_find Element");
 
             Thread.sleep(2000);
             driver.navigate().back();
 
             Thread.sleep(2000);
             System.out.println("Now on: " + driver.getCurrentUrl());
+            takeScreenshot(driver, "Wikipedia_GetCurrent_URL");
 
             Thread.sleep(2000);
             driver.navigate().refresh();
+            takeScreenshot(driver, "Wikipedia_Refresh page");
 
             Thread.sleep(2000);
             driver.quit();

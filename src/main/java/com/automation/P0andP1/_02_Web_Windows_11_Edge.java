@@ -32,11 +32,11 @@ public class _02_Web_Windows_11_Edge
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=s1PZtEniS-UzXgPXgJ4Z-Ghe4ojFBqHpt4VRihkg5bD_YdOAhqoy7KeVCI7kw794qOEJBbPxXtEggg6WAxyN9s1zQkrNUe8sCS4w5_rXmvCkk-zu6lovXjsVWShBj1jgP6Nc0xib7zHu1nYOuWN8cc12xc1ibVDKEz8gHmPOex82nXnILJOJSX6NjdBAe5PGyyWB8_-7oR7alpupPx7GpjPlYh3XOLB3TS-pOqg0n1oKWRFyYliKObC9iFkGpp_AvSE5ni-X4igVbsKIKgLvK8Th0Ddsfl0xoEPFylurNw1QVL97cuBj&licenseId=LIC4014&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
             EdgeOptions browserOptions = new EdgeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", true);
             browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("134");
+            browserOptions.setBrowserVersion("139");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 

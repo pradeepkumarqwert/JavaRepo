@@ -7,6 +7,8 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.offset.PointOption;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
@@ -16,8 +18,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
@@ -28,9 +34,9 @@ public class _12_iOS_App_Simulator
 
     @BeforeClass
     public void initialize() throws MalformedURLException {
-        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=uHnChthLrrZx7i3tjv6Atsi0rbbNFJI1L6EV9v-v4hJq4gij5X2bKAq75AfDVw1O5ZYv5VVRvt1kfAhFWREi3LqauNaCff0DDPYZe-LanCzWZDt2JrxKD7sjNJalFQOYru3OxKPddfBrPW1OUlqVSIi43sL2gAeyaExiJ7sGgEoY164NYts6axdWnu06sp2aWP3EquBR69Z-pYOQXlFOyLNmd4uKmcsOdpo-t8Dd6AR_gtWMcg3PLopnsAvteZos-m8dAfR3FNBDd6NaJL6JdFD8RUCAGhZJG5vi-fy41NKg-2jpeDbp&licenseId=LIC4014&projectName=Automation+Testing/";
+        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
+        caps.setCapability("appium:deviceName", "Simulator iPhone 16");
         caps.setCapability("platformName", "iOS");
         caps.setCapability("appium:platformVersion", "18.4");
         caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.zip");
@@ -49,26 +55,39 @@ public class _12_iOS_App_Simulator
             try {
                 Thread.sleep(10000);
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 
                 driver.findElement(AppiumBy.accessibilityId("test-standard_user")).click();
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(AppiumBy.accessibilityId("test-LOGIN")).click();
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("(//XCUIElementTypeOther[@name='test-ADD TO CART'])[1]")).click();
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 Sequence tap = new Sequence(finger, 1);
                 tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 362, 57));
                 tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
                 tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.perform(Arrays.asList(tap));
                 Thread.sleep(2000);
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-CHECKOUT']")).click();
                 Thread.sleep(2000);
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-First Name']")).sendKeys("Pradeep");
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Last Name']")).click();
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Last Name']")).sendKeys("Kumar");
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Zip/Postal Code']")).click();
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Zip/Postal Code']")).sendKeys("56473");
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-CONTINUE']")).click();
                 Thread.sleep(2000);
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 Sequence dragAndDrop = new Sequence(finger, 1);
                 dragAndDrop.addAction(finger.createPointerMove(Duration.ZERO,
                         PointerInput.Origin.viewport(), 157, 728));
@@ -77,12 +96,16 @@ public class _12_iOS_App_Simulator
                 dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(800),
                         PointerInput.Origin.viewport(), 155, 374));
                 dragAndDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.perform(List.of(dragAndDrop));
                 Thread.sleep(2000);
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-FINISH']")).click();
                 Thread.sleep(2000);
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
                 driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-BACK HOME']")).click();
                 Thread.sleep(2000);
+                takeScreenshot(driver, "iOS_MobileApp_Simulator");
             }catch (Exception e){
                 System.out.println("Expection Triggered");
                 System.out.println(e);
@@ -100,5 +123,27 @@ public class _12_iOS_App_Simulator
              driver.quit();
          }
      }
+
+
+
+
+
+    public static void takeScreenshot(IOSDriver driver, String fileName)
+    {
+        if (driver == null) {
+            return;
+        }
+        try {
+            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File dest = new File("C:\\Selenium Grid\\Screenshots\\" + fileName + ".png");
+            dest.getParentFile().mkdirs(); // Ensure folder exists
+            Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Screenshot saved: " + dest.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Failed to save screenshot: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Screenshot capture failed: " + e.getMessage());
+        }
+    }
 
 }
