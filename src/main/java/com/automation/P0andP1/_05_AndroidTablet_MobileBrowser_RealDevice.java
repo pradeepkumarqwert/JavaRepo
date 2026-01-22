@@ -1,6 +1,7 @@
 package com.automation.P0andP1;
-import io.appium.java_client.android.AndroidDriver;
+
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,16 +16,19 @@ import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 
 public class _05_AndroidTablet_MobileBrowser_RealDevice {
-@Test
+
+    WebDriver driver;
+@Test(invocationCount = 1)
     public void run() throws Exception {
 
-    String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
+    String device_farm_hub_url = "http://103.182.210.90:4444";
+//    String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vK-JO6U-sXEZzMi5z7p3b6Q2RZkUv6ugZQm_Ap4eCAvIpdFtfF3AGEv6Uahw0U9XX2kz2rqdTTa6iHP-hDgOlMnutXrAxYkjAkaq_UglUWzVmFX7p2GldzbWG5jNTP_Xhf0lu6epgN_YBmq8UkSzczCPn9DgYO_zHwLIV2TXCQXDrKljzvNSz7hGRB9lT3LfKREmjbqv3gcNwPv5di1Wfk0VtA_4RIozgn6l_WTGZ8blrUFwf0lLVty0w7qYdG_dO6TL1f6cjCHOJJD99MLalNSNl9gzip1luJV7QpuH5ds_WDM_FofmCEwKscjCSDBT&licenseId=LIC2026658&projectName=Sanity_20012026/";
     DesiredCapabilities caps = new DesiredCapabilities();
     caps.setCapability("appium:deviceName", "Pixel Tablet");
     caps.setCapability("platformName", "Android");
     caps.setCapability("appium:platformVersion", "15");
     caps.setCapability("appium:browserName", "Chrome");
-    WebDriver driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
+    driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
 
 
@@ -52,8 +56,8 @@ public class _05_AndroidTablet_MobileBrowser_RealDevice {
             }
 
         } finally {
-
             driver.quit();
+            System.out.println("Driver closed.");
         }
     }
 

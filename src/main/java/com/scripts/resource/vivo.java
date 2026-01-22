@@ -52,8 +52,10 @@ public class vivo {
             System.out.println("Device names Extracted successfully");
 
             for (String names : deviceNames) {
+                Thread.sleep(2000);
                 System.out.println(names);
-                act.moveToElement(driver.findElement(By.xpath("//a[contains(@class,'vep-pc-search-hot-link') and text() = '"+names+"']"))).pause(Duration.ofSeconds(2)).build().perform();
+                Thread.sleep(2000);
+                act.moveToElement(driver.findElement(By.xpath("//a[contains(@class,'vep-pc-search-hot-link') and contains(normalize-space(), '\"+names+\"')]\n"))).pause(Duration.ofSeconds(2)).build().perform();
                 Thread.sleep(2000);
                 driver.findElement(By.xpath("//a[contains(@class,'vep-pc-search-hot-link') and text() = '"+names+"']")).click();
                 eachDeviceOverviewDetails();

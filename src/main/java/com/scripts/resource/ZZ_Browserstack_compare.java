@@ -59,8 +59,8 @@ public class ZZ_Browserstack_compare
 		bstackOptions.put("os", "Windows");
 		bstackOptions.put("osVersion", "11");
 		bstackOptions.put("browserVersion", "139.0");
-		bstackOptions.put("userName", "sanjay_tOilNe");
-		bstackOptions.put("accessKey", "Dex4a3bXcSWLBf7HErfn");
+		bstackOptions.put("userName", "superadmin_vNb40A");
+		bstackOptions.put("accessKey", "bRxwxK6C7FjHbZiyayzZ");
 		bstackOptions.put("consoleLogs", "info");
 		capabilities.setCapability("bstack:options", bstackOptions);
 

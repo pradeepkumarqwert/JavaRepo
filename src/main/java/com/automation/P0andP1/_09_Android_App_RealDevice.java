@@ -1,5 +1,19 @@
 package com.automation.P0andP1;
 
+import com.scripts.basefolder.BaseMethodsCloud;
+import com.scripts.basefolder.BaseObjectsCloud;
+import com.scripts.repository.GeneralStore_Repository;
+import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -8,30 +22,13 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
-import com.scripts.basefolder.BaseMethodsCloud;
-import com.scripts.basefolder.BaseObjectsCloud;
-import com.scripts.repository.GeneralStore_Repository;
-
-import io.appium.java_client.android.AndroidDriver;
-
 public class _09_Android_App_RealDevice {
     AndroidDriver driver;
     BaseMethodsCloud baseMethod;
     BaseObjectsCloud objectCreate;
     GeneralStore_Repository GS_repo;
 
-    @BeforeMethod
+    @BeforeClass
     public void initializationApp() throws MalformedURLException {
     	 // For local Appium (uncomment this if you run locally)
         /*
@@ -48,14 +45,15 @@ public class _09_Android_App_RealDevice {
         */
 
         // For Fireflink Cloud
-        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
+        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=38POQeInJdHhuT1LtwaXooJ2zBkiutf5JUZb6lEChNPORDu7hjD96aTphCcTtnmTHDvIqo9QVvdfD3qG02wmqXjMDm2eGxTb9NsZ1ANx5AU9bMAWAsvWIyQqm_euXcBVF2x2zlG-Ywljt7BbH5FVBY_R_F6YNNGHagJxekSUaZCe4MoaD6eHdItJ3vKBKAI8c-AkThezsaX2W0GemgYOjaTnyA6UzS5aiCVttAcvl9mPhlhbgc8pAEOMNaYeGpwh_0Vu5ptnSQ29gCAnWmmTGf7mCSgH35RanpkW2825qxtuMY0U_8_ElA&licenseId=LIC4045&projectName=Testing+21012026/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "OPPO F29 5G");
+        caps.setCapability("appium:isVirtual", true);
+        caps.setCapability("appium:deviceType", "public");
+        caps.setCapability("appium:deviceName", "Pixel 7 Pro");
         caps.setCapability("platformName", "Android");
         caps.setCapability("appium:platformVersion", "15");
         caps.setCapability("appium:app", "General-Store-final (4).apk");
         driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
-
 
 
 
@@ -113,10 +111,11 @@ public class _09_Android_App_RealDevice {
     
     
 
-    @AfterMethod
+    @AfterClass
     public void teardown() {
         if (driver != null) {
             driver.quit();
+            System.out.println("driver quit successfully");
         }
     }
     

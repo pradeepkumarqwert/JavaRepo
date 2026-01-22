@@ -3,10 +3,9 @@ package com.automation.P0andP1.BulkExecutions.Web;
 import com.report.listener.ExtentReportManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;

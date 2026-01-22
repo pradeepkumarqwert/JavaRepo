@@ -1,24 +1,15 @@
 package com.automation.P0andP1;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import com.scripts.basefolder.BaseDataCloud;
 import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,14 +31,13 @@ public class _01_Web_Windows_10_Edge
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=QWgkKT6DGIR2iG74EUlW7deRNRYzgxHmiT9mNT2qYfatAtZNLMy3Jmwcc7SKuyaEUTGnty30p1C47JclhmbT46vs54qV_r8LM1Ij_zz50kuSdaWB0aNLFu9CKqwbPxYI5e9sTakYruZQ3rSVVKjdXrWERTWp9lYC2e-n9CNQoMhbZiTF-2GQ5sJvjD-570Mhh04qbLhLMk0gqzNS_mSRV2RmBAnZRsILfQvO1waWPC_q4I72O-lD7T1zk4Mh_5eT8wRYnXjcHXyneO4g19Avmq4zK6dYxbbmh5CBiyqWRxmwBGurdS0U&licenseId=LIC4045&projectName=HL+Sanity+Jan/";
             EdgeOptions browserOptions = new EdgeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", true);
-            browserOptions.setPlatformName("Windows 10");
-            browserOptions.setBrowserVersion("140");
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("136");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
 
 
@@ -127,7 +117,8 @@ public class _01_Web_Windows_10_Edge
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+            driver.quit();
+            System.out.println("driver quit successfully");
 		}
 		
 		

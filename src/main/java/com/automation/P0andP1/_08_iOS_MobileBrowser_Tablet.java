@@ -18,24 +18,19 @@ import java.time.Duration;
 
 public class _08_iOS_MobileBrowser_Tablet {
 	WebDriver driver;
-	@Test(retryAnalyzer = com.frameworks.utils.RetryAnalizer.class , invocationCount = 1)
+	@Test(invocationCount = 1)
     public void run() throws InterruptedException {
     	
         try {
         	//String seleniumHubUrl = "http://103.182.210.85:4444";
 
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=uHnChthLrrZx7i3tjv6Atsi0rbbNFJI1L6EV9v-v4hJq4gij5X2bKAq75AfDVw1O5ZYv5VVRvt1kfAhFWREi3LqauNaCff0DDPYZe-LanCzWZDt2JrxKD7sjNJalFQOYru3OxKPddfBrPW1OUlqVSIi43sL2gAeyaExiJ7sGgEoY164NYts6axdWnu06sp2aWP3EquBR69Z-pYOQXlFOyLNmd4uKmcsOdpo-t8Dd6AR_gtWMcg3PLopnsAvteZos-m8dAfR3FNBDd6NaJL6JdFD8RUCAGhZJG5vi-fy41NKg-2jpeDbp&licenseId=LIC4014&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=yfAa_w199cJge2Gezsgb2Jnu7hKdqER1tExY5kKvgSvXfi1lRUelFsbTFI5pMq7zQuwwNXXnsLTkjKhvWcKDWsUoGLi9KjUV6gbUNDhqj0jWYFyW9h_0LIDEg5qXigwZdqzQqAvWwHin3gBhzGndeROtixv_VFhnseGSWRAHTajZzE-Zl0d8BP6gl0TEBUfoNgqBtAQVDLP6wAQzPfcyjjGFsdHkXWeHFkKmA78D7rKlnNuN2WgjIUlhYheDRDeqZ98Ig_PyS1GbUvjwJ73L38sr_cD4Y9lrKyWJV-m5RmtKhmkqRM8uk5gEfjzgwy30&licenseId=LIC2026658&projectName=Sanity_20012026/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
+            caps.setCapability("appium:deviceName", "Simulator iPad Pro 13inch");
             caps.setCapability("platformName", "iOS");
             caps.setCapability("appium:platformVersion", "18.4");
             caps.setCapability("appium:browserName", "Safari");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
-
-
-
-
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             Actions actions = new Actions(driver);
@@ -107,8 +102,8 @@ public class _08_iOS_MobileBrowser_Tablet {
         } finally {
             if (driver != null) {
                 driver.quit();
+                System.out.println("Driver closed.");
             }
-            System.out.println("Driver closed.");
         }
     }
 

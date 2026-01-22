@@ -1,24 +1,17 @@
 package com.automation.P0andP1;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import com.scripts.basefolder.BaseDataCloud;
 import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,14 +33,15 @@ public class _01_Web_Windows_10_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
+
+//            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=Testing+21012025/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9MMh2mjlAPKWJLBo1BzQryyBWyM4eHaeQql5TPgDLdwErVkf91Lq2FnwHBZxxozlUKyWshr47fXsP-r67wq47HHvJw16A9CW0bkf9wzVJiT0NwSsjjI-wilkjacGKoGXdZDOOZjQfAb2Vlt73GL2vFZXciFJVR75N9z3dRr6-0W5kXTWvNT5gqTEHnsBH1Cr2RVNgJk3ibzctJCLWkgl5g3mMPVK-a_wnaWm4n3vcvem2i3mpyZN0fTy538Ai7djqzC30NQeNcHHs7UbhV6vFKWwbgWr3CViMNZPs11pPfm0WZkOBcIDFvyRbZhosKZ9&licenseId=LIC2026617&projectName=OrangeHRM/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
-            browserOptions.setPlatformName("Windows 10");
-            browserOptions.setBrowserVersion("141");
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("125");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
 
 
@@ -71,13 +65,13 @@ public class _01_Web_Windows_10_Chrome
 			this.baseData = new BaseDataCloud();
 			
 			pantaloonsLandingPage = new PantaloonsLandingPage(driver);
-			baseMethod.MaximizeBrowser(driver,"Browser is maximized");
+//			baseMethod.MaximizeBrowser(driver,"Browser is maximized");
 			baseMethod.ImplicitWait(driver, 20,"Implicit wait is applied");
 			baseMethod.HardWait(2000,"Hard wait applied");
 			
 		}
 		
-		@Test(invocationCount = 1, threadPoolSize = 1)
+		@Test(invocationCount = 1)
 		public void VerifyPantaloonsLandingPageMethod() throws InterruptedException
 		{
 			
@@ -116,12 +110,7 @@ public class _01_Web_Windows_10_Chrome
 			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsSearchedSubFilterOptionsElement("Boys"));
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			Thread.sleep(5000);
-			Thread.sleep(2000);
-			takeScreenshot(driver, "04_After_Search_Result_Click");
-			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
-			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
-			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
-			takeScreenshot(driver, "04_After_Search_Result_Click");
+
 			
 			
 			
@@ -129,8 +118,8 @@ public class _01_Web_Windows_10_Chrome
 		@AfterClass
 		public void QuitBrowser()
 		{
-
             driver.quit();
+            System.out.println("driver quit successfully");
 		}
 		
 		

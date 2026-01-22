@@ -40,14 +40,15 @@ public class Web_1_ProjectMenuPage {
 	@BeforeClass
 	public void initilizeBrowser() throws MalformedURLException {
 		// 1. Initialize driver first
-        String device_farm_hub_url = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3a927cad-ad15-4906-b318-40ac249bd12a&licenseId=LIC1026562&projectName=Bulk+execution+Web/";
-        ChromeOptions browserOptions = new ChromeOptions();
-        browserOptions.setPlatformName("Windows 11");
-        browserOptions.setBrowserVersion("137");
-        driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-        driver.manage().window().setSize(new Dimension(1024, 768));
+//        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9MMh2mjlAPKWJLBo1BzQryyBWyM4eHaeQql5TPgDLdwErVkf91Lq2FnwHBZxxozlUKyWshr47fXsP-r67wq47HHvJw16A9CW0bkf9wzVJiT0NwSsjjI-wilkjacGKoGXdZDOOZjQfAb2Vlt73GL2vFZXciFJVR75N9z3dRr6-0W5kXTWvNT5gqTEHnsBH1Cr2RVNgJk3ibzctJCLWkgl5g3mMPVK-a_wnaWm4n3vcvem2i3mpyZN0fTy538Ai7djqzC30NQeNcHHs7UbhV6vFKWwbgWr3CViMNZPs11pPfm0WZkOBcIDFvyRbZhosKZ9&licenseId=LIC2026617&projectName=07012026_Cloud_Team_Test/";
+//        ChromeOptions browserOptions = new ChromeOptions();
+//        browserOptions.setCapability("devicefarm:networkLogEnable", false);
+//        browserOptions.setPlatformName("Windows 10");
+//        browserOptions.setBrowserVersion("142");
+//        driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+//        driver.manage().window().setSize(new Dimension(1024, 768));
 
-
+            driver = new ChromeDriver();
 
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -237,13 +238,13 @@ public class Web_1_ProjectMenuPage {
 
 	}
 
-	@Test(priority = 2, dependsOnMethods = { "CreateProjectMethod" }, retryAnalyzer = com.frameworks.utils.RetryAnalizer.class)
+	@Test(priority = 2, dependsOnMethods = { "CreateProjectMethod" })
 	public void OpenToCloseProjectMethod() throws InterruptedException
 
 	{
 
 
-		System.out.println("indisee test 2");
+		System.out.println("Inside test 2");
 		// 1.Mouse hovered on the created project card
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",
 				projectMenuRepo.getCreateProjectRowElementInProjectMenu(projectName));
@@ -320,7 +321,7 @@ public class Web_1_ProjectMenuPage {
 			baseMethod.PrintValue("Proejct is in closed state");
 		}
 
-		System.out.println("indisee test 2 complted");
+		System.out.println("inside test 2 Completed");
 
 		// 18.Navigate inside the created project
         Actions act2 = new Actions(driver);
@@ -339,7 +340,7 @@ public class Web_1_ProjectMenuPage {
 
 	}
 
-	@Test(priority = 3, dependsOnMethods = { "OpenToCloseProjectMethod" }, retryAnalyzer = com.frameworks.utils.RetryAnalizer.class)
+	@Test(priority = 3, dependsOnMethods = { "OpenToCloseProjectMethod" })
 	public void CloseToArchiveProject() throws InterruptedException {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",
 				projectMenuRepo.getCreateProjectRowElementInProjectMenu(projectName));
@@ -398,7 +399,7 @@ public class Web_1_ProjectMenuPage {
 
 	}
 
-	@Test(priority = 4, dependsOnMethods = { "CloseToArchiveProject" }, retryAnalyzer = com.frameworks.utils.RetryAnalizer.class)
+	@Test(priority = 4, dependsOnMethods = { "CloseToArchiveProject" })
 	public void ArchiveToUnarchivingOrClosedProject() throws InterruptedException {
 		// 1.Mouse hover on the created project row
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",

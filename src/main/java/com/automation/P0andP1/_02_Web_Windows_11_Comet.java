@@ -120,7 +120,8 @@ public class _02_Web_Windows_11_Comet
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+            driver.quit();
+            System.out.println("driver quit successfully");
 		}
 		
 		

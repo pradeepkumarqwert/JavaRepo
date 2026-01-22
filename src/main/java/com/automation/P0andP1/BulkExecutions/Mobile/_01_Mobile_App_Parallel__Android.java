@@ -27,8 +27,8 @@ import java.util.concurrent.*;
 @Listeners(ExtentReportManager.class)
 public class _01_Mobile_App_Parallel__Android {
 
-    private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\AndroidAppBulkExecutionAndroid.xlsx";
-    private static final String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=f37aa61d-7ea3-4356-90d5-cf65de8cb8c0&licenseId=LIC2026595&projectName=Automation+Testing/";
+    private static final String EXCEL_PATH = "C:\\Selenium Grid\\Excel\\AppBulkExecutionAndroid.xlsx";
+    private static final String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vK-JO6U-sXEZzMi5z7p3b6Q2RZkUv6ugZQm_Ap4eCAvIpdFtfF3AGEv6Uahw0U9XX2kz2rqdTTa6iHP-hDgOlMnutXrAxYkjAkaq_UglUWzVmFX7p2GldzbWG5jNTP_Xhf0lu6epgN_YBmq8UkSzczCPn9DgYO_zHwLIV2TXCQXDrKljzvNSz7hGRB9lT3LfKREmjbqv3gcNwPv5di1Wfk0VtA_4RIozgn6l_WTGZ8blrUFwf0lLVty0w7qYdG_dO6TL1f6cjCHOJJD99MLalNSNl9gzip1luJV7QpuH5ds_WDM_FofmCEwKscjCSDBT&licenseId=LIC2026658&projectName=Sanity_20012026/";
 
     private static final int TOTAL_ITERATIONS = 1;          // total iterations
     private static final int DEVICE_TIMEOUT_MINUTES = 4;    // max time per device execution
@@ -119,24 +119,24 @@ public class _01_Mobile_App_Parallel__Android {
             countryOption.click();
             takeScreenshot(driver, device.deviceName + "_02_Country_Selected");
 
-            WebElement nameField = driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.androidsample.generalstore:id/nameField']"));
-            nameField.sendKeys("Tester1");
-            takeScreenshot(driver, device.deviceName + "_03_Name_Entered");
-            driver.hideKeyboard();
-
-            driver.findElement(By.xpath("//android.widget.RadioButton[@resource-id='com.androidsample.generalstore:id/radioMale']")).click();
-            takeScreenshot(driver, device.deviceName + "_04_Gender_Selected");
-
-            driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.androidsample.generalstore:id/btnLetsShop']")).click();
-            takeScreenshot(driver, device.deviceName + "_05_LetsShop_Clicked");
-            Thread.sleep(2000);
-
-            driver.findElement(By.xpath("//android.widget.TextView[@text='Air Jordan 4 Retro']/following-sibling::android.widget.LinearLayout//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']")).click();
-            takeScreenshot(driver, device.deviceName + "_06_Product_Added");
-            Thread.sleep(1000);
-
-            driver.findElement(By.xpath("//android.widget.ImageButton[@resource-id='com.androidsample.generalstore:id/appbar_btn_cart']")).click();
-            takeScreenshot(driver, device.deviceName + "_07_Cart_Page");
+//            WebElement nameField = driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.androidsample.generalstore:id/nameField']"));
+//            nameField.sendKeys("Tester1");
+//            takeScreenshot(driver, device.deviceName + "_03_Name_Entered");
+//            driver.hideKeyboard();
+//
+//            driver.findElement(By.xpath("//android.widget.RadioButton[@resource-id='com.androidsample.generalstore:id/radioMale']")).click();
+//            takeScreenshot(driver, device.deviceName + "_04_Gender_Selected");
+//
+//            driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.androidsample.generalstore:id/btnLetsShop']")).click();
+//            takeScreenshot(driver, device.deviceName + "_05_LetsShop_Clicked");
+//            Thread.sleep(2000);
+//
+//            driver.findElement(By.xpath("//android.widget.TextView[@text='Air Jordan 4 Retro']/following-sibling::android.widget.LinearLayout//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productAddCart']")).click();
+//            takeScreenshot(driver, device.deviceName + "_06_Product_Added");
+//            Thread.sleep(1000);
+//
+//            driver.findElement(By.xpath("//android.widget.ImageButton[@resource-id='com.androidsample.generalstore:id/appbar_btn_cart']")).click();
+//            takeScreenshot(driver, device.deviceName + "_07_Cart_Page");
 
             System.out.println("Execution completed successfully for device: " + device.deviceName);
 

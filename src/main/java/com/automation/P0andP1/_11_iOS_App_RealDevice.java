@@ -1,21 +1,16 @@
 package com.automation.P0andP1;
 
 
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import org.testng.annotations.Test;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -87,7 +82,7 @@ public class _11_iOS_App_RealDevice
 
 
         try {
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=Z-cNYxM6DIFUZu8INvLzt5mUHJ2pBN8sFXlmPoJe-BLqYwDrFFveEhUyKklFBSR0iSsNZTKxUlqK_-_VD_lg06vuQQy-P_Yoq2d2BtEHzCQUpNudAXwmDMOfsJHFJ25875v3WN4jlD_f_i4_h3zli7NkBuPv8EA-y_Fqvz-qNFklMeihhgnFD-a4JypddLw07YYLM17qcZx1YAIEop-5Y0xL5PgudTTdm5rHslpyOZu2xVCWysGLZQxYTZx6nv1BOX-xzexR-jkK7w9CZcwP7J7CC0nLQ41_cDwQ8lm0e3b_u_e0TdtZDo6lT2mA9Vjz&licenseId=LIC2026610&projectName=Automation+Testing/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vK-JO6U-sXEZzMi5z7p3b6Q2RZkUv6ugZQm_Ap4eCAvIpdFtfF3AGEv6Uahw0U9XX2kz2rqdTTa6iHP-hDgOlMnutXrAxYkjAkaq_UglUWzVmFX7p2GldzbWG5jNTP_Xhf0lu6epgN_YBmq8UkSzczCPn9DgYO_zHwLIV2TXCQXDrKljzvNSz7hGRB9lT3LfKREmjbqv3gcNwPv5di1Wfk0VtA_4RIozgn6l_WTGZ8blrUFwf0lLVty0w7qYdG_dO6TL1f6cjCHOJJD99MLalNSNl9gzip1luJV7QpuH5ds_WDM_FofmCEwKscjCSDBT&licenseId=LIC2026658&projectName=Sanity_20012026/";
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("appium:deviceName", "iPhone 13");
             caps.setCapability("platformName", "iOS");
@@ -166,6 +161,7 @@ public class _11_iOS_App_RealDevice
         }finally {
             if (driver != null) {
                 driver.quit();
+                System.out.println("Driver closed.");
             } else {
                 System.out.println("Driver not initialized. Session creation failed.");
             }

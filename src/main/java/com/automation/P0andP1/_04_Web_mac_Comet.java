@@ -115,7 +115,8 @@ public class _04_Web_mac_Comet
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+            driver.quit();
+            System.out.println("driver quit successfully");
 		}
 
 

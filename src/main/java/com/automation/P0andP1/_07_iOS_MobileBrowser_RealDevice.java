@@ -1,5 +1,13 @@
 package com.automation.P0andP1;
 
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -8,32 +16,20 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
-
 public class _07_iOS_MobileBrowser_RealDevice {
 	WebDriver driver;
 	@Test(retryAnalyzer = com.frameworks.utils.RetryAnalizer.class , invocationCount = 1)
     public void run() throws InterruptedException {
     	
         try {
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=e2mZRKEkfTrekbX8bjKBW1Ey2uVnC98y4SNUvKWW0AcrVmGA58Kn3Ks2wJYJPnLNs_1QAY40zpgEv2qUxfj7HZ9LajWiPpKC9AfQ9PMGBsXewnZ_fKpyqmxN8M_2okrPZQAXE5XtQZUCMrb1jqM8A-EQ5T-8OD8JQd79RL0oEb4xpWlbX_ReLAxQVMr_lsOyGK9tbEmwfYLH75Mr1xkooPMI57NuYr9gZp1scSCnhnAubcdZBMYY5UcOlVWiFOAcT75t3F8wv4G11pXXd_GyZQQmBbKCep_xqu2IvIgi1puHMKOwmjbiqf8dTMpeL0rf&licenseId=LIC2026610&projectName=29122025_Sanity_Testing/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=yfAa_w199cJge2Gezsgb2Jnu7hKdqER1tExY5kKvgSvXfi1lRUelFsbTFI5pMq7zQuwwNXXnsLTkjKhvWcKDWsUoGLi9KjUV6gbUNDhqj0jWYFyW9h_0LIDEg5qXigwZdqzQqAvWwHin3gBhzGndeROtixv_VFhnseGSWRAHTajZzE-Zl0d8BP6gl0TEBUfoNgqBtAQVDLP6wAQzPfcyjjGFsdHkXWeHFkKmA78D7rKlnNuN2WgjIUlhYheDRDeqZ98Ig_PyS1GbUvjwJ73L38sr_cD4Y9lrKyWJV-m5RmtKhmkqRM8uk5gEfjzgwy30&licenseId=LIC2026658&projectName=Sanity_20012026/";
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("appium:deviceName", "iPhone 13");
             caps.setCapability("platformName", "iOS");
             caps.setCapability("appium:platformVersion", "18.4.1");
             caps.setCapability("appium:browserName", "Safari");
-            WebDriver driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
+
 
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -104,8 +100,8 @@ public class _07_iOS_MobileBrowser_RealDevice {
         } finally {
             if (driver != null) {
                 driver.quit();
+                System.out.println("Driver closed.");
             }
-            System.out.println("Driver closed.");
         }
     }
 

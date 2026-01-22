@@ -13,7 +13,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
@@ -37,63 +39,17 @@ import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 
-public class RoughScript 
-{
-	WebDriver driver;
-	BaseMethodsCloud baseMethod;
-	BaseObjectsCloud baseObject;
-	BaseDataCloud baseData;
-	PantaloonsLandingPage pantaloonsLandingPage;
-	WebDriverWait wait ;
-	String products;
+public class RoughScript {
+  public static void main(String[] args) throws InterruptedException, MalformedURLException {
+      FirefoxOptions browserOptions = new FirefoxOptions();
+      browserOptions.setCapability("devicefarm:networkLogEnable", false);
+      browserOptions.setPlatformName("Windows 11");
+      browserOptions.setBrowserVersion("124");
+      WebDriver driver = new ChromeDriver();
+      driver.manage().window().setSize(new Dimension(777, 888));
 
-	@BeforeClass
-	public void driverinitiation() throws InterruptedException, MalformedURLException
-	{
-		String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9adfe132-9652-4329-a206-4c8ee67e0281&licenseId=LIC3943&projectName=project+5/";
-		ChromeOptions browserOptions = new ChromeOptions();
-		browserOptions.setPlatformName("Windows 11");
-		browserOptions.setBrowserVersion("136");
-		driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-		driver.manage().window().setSize(new Dimension(1024, 768));
-
-		
-		//this.driver = new ChromeDriver();
-
-
-		// Fetch system info
-		Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
-		String browserName = caps.getBrowserName();
-		String browserVersion = caps.getBrowserVersion();
-		String platform = caps.getPlatformName().toString();
-
-		System.out.println("Browser: " + browserName);
-		System.out.println("Version: " + browserVersion);
-		System.out.println("Platform: " + platform);
-
-		this.baseMethod = new BaseMethodsCloud(driver);
-		this.baseObject = new BaseObjectsCloud(driver);
-		this.baseData = new BaseDataCloud();
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		this.products = "Shirts";
-
-		pantaloonsLandingPage = new PantaloonsLandingPage(driver);
-		baseMethod.ImplicitWait(driver, 30,"Implicit wait is applied");
-		baseMethod.HardWait(2000,"Hard wait applied");
-	}
-
-	
-	//-----------------Browser Related Methods----------------
-		@Test(priority = 1)
-		public void browserRelatedMethods()
-		
-		{
-			
-		}
-
-	@AfterClass
-	public void QuitBrowser()
-	{
-		driver.quit();
-	}
+      driver.get("https://www.google.com");
+      Thread.sleep(30000);
+      driver.quit();
+  }
 }

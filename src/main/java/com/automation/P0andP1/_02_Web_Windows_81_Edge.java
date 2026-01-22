@@ -117,7 +117,8 @@ public class _02_Web_Windows_81_Edge
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+            driver.quit();
+            System.out.println("driver quit successfully");
 		}
 		
 		

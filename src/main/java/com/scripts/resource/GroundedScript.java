@@ -10,8 +10,10 @@
     import org.openqa.selenium.Dimension;
     import org.openqa.selenium.WebElement;
     import org.openqa.selenium.chrome.ChromeOptions;
+    import org.openqa.selenium.edge.EdgeOptions;
     import org.openqa.selenium.firefox.FirefoxOptions;
     import org.openqa.selenium.remote.RemoteWebDriver;
+    import org.openqa.selenium.safari.SafariOptions;
     import org.testng.annotations.Test;
 
     import java.io.File;
@@ -22,7 +24,7 @@
 
     public class GroundedScript {
 
-        @Test(invocationCount = 1, threadPoolSize = 1)
+        @Test(invocationCount = 1)
         public static void run() {
 
             WebDriver driver = null;
@@ -32,14 +34,13 @@
                 // --------------------------
                 // 1. Set Hub URL + Capabilities
                 // --------------------------
-                String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8085832a-28e1-45ee-bf7c-30056258ba5e&licenseId=LIC4745&projectName=HotFix_SanityHotfix_V1013/";
-                FirefoxOptions browserOptions = new FirefoxOptions();
+                String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=New+Project+15012026/";
+                ChromeOptions browserOptions = new ChromeOptions();
                 browserOptions.setCapability("devicefarm:networkLogEnable", false);
                 browserOptions.setPlatformName("Windows 11");
-                browserOptions.setBrowserVersion("139");
+                browserOptions.setBrowserVersion("132");
                 driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
                 driver.manage().window().setSize(new Dimension(1024, 768));
-
 
                 // --------------------------
                 // 2. Navigate to Google
@@ -48,9 +49,9 @@
                 takeScreenshot(driver, "01_Google_Page");
                 driver.manage().window().maximize();
 
-                // --------------------------
-                // 3. Navigate to Pantaloons Landing Page
-                // --------------------------
+//                 --------------------------
+//                 3. Navigate to Pantaloons Landing Page
+//                 --------------------------
                 driver.navigate().to("https://www.pantaloons.com");
                 takeScreenshot(driver, "02_Pantaloons_Landing");
 
@@ -78,26 +79,26 @@
                 takeScreenshot(driver, "05_Search_Results");
 
                 Thread.sleep(4000);
-
-                // --------------------------
-                // 6. Apply Gender Filter → Boys
-                // --------------------------
-                WebElement filterGender = driver.findElement(By.xpath("//p[text()='Gender']"));
-                filterGender.click();
-                takeScreenshot(driver, "06_Gender_Filter_Clicked");
-
-                WebElement boysCheckbox = driver.findElement(By.xpath("//p[text()='Boys']//ancestor::div[contains(@class,'PlpWeb_filter-values')]//input"));
-                boysCheckbox.click();
-                takeScreenshot(driver, "07_Boys_Filter_Clicked");
-
-                Thread.sleep(3000);
-
-                // --------------------------
-                // 7. Clear / Select filters
-                // --------------------------
-                WebElement clearBtn = driver.findElement(By.xpath("//button[@id=':r6:']"));
-                clearBtn.click();
-                takeScreenshot(driver, "08_Filter_Clear");
+//
+//                // --------------------------
+//                // 6. Apply Gender Filter → Boys
+//                // --------------------------
+//                WebElement filterGender = driver.findElement(By.xpath("//p[text()='Gender']"));
+//                filterGender.click();
+//                takeScreenshot(driver, "06_Gender_Filter_Clicked");
+//
+//                WebElement boysCheckbox = driver.findElement(By.xpath("//p[text()='Boys']//ancestor::div[contains(@class,'PlpWeb_filter-values')]//input"));
+//                boysCheckbox.click();
+//                takeScreenshot(driver, "07_Boys_Filter_Clicked");
+//
+//                Thread.sleep(3000);
+//
+//                // --------------------------
+//                // 7. Clear / Select filters
+//                // --------------------------
+//                WebElement clearBtn = driver.findElement(By.xpath("//button[@id=':r6:']"));
+//                clearBtn.click();
+//                takeScreenshot(driver, "08_Filter_Clear");
 
                 System.out.println("Test execution completed successfully.");
 
@@ -108,7 +109,7 @@
                 // 8. Quit Browser
                 // --------------------------
                 if (driver != null) {
-                    driver.quit();
+                   driver.quit();
                 }
             }
 

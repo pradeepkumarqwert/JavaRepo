@@ -1,21 +1,18 @@
 package com.automation.P0andP1;
 
-import java.net.InetAddress;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.UnknownHostException;
-import java.net.URI;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.SessionId;
+
+import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.SessionId;
-
-public class cHECK {
+public class _16_Web_Service {
 
     // --- Utility: Fetch node IP using GraphQL from Selenium Grid 4/5 ---
     public static String getNodeIp(RemoteWebDriver driver, String hubHost) {
@@ -68,18 +65,17 @@ public class cHECK {
 
         try {
             // Change this to your actual Selenium Hub URL
-        	String seleniumHubUrl = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=InfraSupports2/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=Test+termination/";
         	
             String hubHost = "10.10.42.225"; // Hub machine IP or DNS
 
-            ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("131");
-
-            driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-
-            // Set browser window size (instead of maximize for stability)
+            FirefoxOptions browserOptions = new FirefoxOptions();
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setPlatformName("Windows 10");
+            browserOptions.setBrowserVersion("137");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
+
 
             // Print session and node info
             System.out.println("Session ID: " + ((RemoteWebDriver) driver).getSessionId());
