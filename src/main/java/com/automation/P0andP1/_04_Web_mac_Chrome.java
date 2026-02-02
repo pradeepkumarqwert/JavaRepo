@@ -32,19 +32,13 @@ public class _04_Web_mac_Chrome
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
 
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=rewgt/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=Testing_30012026/";
             ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setCapability("fireflink:deviceType", "private");
-            browserOptions.setCapability("devicefarm:networkLogEnable", false);
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("133");
-            WebDriver driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-            driver.manage().window().setSize(new Dimension(1024, 768));
-
-
-
-
-
+            browserOptions.setCapability("devicefarm:networkLogEnable", true);
+            browserOptions.setCapability("fireflink:deviceType", "public");
+            browserOptions.setPlatformName("mac Tahoe");
+            browserOptions.setBrowserVersion("140");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();

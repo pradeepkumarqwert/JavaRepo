@@ -33,17 +33,14 @@ public class _01_Web_Windows_10_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-
-//            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=Testing+21012025/";
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9MMh2mjlAPKWJLBo1BzQryyBWyM4eHaeQql5TPgDLdwErVkf91Lq2FnwHBZxxozlUKyWshr47fXsP-r67wq47HHvJw16A9CW0bkf9wzVJiT0NwSsjjI-wilkjacGKoGXdZDOOZjQfAb2Vlt73GL2vFZXciFJVR75N9z3dRr6-0W5kXTWvNT5gqTEHnsBH1Cr2RVNgJk3ibzctJCLWkgl5g3mMPVK-a_wnaWm4n3vcvem2i3mpyZN0fTy538Ai7djqzC30NQeNcHHs7UbhV6vFKWwbgWr3CViMNZPs11pPfm0WZkOBcIDFvyRbZhosKZ9&licenseId=LIC2026617&projectName=OrangeHRM/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8CIes01KXv_zSxonpa1XUDgjNlFAnJDcf0pLEWYaC_EdkRLw9T9lp6rkak_-YfHcJpACkevzb-Vnq4w3NJvwupE2FcGEsE-IeuJwnR2IDL8va5PETxS3pVlwWpAEhTbHOs19QlqIW7_OGBHWNpzb5zQ0tRYKZiSL0Kj6ehuvQyrXVPkFccDysULDIJKia_Bcl24K211cZXY8vyS7HHOE7q9vIT_h5S1cMX-bshOe4WiF5b1QA0j2lnC5fKRApAunmGKLes4V32rXmwzYjAtmVIybdhgENlKEDSmeX7RTcY7IZ5n4nbCIlQ&licenseId=LIC4102&projectName=31012026_CB_W/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("125");
+            browserOptions.setBrowserVersion("136");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
-
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -79,7 +76,7 @@ public class _01_Web_Windows_10_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			Thread.sleep(8000);
+			Thread.sleep(4000);
 			baseMethod.waitForPageLoad(driver);
 			Thread.sleep(2000);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
@@ -87,10 +84,11 @@ public class _01_Web_Windows_10_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			String products = "Shirts";
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			SearchScenarios(products);
+//			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			
-			
+            driver.get("https://www.jiomart.com");
+            Thread.sleep(5000);
+
 			
 		}
 		public void SearchScenarios(String product) throws InterruptedException
@@ -118,8 +116,11 @@ public class _01_Web_Windows_10_Chrome
 		@AfterClass
 		public void QuitBrowser()
 		{
+            if(driver !=null)
+            {
             driver.quit();
             System.out.println("driver quit successfully");
+            }
 		}
 		
 		

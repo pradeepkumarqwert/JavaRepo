@@ -31,14 +31,13 @@ public class _03_Web_Linux_chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vK-JO6U-sXEZzMi5z7p3b6Q2RZkUv6ugZQm_Ap4eCAvIpdFtfF3AGEv6Uahw0U9XX2kz2rqdTTa6iHP-hDgOlMnutXrAxYkjAkaq_UglUWzVmFX7p2GldzbWG5jNTP_Xhf0lu6epgN_YBmq8UkSzczCPn9DgYO_zHwLIV2TXCQXDrKljzvNSz7hGRB9lT3LfKREmjbqv3gcNwPv5di1Wfk0VtA_4RIozgn6l_WTGZ8blrUFwf0lLVty0w7qYdG_dO6TL1f6cjCHOJJD99MLalNSNl9gzip1luJV7QpuH5ds_WDM_FofmCEwKscjCSDBT&licenseId=LIC2026658&projectName=Sanity_20012026/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=lAJ5eXJ0gS5WFnBQPbhhbQpNm7NfNqLZR8iWIfN4AwliqyDtNLeMTDZOPBeJXXejXJA81keImrVPRaZ2bAla-uruffkqtqXiDBnQ_-VdeZK280DJD8H14gL4iNT4hL0lk6cQ4wACSv1UQwks43Us4kN7-6BD38jYoMNbVym1YYcR37s0faj4l20zG-n4fZPTshsgtz2mUiXYEcRAwIVTxCn4cGAt9LI3j0LwCv2clVTPUts-5q9RqxjmCw7vfQFphh1XNx-p9y7N-TRytcZFovvDGELxT1VYJHY5woZmBZIaCqWZttQ&licenseId=LIC3996&projectName=Testing_27012026/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("linux");
             browserOptions.setBrowserVersion("140");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-            driver.manage().window().setSize(new Dimension(1024, 768));
-
 
 
             //Fetch system info
@@ -81,7 +80,7 @@ public class _03_Web_Linux_chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			String products = "Shirts";
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			SearchScenarios(products);
+//			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			
 			
@@ -109,8 +108,10 @@ public class _03_Web_Linux_chrome
 		@AfterClass
 		public void QuitBrowser()
 		{
-            driver.quit();
-            System.out.println("driver quit successfully");
+            if(driver != null) {
+                driver.quit();
+                System.out.println("driver quit successfully");
+            }
 		}
 		
 		

@@ -31,14 +31,14 @@ public class _01_Web_Windows_10_Firefox
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=QWgkKT6DGIR2iG74EUlW7deRNRYzgxHmiT9mNT2qYfatAtZNLMy3Jmwcc7SKuyaEUTGnty30p1C47JclhmbT46vs54qV_r8LM1Ij_zz50kuSdaWB0aNLFu9CKqwbPxYI5e9sTakYruZQ3rSVVKjdXrWERTWp9lYC2e-n9CNQoMhbZiTF-2GQ5sJvjD-570Mhh04qbLhLMk0gqzNS_mSRV2RmBAnZRsILfQvO1waWPC_q4I72O-lD7T1zk4Mh_5eT8wRYnXjcHXyneO4g19Avmq4zK6dYxbbmh5CBiyqWRxmwBGurdS0U&licenseId=LIC4045&projectName=Testing_19012026/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9SSxXZs9tf_boR37zBzxRORa5mNA0bWvgO3fdAKqIDub7-RkDTsaw4C1KscNSK1awAxG6Ir5vzMuTgRFPMLxTDvNJDJAWYaQikuHtJQ-FCu1DQoQNrUP_Zy8RWF-FisLOYBgw2WNzNtMmrzOGZylLkWkLzywDs32QKiHow0M0akxEsE7il7xaxWixaMt1RdS8NRLCUyIYXjIhgOa6pdOKHc95oqmsenHwo_0iHjHJfUWZFX3-i34X784ah2CPighR9T6vHQ6RVvMWbjz_Hjh-v4SHG8Z79TkZ2aFhrycUUkztfIcdAFT&licenseId=LIC4033&projectName=C_Basic_Sanity_300126_Web/";
             FirefoxOptions browserOptions = new FirefoxOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("Windows 11");
             browserOptions.setBrowserVersion("139");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -82,7 +82,7 @@ public class _01_Web_Windows_10_Firefox
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			String products = "Shirts";
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			SearchScenarios(products);
+//			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			
 			

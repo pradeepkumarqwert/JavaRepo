@@ -1,5 +1,6 @@
 package com.scripts.resource;
 
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
@@ -40,16 +41,47 @@ import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 
 public class RoughScript {
-  public static void main(String[] args) throws InterruptedException, MalformedURLException {
-      FirefoxOptions browserOptions = new FirefoxOptions();
-      browserOptions.setCapability("devicefarm:networkLogEnable", false);
-      browserOptions.setPlatformName("Windows 11");
-      browserOptions.setBrowserVersion("124");
-      WebDriver driver = new ChromeDriver();
-      driver.manage().window().setSize(new Dimension(777, 888));
+    WebDriver driver ;
+    AndroidDriver driver1;
+    @Test
+  public void run() throws InterruptedException, MalformedURLException {
+        try{
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=Private+dev+23012026/";
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
+            caps.setCapability("platformName", "Android");
+            caps.setCapability("appium:platformVersion", "12");
+            caps.setCapability("appium:browserName", "Chrome");
+            driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
-      driver.get("https://www.google.com");
-      Thread.sleep(30000);
-      driver.quit();
+
+            driver.get("https://www.google.com");
+            driver.get("https://www.jiomart.com");
+            callingNativeApp();
+            System.out.println("Native app execution completed");
+        }catch(Exception e){
+            System.out.println("Expection Triggered");
+        }finally {
+            driver.quit();
+        }
   }
+
+  public void callingNativeApp(){
+        try {
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appPackage", "com.google.android.apps.maps");
+            caps.setCapability("appActivity", "com.google.android.maps.MapsActivity");
+            driver1 = new AndroidDriver(caps);
+            System.out.println("Native app Opened");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }finally {
+            driver1.quit();
+
+        }
+
+  }
+
+
+
 }
