@@ -5,7 +5,6 @@ import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
@@ -32,13 +31,14 @@ public class _01_Web_Windows_10_Firefox
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b357377b-9ff7-433e-9e77-827d4c62bd25&licenseId=LIC4751&projectName=web+and+mob/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=aL-4N8cIdycxuzVhMkTTB2iEBrjsUnIH1vd86DDL-W7jn8KqCxObf_4dp_yn8AONM2sRtu73HV_twh2f42xiWfJKSJMfGpo-IWPqqtTqplrosm_WYDOtPIE3FwrD3Yg-lR6U9MqqdNHGooq16JCq3t1hm6y5RCpTVli-6EvTjzzjC7hZ1XQMYz3xYqTOKR8y9bWogR2lwaflZBseFzl0wWKwFoQoGj3_HOCTSRbiZdHbuY8BkJanG8DOXyoBatSH8XjY0HFWFZptlIrGp3WYAup1k8P9ky4PMMDJMQC8MdZZMbg8L0xV&licenseId=LIC4047&projectName=12022026_Testing/";
             FirefoxOptions browserOptions = new FirefoxOptions();
-            browserOptions.setPlatformName("Windows 10");
-            browserOptions.setBrowserVersion("135");
+            browserOptions.setCapability("devicefarm:networkLogEnable", true);
+            browserOptions.setCapability("fireflink:deviceType", "public");
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("91");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -82,7 +82,7 @@ public class _01_Web_Windows_10_Firefox
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			String products = "Shirts";
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			SearchScenarios(products);
+//			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			
 			
@@ -118,7 +118,8 @@ public class _01_Web_Windows_10_Firefox
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+            driver.quit();
+            System.out.println("driver quit successfully");
 		}
 		
 		

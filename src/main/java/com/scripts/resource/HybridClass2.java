@@ -41,24 +41,27 @@ public class HybridClass2 {
             // --------------------------
             // 1. Initialize Web Driver
             // --------------------------
-        	String seleniumHubUrlWeb = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=App+Management/";
-            ChromeOptions options = new ChromeOptions();
-            options.setPlatformName("Windows 11");
-            options.setBrowserVersion("131");
-            webDriver = new RemoteWebDriver(new URL(seleniumHubUrlWeb), options);
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9MMh2mjlAPKWJLBo1BzQryyBWyM4eHaeQql5TPgDLdwErVkf91Lq2FnwHBZxxozlUKyWshr47fXsP-r67wq47HHvJw16A9CW0bkf9wzVJiT0NwSsjjI-wilkjacGKoGXdZDOOZjQfAb2Vlt73GL2vFZXciFJVR75N9z3dRr6-0W5kXTWvNT5gqTEHnsBH1Cr2RVNgJk3ibzctJCLWkgl5g3mMPVK-a_wnaWm4n3vcvem2i3mpyZN0fTy538Ai7djqzC30NQeNcHHs7UbhV6vFKWwbgWr3CViMNZPs11pPfm0WZkOBcIDFvyRbZhosKZ9&licenseId=LIC2026617&projectName=Private+Devices/";
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("139");
+            webDriver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             webDriver.manage().window().setSize(new Dimension(1024, 768));
+
             baseMethodWeb = new BaseMethodsCloud(webDriver);
 
             // --------------------------
             // 2. Initialize Mobile Driver
             // --------------------------
-        	String seleniumHubUrlMobile = "https://cloud.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=a31168ce-bf67-4a7a-bfa1-997fca75f65a&licenseId=LIC1026534&projectName=App+Management/";
-            DesiredCapabilities capsMobile = new DesiredCapabilities();
-            capsMobile.setCapability("appium:deviceName", "oppo F27 Pro+ 5G");
-            capsMobile.setCapability("platformName", "Android");
-            capsMobile.setCapability("appium:platformVersion", "15");
-            capsMobile.setCapability("appium:browserName", "Chrome");
-            mobileDriver = new RemoteWebDriver(new URL(seleniumHubUrlMobile), capsMobile);
+            String device_farm_hub_url1 = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9MMh2mjlAPKWJLBo1BzQryyBWyM4eHaeQql5TPgDLdwErVkf91Lq2FnwHBZxxozlUKyWshr47fXsP-r67wq47HHvJw16A9CW0bkf9wzVJiT0NwSsjjI-wilkjacGKoGXdZDOOZjQfAb2Vlt73GL2vFZXciFJVR75N9z3dRr6-0W5kXTWvNT5gqTEHnsBH1Cr2RVNgJk3ibzctJCLWkgl5g3mMPVK-a_wnaWm4n3vcvem2i3mpyZN0fTy538Ai7djqzC30NQeNcHHs7UbhV6vFKWwbgWr3CViMNZPs11pPfm0WZkOBcIDFvyRbZhosKZ9&licenseId=LIC2026617&projectName=Private+Devices/";
+            DesiredCapabilities caps2 = new DesiredCapabilities();
+            caps2.setCapability("appium:deviceName", "iQOO Neo7 Pro");
+            caps2.setCapability("platformName", "Android");
+            caps2.setCapability("appium:platformVersion", "15");
+            caps2.setCapability("appium:browserName", "Chrome");
+            mobileDriver = new RemoteWebDriver(new URL(device_farm_hub_url1), caps2);
+
             baseMethodMobile = new BaseMethodsCloud(mobileDriver);
 
             // --------------------------

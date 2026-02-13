@@ -12,6 +12,7 @@ import java.util.UUID;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -39,16 +40,18 @@ public class Web_1_ProjectMenuPage {
 	@BeforeClass
 	public void initilizeBrowser() throws MalformedURLException {
 		// 1. Initialize driver first
-        String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
-        ChromeOptions browserOptions = new ChromeOptions();
-        browserOptions.setPlatformName("Windows 11");
-        browserOptions.setBrowserVersion("136");
-        driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-        driver.manage().window().setSize(new Dimension(1024, 768));
+//        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9MMh2mjlAPKWJLBo1BzQryyBWyM4eHaeQql5TPgDLdwErVkf91Lq2FnwHBZxxozlUKyWshr47fXsP-r67wq47HHvJw16A9CW0bkf9wzVJiT0NwSsjjI-wilkjacGKoGXdZDOOZjQfAb2Vlt73GL2vFZXciFJVR75N9z3dRr6-0W5kXTWvNT5gqTEHnsBH1Cr2RVNgJk3ibzctJCLWkgl5g3mMPVK-a_wnaWm4n3vcvem2i3mpyZN0fTy538Ai7djqzC30NQeNcHHs7UbhV6vFKWwbgWr3CViMNZPs11pPfm0WZkOBcIDFvyRbZhosKZ9&licenseId=LIC2026617&projectName=07012026_Cloud_Team_Test/";
+//        ChromeOptions browserOptions = new ChromeOptions();
+//        browserOptions.setCapability("devicefarm:networkLogEnable", false);
+//        browserOptions.setPlatformName("Windows 10");
+//        browserOptions.setBrowserVersion("142");
+//        driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+//        driver.manage().window().setSize(new Dimension(1024, 768));
+
+            driver = new ChromeDriver();
 
 
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.manage().window().maximize();
 
 		// 2. Only then create your base objects
@@ -177,6 +180,8 @@ public class Web_1_ProjectMenuPage {
 		baseMethod.Click(projectMenuRepo.getCreateButtonInCreateProjectSliderElementInProjectMenu());
 		// Validate that after creation of project it should landed in testdev script
 		// section by default
+
+        Thread.sleep(20000);
 		ValidateTestDevSectionOfCreatedProject();
 		// navigate to All project menu
 
@@ -233,12 +238,13 @@ public class Web_1_ProjectMenuPage {
 
 	}
 
-	@Test(priority = 2, dependsOnMethods = { "CreateProjectMethod" }, retryAnalyzer = com.frameworks.utils.RetryAnalizer.class)
+	@Test(priority = 2, dependsOnMethods = { "CreateProjectMethod" })
 	public void OpenToCloseProjectMethod() throws InterruptedException
 
 	{
 
-		System.out.println("indisee test 2");
+
+		System.out.println("Inside test 2");
 		// 1.Mouse hovered on the created project card
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",
 				projectMenuRepo.getCreateProjectRowElementInProjectMenu(projectName));
@@ -315,11 +321,13 @@ public class Web_1_ProjectMenuPage {
 			baseMethod.PrintValue("Proejct is in closed state");
 		}
 
-		System.out.println("indisee test 2 complted");
+		System.out.println("inside test 2 Completed");
 
 		// 18.Navigate inside the created project
-		baseMethod.Click(projectMenuRepo.getCreatedProjectNameColumnElementInProjectMenu(projectName));
-		Thread.sleep(10000);
+        Actions act2 = new Actions(driver);
+        act2.doubleClick(projectMenuRepo.getCreatedProjectNameColumnElementInProjectMenu(projectName));
+//		baseMethod.Click(projectMenuRepo.getCreatedProjectNameColumnElementInProjectMenu(projectName));
+		Thread.sleep(20000);
 
 		// 19.Check weather that created project is in view access state in side the
 		// project
@@ -332,7 +340,7 @@ public class Web_1_ProjectMenuPage {
 
 	}
 
-	@Test(priority = 3, dependsOnMethods = { "OpenToCloseProjectMethod" }, retryAnalyzer = com.frameworks.utils.RetryAnalizer.class)
+	@Test(priority = 3, dependsOnMethods = { "OpenToCloseProjectMethod" })
 	public void CloseToArchiveProject() throws InterruptedException {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",
 				projectMenuRepo.getCreateProjectRowElementInProjectMenu(projectName));
@@ -391,7 +399,7 @@ public class Web_1_ProjectMenuPage {
 
 	}
 
-	@Test(priority = 4, dependsOnMethods = { "CloseToArchiveProject" }, retryAnalyzer = com.frameworks.utils.RetryAnalizer.class)
+	@Test(priority = 4, dependsOnMethods = { "CloseToArchiveProject" })
 	public void ArchiveToUnarchivingOrClosedProject() throws InterruptedException {
 		// 1.Mouse hover on the created project row
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",
@@ -424,7 +432,7 @@ public class Web_1_ProjectMenuPage {
 		driver.get("https://www.google.com/");
 		 takeScreenshot(driver, "01_After_landed_on_Google");
 		// driver.navigate().to("https://app.v3.fireflink.com/");
-		driver.navigate().to("https://test3.fireflink.com/");
+		driver.navigate().to("https://app.v3.fireflink.com/");
 		takeScreenshot(driver, "02_After_landed_on_fireflink");
 		Thread.sleep(10000);
 		System.out.println("landed 1");
@@ -447,8 +455,7 @@ public class Web_1_ProjectMenuPage {
 
 		// Entering Email
 		baseMethod.Click(SaPE.getEmailTextField());
-		baseMethod.TypeText(SaPE.getEmailTextField(), "nonfunctional3.0@gmail.com");
-//		baseMethod.TypeText(SaPE.getEmailTextField(), "shirinenvi123@gmail.com");
+		baseMethod.TypeText(SaPE.getEmailTextField(), "democlouduser@yopmail.com");
 		// Entering Password
 		baseMethod.Click(SaPE.getPasswordTextField());
 		baseMethod.TypeText(SaPE.getPasswordTextField(), "Password@123");
@@ -502,7 +509,8 @@ public class Web_1_ProjectMenuPage {
 	}
 
 	// Validate that user is landed on test dev section after create a project
-	public void ValidateTestDevSectionOfCreatedProject() {
+	public void ValidateTestDevSectionOfCreatedProject() throws InterruptedException {
+        Thread.sleep(20000);
 		String attributeClass = testDevRepo.getTopNavBarScriptTab().getAttribute("class");
 		if (attributeClass.contains("ff-app-header-nav-bar-submenu-item--selected")) {
 			baseMethod.PrintValue("Script tab is selected by default");

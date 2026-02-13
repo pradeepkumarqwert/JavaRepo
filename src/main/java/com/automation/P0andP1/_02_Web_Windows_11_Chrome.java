@@ -31,17 +31,14 @@ public class _02_Web_Windows_11_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=cd67524c-e292-4bd6-993f-e9d420da0f4d&licenseId=LIC4745&projectName=TestingProject/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=aL-4N8cIdycxuzVhMkTTB2iEBrjsUnIH1vd86DDL-W7jn8KqCxObf_4dp_yn8AONM2sRtu73HV_twh2f42xiWfJKSJMfGpo-IWPqqtTqplrosm_WYDOtPIE3FwrD3Yg-lR6U9MqqdNHGooq16JCq3t1hm6y5RCpTVli-6EvTjzzjC7hZ1XQMYz3xYqTOKR8y9bWogR2lwaflZBseFzl0wWKwFoQoGj3_HOCTSRbiZdHbuY8BkJanG8DOXyoBatSH8XjY0HFWFZptlIrGp3WYAup1k8P9ky4PMMDJMQC8MdZZMbg8L0xV&licenseId=LIC4047&projectName=12022026_Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("fireflink:deviceType", "public");
+            browserOptions.setPlatformName("Windows 10");
             browserOptions.setBrowserVersion("136");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
-
-
-
-
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -77,43 +74,43 @@ public class _02_Web_Windows_11_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			Thread.sleep(5000);
-//			baseMethod.waitForPageLoad(driver);
-//			Thread.sleep(2000);
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			baseMethod.ElementIsDisplay(pantaloonsLandingPage.getPantaloonsLogoElement());
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			String products = "Shirts";
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			SearchScenarios(products);
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//
-//
-//
-//		}
-//		public void SearchScenarios(String product) throws InterruptedException
-//		{
-//			baseMethod.Click(pantaloonsLandingPage.getPantaloonsMainSearchBarElement());
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			baseMethod.TypeText(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), product);
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			Thread.sleep(5000);
-//			baseMethod.presskeys(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), Keys.ENTER,"Enter button is pressed after search product in search product");
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			Thread.sleep(5000);
-//			baseMethod.MouseHoverOnElement(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"),"Mouse hover on gender filter option on searched product list");
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			baseMethod.Click(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"));
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsSearchedSubFilterOptionsElement("Boys"));
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			Thread.sleep(5000);
-//			Thread.sleep(2000);
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
-//			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
-//			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
-//			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(5000);
+			baseMethod.waitForPageLoad(driver);
+			Thread.sleep(2000);
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			baseMethod.ElementIsDisplay(pantaloonsLandingPage.getPantaloonsLogoElement());
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			String products = "Shirts";
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			SearchScenarios(products);
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+
+
+
+		}
+		public void SearchScenarios(String product) throws InterruptedException
+		{
+			baseMethod.Click(pantaloonsLandingPage.getPantaloonsMainSearchBarElement());
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			baseMethod.TypeText(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), product);
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(5000);
+			baseMethod.presskeys(pantaloonsLandingPage.getPantaloonsMainSearchBarElement(), Keys.ENTER,"Enter button is pressed after search product in search product");
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(5000);
+			baseMethod.MouseHoverOnElement(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"),"Mouse hover on gender filter option on searched product list");
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			baseMethod.Click(pantaloonsLandingPage.PantaloonsSearchFilterOptionsElement("Gender"));
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsSearchedSubFilterOptionsElement("Boys"));
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			Thread.sleep(5000);
+			Thread.sleep(2000);
+			takeScreenshot(driver, "04_After_Search_Result_Click");
+			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
+			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
+			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
+			takeScreenshot(driver, "04_After_Search_Result_Click");
 			
 			
 			
@@ -121,7 +118,8 @@ public class _02_Web_Windows_11_Chrome
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+            driver.quit();
+            System.out.println("driver quit successfully");
 		}
 		
 		

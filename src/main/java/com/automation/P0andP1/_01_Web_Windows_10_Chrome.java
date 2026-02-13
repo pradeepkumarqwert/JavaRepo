@@ -1,23 +1,17 @@
 package com.automation.P0andP1;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import com.scripts.basefolder.BaseDataCloud;
 import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,15 +33,14 @@ public class _01_Web_Windows_10_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=b357377b-9ff7-433e-9e77-827d4c62bd25&licenseId=LIC4751&projectName=web+and+mob/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
             ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setPlatformName("Windows 10");
-            browserOptions.setBrowserVersion("134");
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("fireflink:deviceType", "public");
+            browserOptions.setPlatformName("Windows 11");
+            browserOptions.setBrowserVersion("136");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
-
-
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -58,18 +51,18 @@ public class _01_Web_Windows_10_Chrome
 		    System.out.println("Browser: " + browserName);
 		    System.out.println("Version: " + browserVersion);
 		    System.out.println("Platform: " + platform);
-			
 
 
-			
-			
-			
+
+
+
+
 			this.baseMethod = new BaseMethodsCloud(driver);
 			this.baseObject = new BaseObjectsCloud(driver);
 			this.baseData = new BaseDataCloud();
 			
 			pantaloonsLandingPage = new PantaloonsLandingPage(driver);
-			baseMethod.MaximizeBrowser(driver,"Browser is maximized");
+//			baseMethod.MaximizeBrowser(driver,"Browser is maximized");
 			baseMethod.ImplicitWait(driver, 20,"Implicit wait is applied");
 			baseMethod.HardWait(2000,"Hard wait applied");
 			
@@ -83,7 +76,7 @@ public class _01_Web_Windows_10_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			Thread.sleep(8000);
+			Thread.sleep(4000);
 			baseMethod.waitForPageLoad(driver);
 			Thread.sleep(2000);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
@@ -93,8 +86,9 @@ public class _01_Web_Windows_10_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-			
-			
+            driver.get("https://www.jiomart.com");
+            Thread.sleep(5000);
+
 			
 		}
 		public void SearchScenarios(String product) throws InterruptedException
@@ -114,12 +108,7 @@ public class _01_Web_Windows_10_Chrome
 			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsSearchedSubFilterOptionsElement("Boys"));
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			Thread.sleep(5000);
-			Thread.sleep(2000);
-			takeScreenshot(driver, "04_After_Search_Result_Click");
-			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
-			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
-			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
-			takeScreenshot(driver, "04_After_Search_Result_Click");
+
 			
 			
 			
@@ -127,7 +116,11 @@ public class _01_Web_Windows_10_Chrome
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+            if(driver !=null)
+            {
+//            driver.quit();
+            System.out.println("driver quit successfully");
+            }
 		}
 		
 		

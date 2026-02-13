@@ -50,15 +50,9 @@ public class SeleniumMethods
 	@BeforeClass
 	public void driverinitiation() throws InterruptedException, MalformedURLException
 	{
-		String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9adfe132-9652-4329-a206-4c8ee67e0281&licenseId=LIC3943&projectName=project+5/";
-		ChromeOptions browserOptions = new ChromeOptions();
-		browserOptions.setPlatformName("Windows 11");
-		browserOptions.setBrowserVersion("135");
-		driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-		driver.manage().window().setSize(new Dimension(1024, 768));
 
 		
-		//this.driver = new ChromeDriver();
+		driver = new ChromeDriver();
 
 
 		// Fetch system info
@@ -122,9 +116,8 @@ public class SeleniumMethods
 			// Get Page Source
 			String pageSource = driver.getPageSource();
 			System.out.println("PageSource length: " + pageSource.length());
+			System.out.println("browserRelatedMethods completed --!!");
 			
-			
-			((JavascriptExecutor) driver).executeScript("Print: " + "browserRelatedMethods completed --!!" + "');");
 		}
 		
 		// ----------------- Page Load Wait -----------------
@@ -137,9 +130,8 @@ public class SeleniumMethods
 			wait.until((ExpectedCondition<Boolean>) wd ->
 				((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
 			);
-			
-			System.out.println("waitUntilPageLoadComplete completed !!");
-			((JavascriptExecutor) driver).executeScript("Print: " + "waitUntilPageLoadComplete completed !!" + "');");
+            System.out.println("waitUntilPageLoadComplete completed --!!");
+
 		}
 
 		// ----------------- Timeouts -----------------
@@ -147,9 +139,9 @@ public class SeleniumMethods
 		@SuppressWarnings("deprecation")
 		public void timeOutMethods()
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "timeOutMethods Started !!---" + "');");
-			System.out.println("timeOutMethods Started !!---");
-			
+            System.out.println("timeOutMethods completed --!!");
+
+
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
 			driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(40));
@@ -161,14 +153,12 @@ public class SeleniumMethods
 			);
 			System.out.println("Async script executed successfully");
 			System.out.println("timeOutMethods completed !!");
-			((JavascriptExecutor) driver).executeScript("Print: " + "timeOutMethods completed !!" + "');");
 		}
 	
 		// ----------------- Window Management -----------------
 		@Test(priority = 4)
 		public void windowsManagementMethods()
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "windowsManagementMethods Started !!---" + "');");
 			System.out.println("windowsManagementMethods Started !!---");
 			
 			driver.manage().window().fullscreen();
@@ -187,14 +177,12 @@ public class SeleniumMethods
 			
 			driver.manage().window().maximize();
 			System.out.println("windowsManagementMethods completed !!");
-			((JavascriptExecutor) driver).executeScript("Print: " + "windowsManagementMethods completed !!" + "');");
 		}
 	
 		
 		@Test(priority = 5)
 		public void alertMethods()
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "alertMethods Started !!---" + "');");
 			System.out.println("alertMethods Started !!---");
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -210,14 +198,12 @@ public class SeleniumMethods
 			Alert alert2 = driver.switchTo().alert();
 			alert2.accept();
 			System.out.println("alertMethods completed !!");
-			((JavascriptExecutor) driver).executeScript("Print: " + "alertMethods completed !!" + "');");
 		}
 
 		// ----------------- Windows / Tabs -----------------
 		@Test(priority = 6)
 		public void WindowsOrTabMethods() throws InterruptedException
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "WindowsOrTabMethods Started !!---" + "');");
 			System.out.println("WindowsOrTabMethods Started !!---");
 			
 			String parentHandle = driver.getWindowHandle();
@@ -247,14 +233,12 @@ public class SeleniumMethods
 			driver.switchTo().window(parentHandle);	
 			
 			System.out.println("WindowsOrTabMethods completed !!");
-			((JavascriptExecutor) driver).executeScript("Print: " + "WindowsOrTabMethods completed !!" + "');");
 		}
 
 		// ----------------- Cookies -----------------
 		@Test(priority = 7)
 		public void cookiesMethods()
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "cookiesMethods Started !!---" + "');");
 			System.out.println("cookiesMethods Started !!---");
 			
 			Cookie testcookie = new Cookie("Testingcookie1", "12345");
@@ -282,7 +266,6 @@ public class SeleniumMethods
 			{
 				System.out.println("List of cookies: " + cookies);
 			}
-			((JavascriptExecutor) driver).executeScript("Print: " + "cookiesMethods completed !!" + "');");
 
 //			System.out.println("cookiesMethods completed !!");
 		}
@@ -291,7 +274,6 @@ public class SeleniumMethods
 		@Test(priority = 8)
 		public void actionClassMethos() throws InterruptedException
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "actionClassMethos Started !!---" + "');");
 			System.out.println("actionClassMethos Started !!---");
 			
 			Actions act = new Actions(driver);
@@ -314,7 +296,6 @@ public class SeleniumMethods
 			   .perform();
 			
 			System.out.println("actionClassMethos completed !!");
-			((JavascriptExecutor) driver).executeScript("Print: " + "actionClassMethos completed !!" + "');");
 		}
 		
 		
@@ -322,7 +303,6 @@ public class SeleniumMethods
 		@Test(priority = 9)
 		public void elementInteractionMethos()
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "elementInteractionMethos Started !!---" + "');");
 			System.out.println("elementInteractionMethos Started !!---");
 			
 			WebElement searchBox = pantaloonsLandingPage.getPantaloonsMainSearchBarElement();
@@ -344,14 +324,12 @@ public class SeleniumMethods
 			System.out.println("Attribute type: " + searchBox.getAttribute("type"));
 			System.out.println("CSS font-size: " + searchBox.getCssValue("font-size"));
 			System.out.println("elementInteractionMethos completed !!");
-			((JavascriptExecutor) driver).executeScript("Print: " + "elementInteractionMethos completed !!" + "');");
 		}
 
 		// ----------------- Dropdown -----------------
 		@Test(priority = 10)
 		public void dropdownMethods()
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "dropdownMethods Started !!---" + "');");
 			System.out.println("dropdownMethods Started !!---");
 			
 			driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select_multiple");
@@ -366,7 +344,7 @@ public class SeleniumMethods
 	        select.selectByVisibleText("Volvo");
 	        select.selectByVisibleText("Saab");
 	        select.selectByValue("opel");
-	        select.selectByIndex(3); // Audi
+	        select.selectByIndex(3);
 
 	        List<WebElement> allSelected = select.getAllSelectedOptions();
 	        System.out.println("Selected options:");
@@ -385,7 +363,6 @@ public class SeleniumMethods
 	        System.out.println("All options deselected successfully.");
 	        
 	        System.out.println("dropdownMethods completed !!");
-	        ((JavascriptExecutor) driver).executeScript("Print: " + "dropdownMethods completed !!" + "');");
 		}
 
 		
@@ -393,7 +370,6 @@ public class SeleniumMethods
 		@Test(priority = 11)
 		public void javeScriptExecutor() throws InterruptedException
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "javeScriptExecutor Started !!---" + "');");
 			System.out.println("javeScriptExecutor Started !!---");
 			
 	        driver.manage().window().maximize();
@@ -469,7 +445,6 @@ public class SeleniumMethods
 	        
 	        
 	        System.out.println("javeScriptExecutor completed --!!");
-	        ((JavascriptExecutor) driver).executeScript("Print: " + "javeScriptExecutor completed --!!" + "');");
 		}
 		
 		
@@ -479,7 +454,6 @@ public class SeleniumMethods
 		@Test(priority = 12)
 		public void executeAsyncScript()
 		{
-			((JavascriptExecutor) driver).executeScript("Print: " + "executeAsyncScript Started !!---" + "');");
 			System.out.println("executeAsyncScript Started !!---");
 			
 	        driver.get("https://www.w3schools.com");
@@ -539,7 +513,6 @@ public class SeleniumMethods
 	        System.out.println("Async operation duration: " + duration + " ms");
 	        
 	        System.out.println("executeAsyncScript completed --!!");
-	        ((JavascriptExecutor) driver).executeScript("Print: " + "executeAsyncScript completed --!!" + "');");
 		}
 
 		
