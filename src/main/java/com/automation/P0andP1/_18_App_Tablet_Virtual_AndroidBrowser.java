@@ -19,7 +19,7 @@ public class _18_App_Tablet_Virtual_AndroidBrowser {
     WebDriver driver;
 @Test(invocationCount = 1)
     public void run() throws Exception {
-    String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9SSxXZs9tf_boR37zBzxRORa5mNA0bWvgO3fdAKqIDub7-RkDTsaw4C1KscNSK1awAxG6Ir5vzMuTgRFPMLxTDvNJDJAWYaQikuHtJQ-FCu1DQoQNrUP_Zy8RWF-FisLOYBgw2WNzNtMmrzOGZylLkWkLzywDs32QKiHow0M0akxEsE7il7xaxWixaMt1RdS8NRLCUyIYXjIhgOa6pdOKHc95oqmsenHwo_0iHjHJfUWZFX3-i34X784ah2CPighR9T6vHQ6RVvMWbjz_Hjh-v4SHG8Z79TkZ2aFhrycUUkztfIcdAFT&licenseId=LIC4033&projectName=TIME+ZONE/";
+    String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=12022026_Testing/";
     DesiredCapabilities caps = new DesiredCapabilities();
     caps.setCapability("appium:deviceName", "Pixel Tablet");
     caps.setCapability("platformName", "Android");
@@ -28,7 +28,6 @@ public class _18_App_Tablet_Virtual_AndroidBrowser {
     caps.setCapability("appium:deviceType", "public");
     caps.setCapability("appium:isVirtual", true);
     driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
 
     try {
             driver.get("https://www.wikipedia.org");

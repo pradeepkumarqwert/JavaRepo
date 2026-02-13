@@ -4,6 +4,7 @@ import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.GeneralStore_Repository;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -24,110 +25,57 @@ import java.time.Duration;
 
 public class RoughScript2 {
     AndroidDriver driver;
+    IOSDriver driver1;
     BaseMethodsCloud baseMethod;
     BaseObjectsCloud objectCreate;
     GeneralStore_Repository GS_repo;
 
-    @Test(dataProvider = "CountryName", invocationCount = 4, threadPoolSize = 4)
-
-    public void initializationApp(String countryName, String testerName, String gender) throws MalformedURLException, InterruptedException {
-        // For local Appium (uncomment this if you run locally)
-        /*
-        UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("SM_A135F");  // your real/emulator device
-        options.setPlatformName("Android");
-        options.setAutomationName("UiAutomator2");
-        options.setAppPackage("com.androidsample.generalstore");
-        options.setAppActivity("com.androidsample.generalstore.SplashActivity");
-        options.setNoReset(false);
-        options.setAutoGrantPermissions(true);
-
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
-        */
-
-        // For Fireflink Cloud
-        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=Testing_27012026/";
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("appium:platformVersion", "12");
-        caps.setCapability("appium:app", "General-Store-final (4) (1).apk");
-        caps.setCapability("appium:deviceType", "public");
-        caps.setCapability("appium:isVirtual", false);
-        driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
+//Samsung A12 lower envi
+//            caps.setCapability("appium:appPackage", "com.yum.kfc");
+//            caps.setCapability("appium:appActivity", "com.cognizantorderserv.kfcindiadroid.MainActivity");
 
 
-        // Initialize helpers
-        baseMethod = new BaseMethodsCloud(driver);
-        objectCreate = new BaseObjectsCloud(driver);
-        GS_repo = new GeneralStore_Repository(driver);
-        System.out.println("Execution started");
+//
+//            caps.setCapability("appium:appPackage", "com.sec.android.app.camera");
+//            caps.setCapability("appium:appActivity", "com.sec.android.app.camera.Camera");
+
+
+    @Test(invocationCount = 1)
+    public void androidMainSteps() throws InterruptedException, MalformedURLException {
+        try {
+
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
+            caps.setCapability("platformName", "iOS");
+            caps.setCapability("appium:platformVersion", "18.4");
+            caps.setCapability("appium:bundleId", "com.apple.AppStore");
+            caps.setCapability("appium:deviceType", "public");
+            caps.setCapability("appium:isVirtual", true);
+            driver1 = new IOSDriver(new URL(device_farm_hub_url), caps);
 
 
 
 
-        Thread.sleep(5000);
-        baseMethod.Click(GS_repo.getGeneralStoreSelectionOfCountryDropDownElement());
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-        Thread.sleep(1000);
-        baseMethod.Click(GS_repo.CountryOptionInDropDown(countryName));
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-        System.out.println(countryName);
 
-        baseMethod.Click(GS_repo.getGeneralStoreYourNameTextFiledElement());
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-        baseMethod.TypeText(GS_repo.getGeneralStoreYourNameTextFiledElement(), testerName);
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-        Thread.sleep(10000);
-        System.out.println(testerName);
-        driver.hideKeyboard();
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-        baseMethod.Click(GS_repo.GenderRadioButton(gender));
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-        baseMethod.Click(GS_repo.getLetsShopButton());
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
+            takeScreenshot(driver1, "Android_MobileApp_RealDevice");
+            Thread.sleep(5000);
+            takeScreenshot(driver1, "Android_MobileApp_RealDevice");
 
-        WebDriverWait wait = new WebDriverWait(driver , Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOf(GS_repo.getProduct1AddToCartButton()));
-        baseMethod.Click(GS_repo.getProduct1AddToCartButton());
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-
-        String number_Of_Products_Added = baseMethod.GetText(GS_repo.getFetchNumberOfProductAddedToCart(),
-                "Fetching Number of products added to cart");
-
-        baseMethod.ElementIsDisplay(GS_repo.CheckNumberOfProductAddedToCart(number_Of_Products_Added));
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-
-
-        baseMethod.Click(GS_repo.getCartButton());
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-        wait.until(ExpectedConditions.visibilityOf(GS_repo.getVerifyCartPage()));
-        baseMethod.ElementIsDisplay(GS_repo.getVerifyAddedProductInCartPage());
-        takeScreenshot(driver, "Android_MobileApp_RealDevice");
-
-        if (driver != null) {
-            driver.quit();
-            System.out.println("driver quit successfully");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }finally {
+            if(driver1 != null){
+                driver1.quit();
+                System.out.println("Driver is quited successfully");
+            }
         }
+
     }
 
 
-    @DataProvider(name = "CountryName")
-    public Object[][] options() {
-        return new Object[][] {
-                {"Afghanistan", "Tester1", "Male"}
-//           ,{"Albania","Tester2","Female"},
-//    	    {"Antarctica","Tester3","Male"},
-//            {"American Samoa","Tester4","Female"},
-//         	{"Andorra","Tester5","Male"},
-//            {"Angola","Tester6","Female"},
-//            {"Anguilla","Tester7","Male"},
-//            {"Antarctica","Tester8","Female"},
-//            {"Antigua and Barbuda","Tester9","Male"}
-        };
-    }
 
-    public static void takeScreenshot(AndroidDriver driver, String fileName)
+    public static void takeScreenshot(IOSDriver driver, String fileName)
     {
         if (driver == null) {
             return;
@@ -144,6 +92,9 @@ public class RoughScript2 {
             System.out.println("Screenshot capture failed: " + e.getMessage());
         }
     }
+
+
+
 
 
 

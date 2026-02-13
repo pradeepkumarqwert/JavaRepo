@@ -31,14 +31,14 @@ public class _03_Web_Linux_chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=lAJ5eXJ0gS5WFnBQPbhhbQpNm7NfNqLZR8iWIfN4AwliqyDtNLeMTDZOPBeJXXejXJA81keImrVPRaZ2bAla-uruffkqtqXiDBnQ_-VdeZK280DJD8H14gL4iNT4hL0lk6cQ4wACSv1UQwks43Us4kN7-6BD38jYoMNbVym1YYcR37s0faj4l20zG-n4fZPTshsgtz2mUiXYEcRAwIVTxCn4cGAt9LI3j0LwCv2clVTPUts-5q9RqxjmCw7vfQFphh1XNx-p9y7N-TRytcZFovvDGELxT1VYJHY5woZmBZIaCqWZttQ&licenseId=LIC3996&projectName=Testing_27012026/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("linux");
             browserOptions.setBrowserVersion("140");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-
+            driver.manage().window().setSize(new Dimension(1024, 768));
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -80,7 +80,7 @@ public class _03_Web_Linux_chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			String products = "Shirts";
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			SearchScenarios(products);
+			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			
 			

@@ -23,16 +23,15 @@ public class _06_App_Mobile_Real_AndroidBrowser {
         //            caps.setCapability("appium:deviceType","private");
 
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8CIes01KXv_zSxonpa1XUDgjNlFAnJDcf0pLEWYaC_EdkRLw9T9lp6rkak_-YfHcJpACkevzb-Vnq4w3NJvwupE2FcGEsE-IeuJwnR2IDL8va5PETxS3pVlwWpAEhTbHOs19QlqIW7_OGBHWNpzb5zQ0tRYKZiSL0Kj6ehuvQyrXVPkFccDysULDIJKia_Bcl24K211cZXY8vyS7HHOE7q9vIT_h5S1cMX-bshOe4WiF5b1QA0j2lnC5fKRApAunmGKLes4V32rXmwzYjAtmVIybdhgENlKEDSmeX7RTcY7IZ5n4nbCIlQ&licenseId=LIC4102&projectName=31012026_CB_M/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
+            caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
             caps.setCapability("platformName", "Android");
-            caps.setCapability("appium:platformVersion", "12");
+            caps.setCapability("appium:platformVersion", "14");
             caps.setCapability("appium:browserName", "Chrome");
             caps.setCapability("appium:deviceType", "public");
             caps.setCapability("appium:isVirtual", false);
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
 
             //caps.setCapability("appium:chromedriverAutodownload", true);
 

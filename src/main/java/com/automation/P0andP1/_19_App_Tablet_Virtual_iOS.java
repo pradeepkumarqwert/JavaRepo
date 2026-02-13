@@ -1,12 +1,17 @@
 package com.automation.P0andP1;
 
+
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -16,105 +21,117 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
-public class _19_App_Tablet_Virtual_iOS {
+public class _19_App_Tablet_Virtual_iOS
+{
     IOSDriver driver;
-	@Test(retryAnalyzer = com.frameworks.utils.RetryAnalizer.class , invocationCount = 1)
-    public void run() throws InterruptedException {
-    	
+
+    @BeforeClass
+    public void initialize() throws MalformedURLException {
+        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=Test+Check/";
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("appium:platformVersion", "18.4");
+        caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.zip");
+        caps.setCapability("appium:deviceType", "public");
+        caps.setCapability("appium:isVirtual", true);
+
+        caps.setCapability("appium:automationName", "XCUITest");
+        caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups
+        caps.setCapability("appium:fullReset", true);
+        driver = new IOSDriver(new URL(device_farm_hub_url), caps);
+
+    }
+
+
+    @Test
+    public void test() throws MalformedURLException, InterruptedException
+    {
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9SSxXZs9tf_boR37zBzxRORa5mNA0bWvgO3fdAKqIDub7-RkDTsaw4C1KscNSK1awAxG6Ir5vzMuTgRFPMLxTDvNJDJAWYaQikuHtJQ-FCu1DQoQNrUP_Zy8RWF-FisLOYBgw2WNzNtMmrzOGZylLkWkLzywDs32QKiHow0M0akxEsE7il7xaxWixaMt1RdS8NRLCUyIYXjIhgOa6pdOKHc95oqmsenHwo_0iHjHJfUWZFX3-i34X784ah2CPighR9T6vHQ6RVvMWbjz_Hjh-v4SHG8Z79TkZ2aFhrycUUkztfIcdAFT&licenseId=LIC4033&projectName=C_Basic_Sanity_30012026/";
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
-            caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "18.4");
-            caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1+(5).zip");
-            caps.setCapability("appium:deviceType", "public");
-            caps.setCapability("appium:isVirtual", true);
-            driver = new IOSDriver(new URL(device_farm_hub_url), caps);
+            Thread.sleep(10000);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 
-
-
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            Actions actions = new Actions(driver);
-    		  
-            driver.get("https://www.wikipedia.org/");
+            driver.findElement(AppiumBy.accessibilityId("test-standard_user")).click();
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(AppiumBy.accessibilityId("test-LOGIN")).click();
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("(//XCUIElementTypeOther[@name='test-ADD TO CART'])[1]")).click();
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 362, 57));
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.perform(Arrays.asList(tap));
             Thread.sleep(2000);
-            takeScreenshot(driver, "Navigate to wikipedia");
-            WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("searchInput")));
-
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-CHECKOUT']")).click();
             Thread.sleep(2000);
-            searchInput.sendKeys("iPhone");
-            takeScreenshot(driver, "Wikipedia_Type_iPhone");
-
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-First Name']")).sendKeys("Pradeep");
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Last Name']")).click();
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Last Name']")).sendKeys("Kumar");
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Zip/Postal Code']")).click();
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='test-Zip/Postal Code']")).sendKeys("56473");
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-CONTINUE']")).click();
             Thread.sleep(2000);
-            driver.findElement(By.cssSelector("button[type='submit']")).click();
-            takeScreenshot(driver, "Wikipedia_Click_On_Element");
-
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            Sequence dragAndDrop = new Sequence(finger, 1);
+            dragAndDrop.addAction(finger.createPointerMove(Duration.ZERO,
+                    PointerInput.Origin.viewport(), 157, 728));
+            dragAndDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            dragAndDrop.addAction(new Pause(finger, Duration.ofMillis(500)));
+            dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(800),
+                    PointerInput.Origin.viewport(), 155, 374));
+            dragAndDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.perform(List.of(dragAndDrop));
             Thread.sleep(2000);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1")));
-
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-FINISH']")).click();
             Thread.sleep(2000);
-            System.out.println("Title after search: " + driver.getTitle());
-
-
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@name='test-BACK HOME']")).click();
             Thread.sleep(2000);
-            actions.sendKeys(Keys.PAGE_DOWN).perform();
-            Thread.sleep(1000);
-            takeScreenshot(driver, "Wikipedia_PageDown");
+            takeScreenshot(driver, "iOS_MobileApp_Simulator");
+        }catch (Exception e){
+            System.out.println("Expection Triggered");
+            System.out.println(e);
+        }finally {
+            System.out.println("Executing tearDown Method");
+        }
 
-            Thread.sleep(2000);
-            actions.sendKeys(Keys.PAGE_DOWN).perform();
-            takeScreenshot(driver, "Wikipedia_PageDown");
+    }
 
-            Thread.sleep(2000);
-            WebElement link = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(@href,'Apple')])[1]")));
-            link.click();
-            takeScreenshot(driver, "Wikipedia_Wait_UntilElementToBE_Clickable");
-
-            Thread.sleep(2000);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
-
-            Thread.sleep(2000);
-            WebElement heading = driver.findElement(By.tagName("h1"));
-            System.out.println("Opened page: " + heading.getText());
-            takeScreenshot(driver, "Wikipedia_find Element");
-
-            Thread.sleep(2000);
-            driver.navigate().back();
-
-            Thread.sleep(2000);
-            System.out.println("Now on: " + driver.getCurrentUrl());
-            takeScreenshot(driver, "Wikipedia_GetCurrent_URL");
-
-            Thread.sleep(2000);
-            driver.navigate().refresh();
-            takeScreenshot(driver, "Wikipedia_Refresh page");
-
-            Thread.sleep(2000);
+    @AfterClass
+    public void tearDown()
+    {
+        if(driver != null)
+        {
             driver.quit();
-
-
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        } catch (Exception e) {
-            System.out.println("Exception occurred: " + e.getMessage());
-            takeScreenshot(driver, "99_Exception_Occurred");
-        } finally {
-            if (driver != null) {
-                driver.quit();
-                System.out.println("Driver closed.");
-            }
+            System.out.println("Driver closed.");
         }
     }
 
-    
-    
-    public static void takeScreenshot(WebDriver driver, String fileName) 
+
+
+
+
+    public static void takeScreenshot(IOSDriver driver, String fileName)
     {
         if (driver == null) {
-			return;
-		}
+            return;
+        }
         try {
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             File dest = new File("C:\\Selenium Grid\\Screenshots\\" + fileName + ".png");
@@ -127,4 +144,5 @@ public class _19_App_Tablet_Virtual_iOS {
             System.out.println("Screenshot capture failed: " + e.getMessage());
         }
     }
+
 }

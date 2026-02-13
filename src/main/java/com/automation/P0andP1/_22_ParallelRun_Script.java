@@ -2,6 +2,7 @@ package com.automation.P0andP1;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.testng.annotations.Test;
@@ -14,12 +15,13 @@ public class _22_ParallelRun_Script {
     WebDriver driver ;
     @Test(invocationCount = 10, threadPoolSize = 10)
     public void run() throws InterruptedException, MalformedURLException {
-        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=Testing+project+1/";
-        SafariOptions browserOptions = new SafariOptions();
+        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=Admin+project+2/";
+        ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setCapability("devicefarm:networkLogEnable", false);
-        browserOptions.setPlatformName("mac Sequoia");
-        browserOptions.setBrowserVersion("18.2");
-        driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+        browserOptions.setCapability("fireflink:deviceType", "public");
+        browserOptions.setPlatformName("Windows 11");
+        browserOptions.setBrowserVersion("136");
+        WebDriver driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
         driver.manage().window().setSize(new Dimension(1024, 768));
 
 

@@ -21,16 +21,15 @@ public class _10_App_Mobile_Virtual_AndroidBrowser {
     public void run() throws InterruptedException {
     	
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=ouWDfsjW_RUL5yQzD1JXaURPi9GV6ntD74jQR0Z0kHOH7JTB35X9FR7Oa8u1NfUZ7PpS39cfT4Tib8ik5GzofZQ-ZnfMHSbUF1KRi_O6lXkfGts5BRcXvynqVhBGJZT0rD3asM9sdu1LOc6ekoPgyobaCTLzc_sBr-uIKnTgttPfC-tzMUY6pxb3DUprprnPW_SRQgiS8XVhRd6krEEGBO4fC4rgyZXDOE5e9gRcFv45pyl4jxT_fRn-PgwCbUtKs8J555q8qfn7B8v93mSZtA0XaQxWA52ufRHmXA_y3G9C70XKe_aK9w&licenseId=LIC4057&projectName=Mobile+project/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=12022026_Testing/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
+            caps.setCapability("appium:deviceName", "Pixel 7");
             caps.setCapability("platformName", "Android");
-            caps.setCapability("appium:platformVersion", "14");
+            caps.setCapability("appium:platformVersion", "15");
             caps.setCapability("appium:browserName", "Chrome");
             caps.setCapability("appium:deviceType", "public");
-            caps.setCapability("appium:isVirtual", false);
+            caps.setCapability("appium:isVirtual", true);
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
 
 
 

@@ -19,16 +19,15 @@ public class _14_App_Tablet_Real_AndroidBrowser {
     WebDriver driver;
 @Test(invocationCount = 1)
     public void run() throws Exception {
-
-    String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=38POQeInJdHhuT1LtwaXooJ2zBkiutf5JUZb6lEChNPORDu7hjD96aTphCcTtnmTHDvIqo9QVvdfD3qG02wmqXjMDm2eGxTb9NsZ1ANx5AU9bMAWAsvWIyQqm_euXcBVF2x2zlG-Ywljt7BbH5FVBY_R_F6YNNGHagJxekSUaZCe4MoaD6eHdItJ3vKBKAI8c-AkThezsaX2W0GemgYOjaTnyA6UzS5aiCVttAcvl9mPhlhbgc8pAEOMNaYeGpwh_0Vu5ptnSQ29gCAnWmmTGf7mCSgH35RanpkW2825qxtuMY0U_8_ElA&licenseId=LIC4045&projectName=Testing+21012026/";
+    String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=NCIy1e_-zEgG-15AuI-i6cZJRAOZxsq1p9r8-SjfEPrDwDn-oPLlFAcz4je4MS3pfaWQX3BMlhj3q1QHPNeDXcvGGf7RI7fnEHQThJbAxqTuql-pJYRld_Vr-eaGuxTtagWXNZstVZY5zOrGvpWYzCNQXVyA8EihmlqQ79t9l5vchVYC1doULHptVZpGXarEeENHvHf8MCqNwiFLRiekfD6H24oVlrtc0zuk43i9REA6FQJP1wPb1lm4Mm22xLihHRdL1MT1W3PsT3LMR_GkNM3jWDr-W7f6ggIjCPCoZFHJ16bHvLf_5ugkmIPaL8av&licenseId=LIC2026615&projectName=04022026_Card_Testing/";
     DesiredCapabilities caps = new DesiredCapabilities();
-    caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
-    caps.setCapability("platformName", "iOS");
-    caps.setCapability("appium:platformVersion", "18.4");
-    caps.setCapability("appium:browserName", "Safari");
+    caps.setCapability("appium:deviceName", "Galaxy Tab A11");
+    caps.setCapability("platformName", "Android");
+    caps.setCapability("appium:platformVersion", "15");
+    caps.setCapability("appium:browserName", "Chrome");
+    caps.setCapability("appium:deviceType", "public");
+    caps.setCapability("appium:isVirtual", false);
     driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
-
 
 
 

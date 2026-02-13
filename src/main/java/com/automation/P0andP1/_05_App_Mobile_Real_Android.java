@@ -44,8 +44,16 @@ public class _05_App_Mobile_Real_Android {
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
         */
 
+
+//        caps.setCapability("appium:appPackage", "com.google.android.calendar");
+//        caps.setCapability("appium:appActivity", "com.android.calendar.AllInOneActivity");
+//        caps.setCapability("appium:noReset", true);
+
+
         // For Fireflink Cloud
-        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8CIes01KXv_zSxonpa1XUDgjNlFAnJDcf0pLEWYaC_EdkRLw9T9lp6rkak_-YfHcJpACkevzb-Vnq4w3NJvwupE2FcGEsE-IeuJwnR2IDL8va5PETxS3pVlwWpAEhTbHOs19QlqIW7_OGBHWNpzb5zQ0tRYKZiSL0Kj6ehuvQyrXVPkFccDysULDIJKia_Bcl24K211cZXY8vyS7HHOE7q9vIT_h5S1cMX-bshOe4WiF5b1QA0j2lnC5fKRApAunmGKLes4V32rXmwzYjAtmVIybdhgENlKEDSmeX7RTcY7IZ5n4nbCIlQ&licenseId=LIC4102&projectName=31012026_CB_M/";
+
+
+        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
         caps.setCapability("platformName", "Android");
@@ -54,7 +62,6 @@ public class _05_App_Mobile_Real_Android {
         caps.setCapability("appium:deviceType", "public");
         caps.setCapability("appium:isVirtual", false);
         driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
-
 
 
         // Initialize helpers

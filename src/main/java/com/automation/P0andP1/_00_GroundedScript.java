@@ -18,7 +18,7 @@
     public class _00_GroundedScript {
 
         //4 parallel run
-        @Test(invocationCount = 3, threadPoolSize = 3)
+        @Test(invocationCount = 4, threadPoolSize = 4)
         public static void run() {
 
             WebDriver driver = null;
@@ -29,9 +29,9 @@
                 // 1. Set Hub URL + Capabilities
                 // --------------------------
     //            String device_farm_hub_url = "http://103.182.210.84:4444";
-                String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=Testing_27012026/";
+                String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=12022026_Testing/";
                 ChromeOptions browserOptions = new ChromeOptions();
-                browserOptions.setCapability("devicefarm:networkLogEnable", true);
+                browserOptions.setCapability("devicefarm:networkLogEnable", false);
                 browserOptions.setCapability("fireflink:deviceType", "public");
                 browserOptions.setPlatformName("Windows 11");
                 browserOptions.setBrowserVersion("136");
@@ -49,11 +49,11 @@
 //                 3. Navigate to Pantaloons Landing Page
 //                 --------------------------
                 driver.navigate().to("https://www.pantaloons.com");
-                Thread.sleep(150000);
+                Thread.sleep(1500);
                 takeScreenshot(driver, "02_Pantaloons_Landing");
-                Thread.sleep(150000);
+                Thread.sleep(1500);
 
-                Thread.sleep(150000);
+                Thread.sleep(1500);
 
                 // --------------------------
                 // 4. Validate Pantaloons Logo
@@ -72,12 +72,12 @@
                 searchBar.sendKeys("Shirts");
                 Thread.sleep(15000);
                 takeScreenshot(driver, "04_Typed_Search");
-                Thread.sleep(15000);
+                Thread.sleep(1500);
 
                 searchBar.sendKeys(Keys.ENTER);
                 takeScreenshot(driver, "05_Search_Results");
 
-                Thread.sleep(150000);
+                Thread.sleep(1500);
 
 //                // --------------------------
 //                // 6. Apply Gender Filter → Boys
@@ -85,13 +85,13 @@
                 WebElement filterGender = driver.findElement(By.xpath("//p[text()='Gender']"));
                 filterGender.click();
                 takeScreenshot(driver, "06_Gender_Filter_Clicked");
-                Thread.sleep(150000);
+                Thread.sleep(1500);
 
                 WebElement boysCheckbox = driver.findElement(By.xpath("//p[text()='Boys']//ancestor::div[contains(@class,'PlpWeb_filter-values')]//input"));
                 boysCheckbox.click();
                 takeScreenshot(driver, "07_Boys_Filter_Clicked");
 
-                Thread.sleep(150000);
+                Thread.sleep(1000);
 
 
                 System.out.println("Test execution completed successfully.");

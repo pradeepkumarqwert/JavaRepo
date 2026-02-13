@@ -1,0 +1,73 @@
+Lower envi:
+------------
+Samsung Galaxy A12:
+--------------------
+App Name: Clock
+------------------
+            caps.setCapability("appium:appPackage", "com.sec.android.app.clockpackage");
+            caps.setCapability("appium:appActivity", "com.sec.android.app.clockpackage.ClockPackage");
+            caps.setCapability("appium:noReset", "true");
+
+App Name: Camera
+------------------
+                     caps.setCapability("appium:appPackage", "com.sec.android.app.camera");
+                     caps.setCapability("appium:appActivity", "com.sec.android.app.camera.Camera");
+                     caps.setCapability("appium:noReset", true);
+
+
+App Name: KFC
+-------------------
+//            caps.setCapability("appium:appPackage", "com.yum.kfc");
+//            caps.setCapability("appium:appActivity", "com.cognizantorderserv.kfcindiadroid.MainActivity");
+
+
+
+
+
+
+App Name: Gmail
+------------------
+                        caps.setCapability("appium:appPackage", "com.google.android.gm");
+                       caps.setCapability("appium:appActivity", "com.google.android.gm.ConversationListActivityGmail");
+                       caps.setCapability("appium:noReset", "true");
+App Name: Chrome
+------------------
+            caps.setCapability("appium:appPackage", "com.android.chrome");
+            caps.setCapability("appium:appActivity", "com.google.android.apps.chrome.Main");
+            caps.setCapability("appium:noReset", "true");
+
+App Name: Groww
+------------------
+            caps.setCapability("appium:appPackage", "com.nextbillion.groww");
+            caps.setCapability("appium:appActivity", "com.nextbillion.groww.genesys.loginsignup.activities.LoginActivity");
+            caps.setCapability("appium:noReset", "true");
+
+
+App Name: Messages
+------------------
+            caps.setCapability("appium:appPackage", "com.google.android.apps.messaging");
+            caps.setCapability("appium:appActivity", "com.google.android.apps.messaging.ui.ConversationListActivity");
+            caps.setCapability("appium:noReset", "true");
+
+
+App Name: Package Names
+------------------
+          caps.setCapability("appium:appPackage", "com.sec.android.app.camera");
+          caps.setCapability("appium:appActivity", "com.sec.android.app.camera.Camera");
+          caps.setCapability("appium:noReset", true);
+
+
+----------------------------------------------------------------------------
+
+Lower envi:
+------------
+Samsung Galaxy M13:
+--------------------
+App Name: Calculator
+------------------
+
+
+          caps.setCapability("appium:appPackage", "com.sec.android.app.popupcalculator");
+          caps.setCapability("appium:appActivity", "com.sec.android.app.popupcalculator.Calculator");
+          caps.setCapability("appium:noReset", true);
+

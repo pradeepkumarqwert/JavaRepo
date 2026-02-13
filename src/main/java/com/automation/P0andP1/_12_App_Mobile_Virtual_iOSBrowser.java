@@ -23,14 +23,15 @@ public class _12_App_Mobile_Virtual_iOSBrowser {
     	
         try {
         	//String seleniumHubUrl = "http://103.182.210.85:4444";
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vK-JO6U-sXEZzMi5z7p3b6Q2RZkUv6ugZQm_Ap4eCAvIpdFtfF3AGEv6Uahw0U9XX2kz2rqdTTa6iHP-hDgOlMnutXrAxYkjAkaq_UglUWzVmFX7p2GldzbWG5jNTP_Xhf0lu6epgN_YBmq8UkSzczCPn9DgYO_zHwLIV2TXCQXDrKljzvNSz7hGRB9lT3LfKREmjbqv3gcNwPv5di1Wfk0VtA_4RIozgn6l_WTGZ8blrUFwf0lLVty0w7qYdG_dO6TL1f6cjCHOJJD99MLalNSNl9gzip1luJV7QpuH5ds_WDM_FofmCEwKscjCSDBT&licenseId=LIC2026658&projectName=Sanity_20012026/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=NCIy1e_-zEgG-15AuI-i6cZJRAOZxsq1p9r8-SjfEPrDwDn-oPLlFAcz4je4MS3pfaWQX3BMlhj3q1QHPNeDXcvGGf7RI7fnEHQThJbAxqTuql-pJYRld_Vr-eaGuxTtagWXNZstVZY5zOrGvpWYzCNQXVyA8EihmlqQ79t9l5vchVYC1doULHptVZpGXarEeENHvHf8MCqNwiFLRiekfD6H24oVlrtc0zuk43i9REA6FQJP1wPb1lm4Mm22xLihHRdL1MT1W3PsT3LMR_GkNM3jWDr-W7f6ggIjCPCoZFHJ16bHvLf_5ugkmIPaL8av&licenseId=LIC2026615&projectName=04022026_Card_Testing/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Simulator iPhone 15");
+            caps.setCapability("appium:deviceName", "Simulator iPad Pro 13inch");
             caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "17.5");
+            caps.setCapability("appium:platformVersion", "18.4");
             caps.setCapability("appium:browserName", "Safari");
+            caps.setCapability("appium:deviceType", "public");
+            caps.setCapability("appium:isVirtual", true);
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
-
 
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));

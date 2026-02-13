@@ -33,7 +33,7 @@ public class _01_Web_Windows_10_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8CIes01KXv_zSxonpa1XUDgjNlFAnJDcf0pLEWYaC_EdkRLw9T9lp6rkak_-YfHcJpACkevzb-Vnq4w3NJvwupE2FcGEsE-IeuJwnR2IDL8va5PETxS3pVlwWpAEhTbHOs19QlqIW7_OGBHWNpzb5zQ0tRYKZiSL0Kj6ehuvQyrXVPkFccDysULDIJKia_Bcl24K211cZXY8vyS7HHOE7q9vIT_h5S1cMX-bshOe4WiF5b1QA0j2lnC5fKRApAunmGKLes4V32rXmwzYjAtmVIybdhgENlKEDSmeX7RTcY7IZ5n4nbCIlQ&licenseId=LIC4102&projectName=31012026_CB_W/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
@@ -84,7 +84,7 @@ public class _01_Web_Windows_10_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			String products = "Shirts";
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-//			SearchScenarios(products);
+			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
             driver.get("https://www.jiomart.com");
             Thread.sleep(5000);
@@ -118,7 +118,7 @@ public class _01_Web_Windows_10_Chrome
 		{
             if(driver !=null)
             {
-            driver.quit();
+//            driver.quit();
             System.out.println("driver quit successfully");
             }
 		}

@@ -31,7 +31,7 @@ public class _02_Web_Windows_11_Firefox
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9SSxXZs9tf_boR37zBzxRORa5mNA0bWvgO3fdAKqIDub7-RkDTsaw4C1KscNSK1awAxG6Ir5vzMuTgRFPMLxTDvNJDJAWYaQikuHtJQ-FCu1DQoQNrUP_Zy8RWF-FisLOYBgw2WNzNtMmrzOGZylLkWkLzywDs32QKiHow0M0akxEsE7il7xaxWixaMt1RdS8NRLCUyIYXjIhgOa6pdOKHc95oqmsenHwo_0iHjHJfUWZFX3-i34X784ah2CPighR9T6vHQ6RVvMWbjz_Hjh-v4SHG8Z79TkZ2aFhrycUUkztfIcdAFT&licenseId=LIC4033&projectName=C_Basic_Sanity_300126_Web/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=aL-4N8cIdycxuzVhMkTTB2iEBrjsUnIH1vd86DDL-W7jn8KqCxObf_4dp_yn8AONM2sRtu73HV_twh2f42xiWfJKSJMfGpo-IWPqqtTqplrosm_WYDOtPIE3FwrD3Yg-lR6U9MqqdNHGooq16JCq3t1hm6y5RCpTVli-6EvTjzzjC7hZ1XQMYz3xYqTOKR8y9bWogR2lwaflZBseFzl0wWKwFoQoGj3_HOCTSRbiZdHbuY8BkJanG8DOXyoBatSH8XjY0HFWFZptlIrGp3WYAup1k8P9ky4PMMDJMQC8MdZZMbg8L0xV&licenseId=LIC4047&projectName=12022026_Testing/";
             FirefoxOptions browserOptions = new FirefoxOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
