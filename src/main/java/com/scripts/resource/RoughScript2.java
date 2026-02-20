@@ -25,7 +25,7 @@ import java.time.Duration;
 
 public class RoughScript2 {
     AndroidDriver driver;
-    IOSDriver driver1;
+//    IOSDriver driver1;
     BaseMethodsCloud baseMethod;
     BaseObjectsCloud objectCreate;
     GeneralStore_Repository GS_repo;
@@ -44,29 +44,29 @@ public class RoughScript2 {
     public void androidMainSteps() throws InterruptedException, MalformedURLException {
         try {
 
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
+
+
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=web+project+2/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
-            caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "18.4");
-            caps.setCapability("appium:bundleId", "com.apple.AppStore");
+            caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
+            caps.setCapability("platformName", "Android");
+            caps.setCapability("appium:platformVersion", "12");
+            caps.setCapability("appium:app", "General-Store-final (4) (2).apk");
             caps.setCapability("appium:deviceType", "public");
-            caps.setCapability("appium:isVirtual", true);
-            driver1 = new IOSDriver(new URL(device_farm_hub_url), caps);
+            caps.setCapability("appium:isVirtual", false);
+            driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
 
 
 
-
-
-            takeScreenshot(driver1, "Android_MobileApp_RealDevice");
+            takeScreenshot(driver, "Android_MobileApp_RealDevice");
             Thread.sleep(5000);
-            takeScreenshot(driver1, "Android_MobileApp_RealDevice");
+            takeScreenshot(driver, "Android_MobileApp_RealDevice");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }finally {
-            if(driver1 != null){
-                driver1.quit();
+            if(driver != null){
+                driver.quit();
                 System.out.println("Driver is quited successfully");
             }
         }
@@ -75,7 +75,7 @@ public class RoughScript2 {
 
 
 
-    public static void takeScreenshot(IOSDriver driver, String fileName)
+    public static void takeScreenshot(AndroidDriver driver, String fileName)
     {
         if (driver == null) {
             return;
