@@ -31,15 +31,15 @@ public class _07_App_Mobile_Real_iOS
     @Test
     public void steps() throws InterruptedException {
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=20022016_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=23+web+and+Mobile/";
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("appium:deviceName", "iPhone 11");
             caps.setCapability("platformName", "iOS");
-            caps.setCapability("appium:platformVersion", "15.5");
-            caps.setCapability("appium:app", "bigbasket.ipa");
+            caps.setCapability("appium:platformVersion", "18.3");
+            caps.setCapability("appium:app", "Meesho 2.84.1 (1) (2) (1) (1).ipa");
             caps.setCapability("appium:deviceType", "public");
             caps.setCapability("appium:isVirtual", false);
-            caps.setCapability("appium:bundleId", "com.bigbasket.mobileapp");
+            caps.setCapability("appium:bundleId", "com.meesho.Meesho");
 
             caps.setCapability("appium:automationName", "XCUITest");
             caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups

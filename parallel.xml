@@ -3,8 +3,9 @@
 <suite name="FireflinkCloudSuite" verbose="1"  parallel="classes">
     <test name="FireflinkCloudTest">
         <classes>
-           <class name="com.automation.P0andP1._01_Web_Windows_10_Firefox"/>
-           <class name="com.automation.P0andP1._02_Web_Windows_11_Chrome" />
+            <class name="com.devicebusy._08_App_Mobile_Real_AndroidBrowser"/>
+            <class name="com.devicebusy._09_App_Mobile_Real_AndroidBrowser"/>
+            <class name="com.devicebusy._10_App_Mobile_Real_AndroidBrowser"/>
         </classes>
     </test>
 </suite>

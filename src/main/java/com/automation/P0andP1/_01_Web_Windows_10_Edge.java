@@ -32,7 +32,7 @@ public class _01_Web_Windows_10_Edge
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=3V8zWwU_ZBlo9Mark3RUHP6W9WQ6ngzwM6HIlKxvroX3nZ460yWIjB-R0UthjyWa_iZzPcJ1yanH1uzP7QBdHvgE3Z-e15C2pugZpl_umAeFksOLjUCdb_o1Lhko7nAoh5DDPcd0KLByXE1DCdH041xIR6C6hOoeVbMQe8Eefw0HwknwNmzcYE7NgPdsG6eiG0OWgj8FB2KxvdvgA6KGlAv6sUKbIZdKbksqGNXJaJUKY3P2YZD8kzVyOwqgO617QMXC5V_r0SQQ4KYY5V-PutlRve6Laj2PZkCNJbtHtN_Fo8-tGdowEcXdImCpnAA&licenseId=LIC4045&projectName=HL_SANITY_17012026/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8Tcsdwspy69KdKXw6ambPGMs6LQazDAA8okbIssJb7YGMDCKJMTB7VsBrV4hUIOuGV6I3wCwpK2CbuNIwIVnSswS5CbMRArfP5qm59IgrRxHwhSx_RywypctI-EwuF2TlQs7Dsq38CpF24sHUVJrCSi8v1VvwYjO3LKlPp5054Ji4dtzt3EtbdVyIAlwauBFkx-1YufbwuVWT-AOLN0MlQLdqjA0bzHDwpSZUzk2LeE7GFJ6rBwsOsTQrpU6HNU2W3kRm70a6nvLdV91z6Hm-kxlb_Rd8l4i_Pt52_nZUtFT5BYDEGZiGIrR_yOMRSnQtp5ojsY6bWnoVA&licenseId=LIC2026615&projectName=16-03-2026_Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");

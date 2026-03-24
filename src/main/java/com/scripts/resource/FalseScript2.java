@@ -1,101 +1,106 @@
 package com.scripts.resource;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.time.Duration;
+
 public class FalseScript2 {
-	WebDriver driver;
-	@Test(retryAnalyzer = com.frameworks.utils.RetryAnalizer.class , invocationCount = 1)
-    public void run() throws InterruptedException {
-    	
+
+    AndroidDriver driver=null;
+
+
+
+    @Test(invocationCount = 1)
+    public void androidMainSteps() throws Exception {
+
         try {
-        	//String seleniumHubUrl = "http://103.182.210.85:4444";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=23+web+and+Mobile/";
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appium:deviceName", "Redmi TV");
+            caps.setCapability("platformName", "Android");
+            caps.setCapability("appium:platformVersion", "11");
+            caps.setCapability("appium:appPackage", "com.androidsample.generalstore");
+            caps.setCapability("appium:appActivity", "com.androidsample.generalstore.SplashActivity");
+            caps.setCapability("appium:NoReset", true);
+            caps.setCapability("appium:deviceType", "public");
+            caps.setCapability("appium:isVirtual", false);
+            driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
 
-        	String seleniumHubUrl = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=736d95c1-64e3-46ba-8f86-cf4086a93045&licenseId=LIC3943&projectName=Sanity/";
-        	DesiredCapabilities caps = new DesiredCapabilities();
-        	caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
-        	caps.setCapability("platformName", "Android");
-        	caps.setCapability("appium:platformVersion", "12");
-        	caps.setCapability("appium:browserName", "Chrome");
-        	driver = new RemoteWebDriver(new URL(seleniumHubUrl), caps);
+
+            System.out.println("Execution Started");
 
 
-
-
-        	
-        	
-           //caps.setCapability("appium:chromedriverAutodownload", true);
-
-            driver.get("https://www.pantaloons.com/");
-            System.out.println("Opened Pantaloons in mobile browser.");
-            takeScreenshot(driver, "01_HomePage");
-
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             Thread.sleep(3000);
+            // 1. Select Country Dropdown
+            driver.findElement(By.xpath("//android.widget.Spinner[@resource-id='com.androidsample.generalstore:id/spinnerCountry']")).click();
+            for (int i = 0; i < 3; i++) {
+                takeScreenshot("Step1_SelectCountryDropdown");
+            }
+            // 2. Select Country
+//            Thread.sleep(3000);
+            driver.findElement(By.xpath("//android.widget.TextView[@resource-id='android:id/text1' and @text='Afghanistan']")).click();
+            for (int i = 0; i < 3; i++) {
+                takeScreenshot("Step1_SelectCountryDropdown");
+            }
+//            // 3. Enter Name
+//            WebElement nameField = driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.androidsample.generalstore:id/nameField']"));
+//            nameField.click();
+//            nameField.sendKeys("Tester1");
+//            for(int i = 0; i<3; i++) {
+//                takeScreenshot("Step1_SelectCountryDropdown");
+//            }
+//            driver.hideKeyboard();
+//
+//            // 4. Select Gender
+//            driver.findElement(By.xpath("//android.widget.RadioButton[@resource-id='com.androidsample.generalstore:id/radioMale']")).click();
+//            for(int i = 0; i<3; i++) {
+//                takeScreenshot("Step1_SelectCountryDropdown");
+//            }
+//            // 5. Click Let's Shop
+//            driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.androidsample.generalstore:id/btnLetsShop']")).click();
+//            takeScreenshot("Step5_ClickLetsShop");
 
-            driver.findElement(By.cssSelector("div.mobilesearchbox")).click();
-            System.out.println("Clicked.");
-            takeScreenshot(driver, "02_After_Click_Search_Icon");
 
-            Thread.sleep(5000);
-
-            driver.findElement(By.xpath("//input[@placeholder='Search for products,brands and more...']")).sendKeys("Shirt");
-            System.out.println("Entered.");
-            takeScreenshot(driver, "03_After_Entering_Search");
-
-            Thread.sleep(2000);
-
-            driver.findElement(By.xpath("(//'])[1]")).click();
-            System.out.println("Searched for item");
-            takeScreenshot(driver, "04_After_Search_Result_Click");
-
-            Thread.sleep(4000);
-            driver.findElement(By.cssSelector("span.cartSpriteIcon")).click();
-            System.out.println("Opened Cart");
-            takeScreenshot(driver, "05_Cart_Page");
-
-            System.out.println("Page Title: " + driver.getTitle());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
-            System.out.println("Exception occurred: " + e.getMessage());
-            takeScreenshot(driver, "99_Exception_Occurred");
+
+            throw new RuntimeException(e);
         } finally {
             if (driver != null) {
                 driver.quit();
+                System.out.println("Driver quit successfully");
+                Thread.sleep(8000);
+
+
             }
-            System.out.println("Driver closed.");
         }
     }
 
-    
-    
-    public static void takeScreenshot(WebDriver driver, String fileName) 
-    {
-        if (driver == null) {
-			return;
-		}
+
+    public void takeScreenshot(String fileName) {
         try {
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             File dest = new File("C:\\Selenium Grid\\Screenshots\\" + fileName + ".png");
-            dest.getParentFile().mkdirs(); // Ensure folder exists
+            dest.getParentFile().mkdirs();
             Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             System.out.println("Screenshot saved: " + dest.getAbsolutePath());
         } catch (IOException e) {
-            System.out.println("Failed to save screenshot: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Screenshot capture failed: " + e.getMessage());
+            System.out.println("Screenshot Failed: " + e.getMessage());
         }
     }
 }

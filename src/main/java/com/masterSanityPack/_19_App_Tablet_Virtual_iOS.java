@@ -30,14 +30,15 @@ public class _19_App_Tablet_Virtual_iOS
 
     @BeforeClass
     public void initialize() throws MalformedURLException {
-        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=NCIy1e_-zEgG-15AuI-i6cZJRAOZxsq1p9r8-SjfEPrDwDn-oPLlFAcz4je4MS3pfaWQX3BMlhj3q1QHPNeDXcvGGf7RI7fnEHQThJbAxqTuql-pJYRld_Vr-eaGuxTtagWXNZstVZY5zOrGvpWYzCNQXVyA8EihmlqQ79t9l5vchVYC1doULHptVZpGXarEeENHvHf8MCqNwiFLRiekfD6H24oVlrtc0zuk43i9REA6FQJP1wPb1lm4Mm22xLihHRdL1MT1W3PsT3LMR_GkNM3jWDr-W7f6ggIjCPCoZFHJ16bHvLf_5ugkmIPaL8av&licenseId=LIC2026615&projectName=16022026_Testing/";
+        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=23+web+and+Mobile/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "Simulator iPad Pro 13inch");
+        caps.setCapability("appium:deviceName", "Simulator iPad Air 13inch M3");
         caps.setCapability("platformName", "iOS");
         caps.setCapability("appium:platformVersion", "18.4");
-        caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.zip");
+        caps.setCapability("appium:app", "iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1 (1) (1) (1) (1) (1) (1) (1).zip");
         caps.setCapability("appium:deviceType", "public");
         caps.setCapability("appium:isVirtual", true);
+        caps.setCapability("appium:bundleId", "com.saucelabs.SwagLabsMobileApp");
 
         caps.setCapability("appium:automationName", "XCUITest");
         caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups

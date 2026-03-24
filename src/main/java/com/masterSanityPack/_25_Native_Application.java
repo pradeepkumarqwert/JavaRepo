@@ -17,7 +17,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-public class _27_Native_Application {
+public class _25_Native_Application {
     AndroidDriver driver;
     BaseMethodsCloud baseMethod;
     BaseObjectsCloud objectCreate;
@@ -25,17 +25,18 @@ public class _27_Native_Application {
 
     @Test()
     public void initializationApp() throws MalformedURLException, InterruptedException {
-        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=12022026_Testing/";
+        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=NCIy1e_-zEgG-15AuI-i6cZJRAOZxsq1p9r8-SjfEPrDwDn-oPLlFAcz4je4MS3pfaWQX3BMlhj3q1QHPNeDXcvGGf7RI7fnEHQThJbAxqTuql-pJYRld_Vr-eaGuxTtagWXNZstVZY5zOrGvpWYzCNQXVyA8EihmlqQ79t9l5vchVYC1doULHptVZpGXarEeENHvHf8MCqNwiFLRiekfD6H24oVlrtc0zuk43i9REA6FQJP1wPb1lm4Mm22xLihHRdL1MT1W3PsT3LMR_GkNM3jWDr-W7f6ggIjCPCoZFHJ16bHvLf_5ugkmIPaL8av&licenseId=LIC2026615&projectName=02032026_Testing_103/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "Samsung Galaxy A12");
+        caps.setCapability("appium:deviceName", "iQOO Neo7 Pro");
         caps.setCapability("platformName", "Android");
-        caps.setCapability("appium:platformVersion", "12");
-        caps.setCapability("appium:appPackage", "com.androidsample.generalstore");
-        caps.setCapability("appium:appActivity", "com.androidsample.generalstore.SplashActivity");
-        caps.setCapability("appium:noReset", true);
+        caps.setCapability("appium:platformVersion", "15");
+        caps.setCapability("appium:appPackage", "com.medplus.mobile.android");
+        caps.setCapability("appium:appActivity", "com.medplus.mobile.android.MainActivity");
+        caps.setCapability("appium:noReset", "true");
         caps.setCapability("appium:deviceType", "public");
         caps.setCapability("appium:isVirtual", false);
         driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
+
 
 
         System.out.println("Execution started");
@@ -78,6 +79,9 @@ public class _27_Native_Application {
 
 
 
+
+
+
 //        Lower envi:
 //        ------------
 //                Samsung Galaxy A12:
@@ -100,7 +104,9 @@ public class _27_Native_Application {
 //            caps.setCapability("appium:appPackage", "com.yum.kfc");
 //            caps.setCapability("appium:appActivity", "com.cognizantorderserv.kfcindiadroid.MainActivity");
 //
-//
+//        caps.setCapability("appium:appPackage", "com.Dominos");
+//        caps.setCapability("appium:appActivity", "com.Dominos.activity.alias.LauncherDefaultAlias");
+//        caps.setCapability("appium:noReset", "true");
 //
 //
 //
@@ -166,3 +172,15 @@ public class _27_Native_Application {
 //        caps.setCapability("appium:noReset", true);
 
 
+
+
+
+
+
+
+
+//Prod:
+//iQOO Neo7 Pro:
+//        caps.setCapability("appium:appPackage", "com.medplus.mobile.android");
+//        caps.setCapability("appium:appActivity", "com.medplus.mobile.android.MainActivity");
+//        caps.setCapability("appium:noReset", "true");

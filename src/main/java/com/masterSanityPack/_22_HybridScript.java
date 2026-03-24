@@ -18,7 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
 @Listeners(com.report.listener.ExtentReportManager.class)
-public class _21_HybridScript {
+public class _22_HybridScript {
 
     WebDriver webDriver;
     WebDriver mobileDriver;

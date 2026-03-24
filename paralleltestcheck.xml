@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "resource/testng-1.0.dtd">
-<suite name="FireflinkCloudSuite" verbose="1"  parallel="methods">
-    <test name="FireflinkCloudTest" >
+<suite name="FireflinkCloudSuite" verbose="1"  parallel="classes">
+    <test name="FireflinkCloudTest">
         <classes>
-            <class name="com.scripts.resource.Parallel_Check1"/>
-            <class name="com.scripts.resource.Parallel_Check2"/>
+            <class name="com.devicebusy._01_WebScript"/>
+            <class name="com.devicebusy._02_WebScript"/>
+            <class name="com.devicebusy._03_WebScript"/>
+            <class name="com.devicebusy._04_WebScript"/>
+            <class name="com.devicebusy._05_WebScript"/>
+            <class name="com.devicebusy._06_WebScript"/>
+            <class name="com.devicebusy._07_WebScript"/>
         </classes>
     </test>
 </suite>

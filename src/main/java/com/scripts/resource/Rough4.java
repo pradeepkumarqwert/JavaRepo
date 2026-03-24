@@ -1,17 +1,9 @@
-package com.scripts.resource;
-
-import com.scripts.basefolder.BaseMethodsCloud;
-import com.scripts.basefolder.BaseObjectsCloud;
-import com.scripts.repository.GeneralStore_Repository;
+package com.masterSanityPack;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -22,71 +14,141 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 
-public class Rough4 {
-    AndroidDriver driver;
-    BaseMethodsCloud baseMethod;
-    BaseObjectsCloud objectCreate;
-    GeneralStore_Repository GS_repo;
-
-//Samsung A12 lower envi
-//            caps.setCapability("appium:appPackage", "com.yum.kfc");
-//            caps.setCapability("appium:appActivity", "com.cognizantorderserv.kfcindiadroid.MainActivity");
-
-
+public class Rough4{
+    @Test(invocationCount = 1)
+    public void run() throws Exception {
+//        DesiredCapabilities cap = new DesiredCapabilities();
 //
-//            caps.setCapability("appium:appPackage", "com.sec.android.app.camera");
-//            caps.setCapability("appium:appActivity", "com.sec.android.app.camera.Camera");
+//        cap.setCapability("appium:platformName", "Android");
+//        cap.setCapability("appium:automationName", "UIAutomator2");
+//        cap.setCapability("appium:deviceName", "Redmi TV");
+//        cap.setCapability("appium:platformVersion", "11");
+//        cap.setCapability("appium:app", "https://testyantrademourl.s3.ap-south-1.amazonaws.com/ApiDemos-debug.apk");
+//        AndroidDriver driver = new AndroidDriver(new URL("  http://103.182.210.84:4444"), cap);
 
 
-    @Test(invocationCount =1)
-    public void androidMainSteps() throws InterruptedException, MalformedURLException {
+
+//        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=23+web+and+Mobile/";
+//        DesiredCapabilities caps = new DesiredCapabilities();
+//        caps.setCapability("appium:deviceName", "Google TV");
+//        caps.setCapability("platformName", "Android");
+//        caps.setCapability("appium:platformVersion", "16");
+//        caps.setCapability("appium:appPackage", "com.google.android.youtube.tv");
+//        caps.setCapability("appium:appActivity", "com.google.android.apps.youtube.tv.activity.ShellActivity");
+//        caps.setCapability("appium:noReset", true);
+//        caps.setCapability("appium:deviceType", "public");
+//        caps.setCapability("appium:isVirtual", true);
+//        AndroidDriver driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
+
+
+        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=240326_TVTEsting/";
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("appium:deviceName", "Google TV");
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("appium:platformVersion", "16");
+        caps.setCapability("appium:app", "ApiDemos-debug.apk");
+        caps.setCapability("appium:deviceType", "public");
+        caps.setCapability("appium:isVirtual", true);
+        AndroidDriver driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
+
         try {
-
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=Testing_27012026/";
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Samsung Galaxy M13");
-            caps.setCapability("platformName", "Android");
-            caps.setCapability("appium:platformVersion", "13");
-            caps.setCapability("appium:appPackage", "com.sec.android.app.popupcalculator");
-            caps.setCapability("appium:appActivity", "com.sec.android.app.popupcalculator.Calculator");
-            caps.setCapability("appium:deviceType", "private");
-            caps.setCapability("appium:isVirtual", false);
-            driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
+            System.out.println("Android TV launched successfully!");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            System.out.println("Pressed DPAD_DOWN");
 
 
-//            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=gpLL6cBoP80wWRUOKCFToC2MAR0d40JVsseGS2O6RxXHMW441fBUR7CaCCOIZLcjAgkd8zUlVGp5S0rM7dZfKFgsW6ibAvOnGsjPNdPQx4icUanJ_1blqqgSKpEcGN4Da3zKrVaeiJRmoqHi5nZBXx_XM-7P0_y5rO4Y7IL5Jxq6xYxg36QvorAd3qsq9fUs_8lwmldA9H0PpSIvR61vPBP0NnNY8Cpumk4KNZHKj2xSnerRwChNKJVpOmhdufZtj-uvavtFYPLzY6YEDtxzcRv2ebU0NXOXBg1u-NRVnliB6N49pjQ&licenseId=LIC3996&projectName=Testing_27012026/";
-//            DesiredCapabilities caps = new DesiredCapabilities();
-//            caps.setCapability("appium:deviceName", "Pixel 7 Pro");
-//            caps.setCapability("platformName", "Android");
-//            caps.setCapability("appium:platformVersion", "15");
-//            caps.setCapability("appium:appPackage", "com.google.android.gm");
-//            caps.setCapability("appium:appActivity", "com.google.android.gm.ConversationListActivityGmail");
-//            caps.setCapability("appium:noReset", "true");
-//            caps.setCapability("appium:deviceType", "public");
-//            caps.setCapability("appium:isVirtual", true);
-//            driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
-//
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_CENTER));
+            System.out.println("Pressed DPAD_CENTER");
+
+            Thread.sleep(1000);
+
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_CENTER));
+            WebElement focusedElement = driver.findElement(By.xpath("//*[@focused='true']"));
+            String focusedText = focusedElement.getText();
+
+            System.out.println("Focused Element Text: " + focusedText);
+
+            if (focusedText != null && !focusedText.isEmpty()) {
+                System.out.println("Verification Passed: Focused element contains text");
+            } else {
+                System.out.println("Verification Failed: No text found");
+            }
+
+            try {
+                WebElement element = driver.findElement(By.xpath("//android.widget.TextView[@text='Views']"));
+                System.out.println("Element Found: " + element.getText());
+            } catch (Exception e) {
+                System.out.println("Element 'Views' not found");
+            }
+
+            // Back Navigation
+            driver.pressKey(new KeyEvent(AndroidKey.BACK));
+            driver.pressKey(new KeyEvent(AndroidKey.BACK));
+            System.out.println("Pressed BACK twice");
+
+            // More Navigation
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            takeScreenshot(driver, "Captured");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            takeScreenshot(driver, "Captured");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_CENTER));
+            takeScreenshot(driver, "Captured");
+
+            // Scroll through items
+
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            takeScreenshot(driver, "Captured");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            takeScreenshot(driver, "Captured");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            takeScreenshot(driver, "Captured");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            takeScreenshot(driver, "Captured");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_CENTER));
+            takeScreenshot(driver, "Captured");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_LEFT));
+            System.out.println("Pressed LEFT");
+            takeScreenshot(driver, "Captured");
 
 
 
-            takeScreenshot(driver, "Android_MobileApp_RealDevice");
-            Thread.sleep(5000);
-            takeScreenshot(driver, "Android_MobileApp_RealDevice");
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_RIGHT));
+            System.out.println("Pressed RIGHT");
+            takeScreenshot(driver, "Captured");
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }finally {
-            if(driver != null){
+
+            driver.pressKey(new KeyEvent(AndroidKey.DPAD_UP));
+            System.out.println("Pressed UP");
+            takeScreenshot(driver, "Captured");
+
+
+            // Open Menu
+            driver.pressKey(new KeyEvent(AndroidKey.MENU));
+            System.out.println("Pressed MENU");
+            takeScreenshot(driver, "Captured");
+
+
+            driver.pressKey(new KeyEvent(AndroidKey.HOME));
+            System.out.println("Pressed HOME");
+            takeScreenshot(driver, "Captured");
+
+
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (driver != null) {
+//                driver.removeApp("io.appium.android.apis");
                 driver.quit();
-                System.out.println("Driver is quited successfully");
             }
         }
-
     }
 
 
-
-    public static void takeScreenshot(AndroidDriver driver, String fileName)
+    public static void takeScreenshot(WebDriver driver, String fileName)
     {
         if (driver == null) {
             return;
@@ -103,11 +165,5 @@ public class Rough4 {
             System.out.println("Screenshot capture failed: " + e.getMessage());
         }
     }
-
-
-
-
-
-
 
 }

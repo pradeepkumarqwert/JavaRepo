@@ -33,6 +33,7 @@ public class _16_App_Tablet_Real_iOSBrowser {
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
             driver.get("https://www.wikipedia.org/");
             Thread.sleep(2000);
             WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("searchInput")));
