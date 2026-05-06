@@ -4,6 +4,7 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -41,18 +42,26 @@ public class TV_Automation_Suite{
 //        AndroidDriver driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
 
 
-
-        String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=23+mobile/";
+        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8Tcsdwspy69KdKXw6ambPGMs6LQazDAA8okbIssJb7YGMDCKJMTB7VsBrV4hUIOuGV6I3wCwpK2CbuNIwIVnSswS5CbMRArfP5qm59IgrRxHwhSx_RywypctI-EwuF2TlQs7Dsq38CpF24sHUVJrCSi8v1VvwYjO3LKlPp5054Ji4dtzt3EtbdVyIAlwauBFkx-1YufbwuVWT-AOLN0MlQLdqjA0bzHDwpSZUzk2LeE7GFJ6rBwsOsTQrpU6HNU2W3kRm70a6nvLdV91z6Hm-kxlb_Rd8l4i_Pt52_nZUtFT5BYDEGZiGIrR_yOMRSnQtp5ojsY6bWnoVA&licenseId=LIC2026615&projectName=30032026_Testing/";
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:deviceName", "Redmi TV");
+        caps.setCapability("appium:deviceName", "Google TV");
         caps.setCapability("platformName", "Android");
-        caps.setCapability("appium:platformVersion", "11");
-        caps.setCapability("appium:app", "ApiDemos-debug.apk");
+        caps.setCapability("appium:platformVersion", "16");
+        caps.setCapability("appium:app", "OG_Notes_TVAPP.apk");
         caps.setCapability("appium:deviceType", "public");
-        caps.setCapability("appium:isVirtual", false);
+        caps.setCapability("appium:isVirtual", true);
         AndroidDriver driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
 
+
+
+
+
+
+
         try {
+            String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
+            System.out.println("Session ID: " + sessionId);
+
             System.out.println("Android TV launched successfully!");
             driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
             System.out.println("Pressed DPAD_DOWN");
@@ -142,7 +151,7 @@ public class TV_Automation_Suite{
         }
         finally {
             if (driver != null) {
-                driver.removeApp("io.appium.android.apis");
+//                driver.removeApp("io.appium.android.apis");
                 driver.quit();
             }
         }

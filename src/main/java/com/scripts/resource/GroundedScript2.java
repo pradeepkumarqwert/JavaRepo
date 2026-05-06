@@ -36,19 +36,21 @@ public class GroundedScript2 {
 
 
 
-    @Test(invocationCount = 1)
+    @Test(invocationCount = 6)
     public void run() throws InterruptedException, MalformedURLException {
 
 
         try{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=17032026_ParallelRunTest/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=JUe4dK-Z7GZFsWV-o6SNT8zl-AqhunphBxJJuawuqGBrFLR5oDIgYYuWw-ZWC_4D8gD8xiBkms728Kw8PcR5qB4YufpntfPb-x8sOWdRT-JRyqw9hKVweIwJo-bxIentbLUIfDG6LIZjkx8ofrI-HDRNTbqzcF8cUEzC6ZwuT_ldjSHoz5jEarR8jtiPCDeV6VCmzJTSf01Jm2GGnFOXpSsHUcvrE-1pFlzaFv9j0ypdIx0swgN9KhLZ1SCrahufx4vuzepGoI1jgnjqxsnJ9pNJy12I9kItW1AJCVtPOgKYMl8CB0zmgwB666xjT2c&licenseId=LIC4045&projectName=10042026/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
-            browserOptions.setPlatformName("mac Tahoe");
-            browserOptions.setBrowserVersion("136");
+            browserOptions.setPlatformName("Windows 10");
+            browserOptions.setBrowserVersion("131");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
+
+
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
@@ -58,7 +60,9 @@ public class GroundedScript2 {
             driver.get("https://www.google.com");
             Thread.sleep(2000);
             System.out.println("Navigated to 1 URL");
-            driver.get("https://www.jiomart.com");
+            for(int i = 0 ; i<=1 ; i++) {
+                driver.get("https://www.jiomart.com");
+            }
             Thread.sleep(3000);
             System.out.println("Navigated to 2 URL");
 
@@ -67,7 +71,7 @@ public class GroundedScript2 {
             System.out.println("Test execution completed successfully.");
 
             if(driver != null){
-//                driver.quit();
+                driver.quit();
                 System.out.println("Driver Quited successfully");
             }
 

@@ -34,15 +34,14 @@ public class _02_Web_Windows_11_Script
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=240326_TVTEsting/";
-            FirefoxOptions browserOptions = new FirefoxOptions();
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=iQOuwQOGpGRqOJkdPL3H3H-Ti9XkQ9sxKOc6JEaQSmE4Ek7AhjMwEM2-PYwCmQgvD3atpN83a6CI7hRqNliptLL2Tk3j3V3ZKzvVazaNJ1QHiJcYTRqtlQ5W_2AfyCWgAAalEuYOLRUIMSMQri8LQ666cxhXIawmI8uLfYDWPgUmbh4-MrFn8v2e1lAAmwzdGhIs2RETFGBUuwjd1Jx5yLkoV2BMU5OlEnYcobzzVoB-60owlkydm0Ufsm9c7gF4Apn4oa-UU_y4jEbDSBlnwpZd6klzsVE9lMihb50R9dhq0qD9t7O5tx4pbbE6eG0&licenseId=LIC4341&projectName=05052026_Testing/";
+            EdgeOptions browserOptions = new EdgeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("139");
+            browserOptions.setBrowserVersion("129");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
             //Fetch system info
             Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
             String browserName = caps.getBrowserName();
@@ -70,11 +69,18 @@ public class _02_Web_Windows_11_Script
 		
 		@Test(invocationCount = 1)
 		public void VerifyPantaloonsLandingPageMethod() throws InterruptedException {
+            String sessionIdrepeat = ((RemoteWebDriver) driver).getSessionId().toString();
+            String text = (String) ((JavascriptExecutor) driver)
+                    .executeScript("return arguments[0];", sessionIdrepeat);
+            System.out.println(text);
+
+            System.out.println(text);
             baseMethod.getString(baseData.getBrowserURL(),"Landed on Google website");
-            Thread.sleep(1000);
             takeScreenshot(driver, "04_After_Search_Result_Click");
             baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
-            takeScreenshot(driver, "04_After_Search_Result_Click");
+            for(int i = 0 ; i<=1 ; i++) {
+                takeScreenshot(driver, "04_After_Search_Result_Click");
+            }
             baseMethod.waitForPageLoad(driver);
             takeScreenshot(driver, "04_After_Search_Result_Click");
         }

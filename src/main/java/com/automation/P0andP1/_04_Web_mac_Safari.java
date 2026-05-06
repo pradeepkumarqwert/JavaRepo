@@ -132,6 +132,4 @@ public class _04_Web_mac_Safari
 		            System.out.println("Screenshot capture failed: " + e.getMessage());
 		        }
 		    }
-		
-
 }

@@ -13,20 +13,19 @@ public class Open_Close
 {
 	public static void main(String[] args) throws InterruptedException, MalformedURLException
 	{
-		String seleniumHubUrl = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=4f6f3903-4b38-43e3-9c29-38f5b66d8cb8&licenseId=LIC4630&projectName=dont_delete_plz/";
-		ChromeOptions browserOptions = new ChromeOptions();
-		browserOptions.setPlatformName("Windows 11");
-		browserOptions.setBrowserVersion("131");
-		WebDriver driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
-		driver.manage().window().setSize(new Dimension(1024, 768));
+//		String seleniumHubUrl = "https://fireflinkclouddev.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=4f6f3903-4b38-43e3-9c29-38f5b66d8cb8&licenseId=LIC4630&projectName=dont_delete_plz/";
+//		ChromeOptions browserOptions = new ChromeOptions();
+//		browserOptions.setPlatformName("Windows 11");
+//		browserOptions.setBrowserVersion("131");
+//		WebDriver driver = new RemoteWebDriver(new URL(seleniumHubUrl), browserOptions);
+//		driver.manage().window().setSize(new Dimension(1024, 768));
+//
 
-
-
+        WebDriver driver = new ChromeDriver();
 		
 		driver.manage().window().maximize();
-		driver.get("https://google.com/");
-		driver.navigate().to("https://www.pantaloons.com/");
-		Thread.sleep(60000);
+		driver.get("https://www.jiomart.com/");
+		Thread.sleep(1000000);
 
 		
 	}

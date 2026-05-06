@@ -25,22 +25,19 @@ public class FalseScript2 {
 
 
 
-    @Test(invocationCount = 1)
+    @Test(invocationCount = 400)
     public void androidMainSteps() throws Exception {
 
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=23+web+and+Mobile/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=25032026_Sanity/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Redmi TV");
+            caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
             caps.setCapability("platformName", "Android");
-            caps.setCapability("appium:platformVersion", "11");
-            caps.setCapability("appium:appPackage", "com.androidsample.generalstore");
-            caps.setCapability("appium:appActivity", "com.androidsample.generalstore.SplashActivity");
-            caps.setCapability("appium:NoReset", true);
+            caps.setCapability("appium:platformVersion", "14");
+            caps.setCapability("appium:app", "General-Store-final (4).apk");
             caps.setCapability("appium:deviceType", "public");
             caps.setCapability("appium:isVirtual", false);
             driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
-
 
             System.out.println("Execution Started");
 
@@ -48,21 +45,32 @@ public class FalseScript2 {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             Thread.sleep(3000);
             // 1. Select Country Dropdown
-            driver.findElement(By.xpath("//android.widget.Spinner[@resource-id='com.androidsample.generalstore:id/spinnerCountry']")).click();
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 50; i++) {
+                driver.findElement(By.xpath("//android.widget.Spinner[@resource-id='com.androidsample.generalstore:id/spinnerCountry']")).click();
+
+
                 takeScreenshot("Step1_SelectCountryDropdown");
+
+                // 2. Select Country
+            Thread.sleep(5000);
+
+
+                driver.findElement(By.xpath("//android.widget.TextView[@resource-id='android:id/text1' and @text='Afghanistan']")).click();
+
+                Thread.sleep(5000);
             }
-            // 2. Select Country
-//            Thread.sleep(3000);
-            driver.findElement(By.xpath("//android.widget.TextView[@resource-id='android:id/text1' and @text='Afghanistan']")).click();
-            for (int i = 0; i < 3; i++) {
+
+            for (int i = 0; i < 1; i++) {
                 takeScreenshot("Step1_SelectCountryDropdown");
             }
 //            // 3. Enter Name
-//            WebElement nameField = driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.androidsample.generalstore:id/nameField']"));
-//            nameField.click();
+            WebElement nameField = driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.androidsample.generalstore:id/nameField']"));
+
+//            for (int i = 0; i < 201; i++) {
+//                nameField.click();
+//            }
 //            nameField.sendKeys("Tester1");
-//            for(int i = 0; i<3; i++) {
+//            for(int i = 0; i<10; i++) {
 //                takeScreenshot("Step1_SelectCountryDropdown");
 //            }
 //            driver.hideKeyboard();

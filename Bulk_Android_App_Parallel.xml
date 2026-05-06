@@ -7,7 +7,6 @@
     
     <test name="FireflinkCloudTest">
         <classes>
-            <class name="com.bulk.androidapp.ANDROID_2_GeneralStore_Script" />
             <class name="com.bulk.androidapp.ANDROID_2_GeneralStore_Script10" />
 
         </classes>

@@ -21,7 +21,7 @@ import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.Arrays;
 
-public class _15_App_Tablet_Real_iOS
+public class    _15_App_Tablet_Real_iOS
 {
     Actions act;
     IOSDriver driver;

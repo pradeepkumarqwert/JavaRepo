@@ -32,7 +32,8 @@ public class _01_Web_Windows_10_Script
 		@BeforeMethod
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=240326_TVTEsting/";
+
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=A9A_W80UzCX7oIThY0TQJVbaP06-DCNWlSMsd7PLrSld0j9ikwg0iXk7Nf0ygfoyMsQu2P-cTW5owbSjIF87dXasZm2uMlccp7KDISsIj0FE5Xx_Mp6yA99ggod6AM7HtNLjuiuYxnqLUxa-FrxY_Hyf0YZgh-eRPkgzFL3EsrufkTVt0k7DVQEV-jlBZPiYvrWxxfgHg4gYV4XQgcWEYfOGC9RKUSoaqQo7mIb3LjQJi6O1ZYSM9GVxfkE8xkHrE6WAoGp-PoIg0qgZm6GW9SWk_GHQ6cidTzS5XnTb_U95G1B_4Il644shRmUBeM8&licenseId=LIC4341&projectName=05052026_Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
@@ -40,7 +41,6 @@ public class _01_Web_Windows_10_Script
             browserOptions.setBrowserVersion("136");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
             //Fetch system info
             Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -67,19 +67,27 @@ public class _01_Web_Windows_10_Script
 			baseMethod.MaximizeBrowser(driver,"Browser is maximized");
 			baseMethod.ImplicitWait(driver, 20,"Implicit wait is applied");
 			baseMethod.HardWait(2000,"Hard wait applied");
-			
+
 		}
 		
 		@Test(invocationCount = 1)
 		public void VerifyPantaloonsLandingPageMethod() throws InterruptedException
 		{
             baseMethod.getString(baseData.getBrowserURL(),"Landed on Google website");
+            for(int i = 0; i < 1; i++)
+            {
             takeScreenshot(driver, "04_After_Search_Result_Click");
+        }
             baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
-            takeScreenshot(driver, "04_After_Search_Result_Click");
+            for(int i = 0; i < 1; i++)
+            {
+                takeScreenshot(driver, "04_After_Search_Result_Click");
+            }
             baseMethod.waitForPageLoad(driver);
-            takeScreenshot(driver, "04_After_Search_Result_Click");
-
+            for(int i = 0; i < 1; i++)
+            {
+                takeScreenshot(driver, "04_After_Search_Result_Click");
+            }
 
 
 		}

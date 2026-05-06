@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -33,15 +34,14 @@ public class _01_Long_Script
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=13032026Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=ewN-rBiBqA7XfYy0ZA_B0afu7yuTKMPc_LlLWj_jzPNepi4imOLNWkGgmTZ_Al42SDh9FDS7dw69vEoZWC8oNvAhkJoMEWRasnptc8uTSfs1cXoCVkrDtgSLyX2O-uYX0jdbjtTdU6oAzR3K0tngq6ZIJyBzyfEVggkZEI8jXfJW4pfOFO--SUQMHyKCQiGaHsu2q6FAvtLYO4jyr66RYPNNDeC77-4_poJQS_5Zp_LPv8OR1IrYVEJmxQq7TFHCbEZB98sbuA6c1RKv9Q2uPDnpBhgM-xAas5jV-rOkoGbnWRT7x0rr5w&licenseId=LIC4209&projectName=09042026_Testing_WM/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("mac Tahoe");
-            browserOptions.setBrowserVersion("138");
+            browserOptions.setBrowserVersion("137");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
-
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -76,6 +76,11 @@ public class _01_Long_Script
 		@Test(invocationCount = 1)
 		public void VerifyPantaloonsLandingPageMethod() throws InterruptedException
 		{
+            String sessionIdrepeat = ((RemoteWebDriver) driver).getSessionId().toString();
+            String text = (String) ((JavascriptExecutor) driver)
+                    .executeScript("return arguments[0];", sessionIdrepeat);
+            System.out.println(text);
+
 			baseMethod.getString(baseData.getBrowserURL(),"Landed on Google website");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
@@ -88,7 +93,6 @@ public class _01_Long_Script
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			String products = "Shirts";
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-            System.out.println("Terminate now");
             Thread.sleep(20000);
 			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
