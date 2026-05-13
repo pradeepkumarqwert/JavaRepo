@@ -31,14 +31,15 @@ public class _01_Web_Windows_10_Comet
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=18022026_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=Piaoi9Rukcll4_ePJlpe2kskhQ6miDBxxQ8epowa5zQFpX-zm68xDd4R8MDgWtc6QykUct4MamLt6ZXzM_BO5ZCyHzxA3VqMJWkCJYPAL1NR9MZm5wss8PIeHPYo7dgqEYHd7RS4f-2ixnJAjGmNvNNI15Ak29Z063JT5MoHMq33GW97N_jafNlNfY1rqdk6BPqJn05ZM43wWsz-G7SJyoxrVAd4RA-QvJ6PeryumpJaOh3W6rrIyjen0zSBVnF4zKitZLEA36XqhgR0YVXoRWtIswxjlyf7VrzXP2avI9vOLFKqX-mX8Q&licenseId=LIC4362&projectName=New+project/";
             ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("devicefarm:networkLogEnable", true);
             browserOptions.setCapability("fireflink:deviceType", "public");
-            browserOptions.setPlatformName("Windows 10");
+            browserOptions.setPlatformName("mac Tahoe");
             browserOptions.setBrowserVersion("136");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
+
 
             //Fetch system info
             Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();

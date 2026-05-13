@@ -23,7 +23,7 @@ public class _06_App_Mobile_Real_AndroidBrowser {
         //            caps.setCapability("appium:deviceType","private");
 
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=iQOuwQOGpGRqOJkdPL3H3H-Ti9XkQ9sxKOc6JEaQSmE4Ek7AhjMwEM2-PYwCmQgvD3atpN83a6CI7hRqNliptLL2Tk3j3V3ZKzvVazaNJ1QHiJcYTRqtlQ5W_2AfyCWgAAalEuYOLRUIMSMQri8LQ666cxhXIawmI8uLfYDWPgUmbh4-MrFn8v2e1lAAmwzdGhIs2RETFGBUuwjd1Jx5yLkoV2BMU5OlEnYcobzzVoB-60owlkydm0Ufsm9c7gF4Apn4oa-UU_y4jEbDSBlnwpZd6klzsVE9lMihb50R9dhq0qD9t7O5tx4pbbE6eG0&licenseId=LIC4341&projectName=05052026_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=tUZsnOFxBHHmatq5dlOxebqAdx1HjU24i2VUfCtEbz5Iw6iw6lFizhJNbUt_2DFiE75c13cqsw50ajf6MqqnSpT_fe8xQRb66oWfDIsjirLKnklqLoOlVKvA6BPvRXllYXSljKYY06wdMBpBoEyXcPVp3gYiRabztjT8MGJ4o5ZiLdN9pij4yzwP4Eb-TnzxT7gcRqtHQwEOzSMmjCqOAhFbcN7BnKYHf7R1DQDePScIm_iUfNHEUsMhbsd5G3H-wI5nS2zCfjVhaG107TbZYAfLzI4c7fIXXdauL6A8rtGV2bpw1Zr5&licenseId=LIC4014&projectName=new+projects/";
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
             caps.setCapability("platformName", "Android");

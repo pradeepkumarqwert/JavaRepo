@@ -33,14 +33,16 @@ public class _01_Web_Windows_10_Script
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
 
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=A9A_W80UzCX7oIThY0TQJVbaP06-DCNWlSMsd7PLrSld0j9ikwg0iXk7Nf0ygfoyMsQu2P-cTW5owbSjIF87dXasZm2uMlccp7KDISsIj0FE5Xx_Mp6yA99ggod6AM7HtNLjuiuYxnqLUxa-FrxY_Hyf0YZgh-eRPkgzFL3EsrufkTVt0k7DVQEV-jlBZPiYvrWxxfgHg4gYV4XQgcWEYfOGC9RKUSoaqQo7mIb3LjQJi6O1ZYSM9GVxfkE8xkHrE6WAoGp-PoIg0qgZm6GW9SWk_GHQ6cidTzS5XnTb_U95G1B_4Il644shRmUBeM8&licenseId=LIC4341&projectName=05052026_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=9lPfFg_3I1CABHn3uy2_iR5qUEK6mW-MreN26OyP66KZv-uZ-Dog2gB0_EFaCjIyhPauaDdqbxIw3RY7xd7wxAunQ2_QjotGhMyFKtTqhyplpFfq8Ev5mWDmU-4FttKYvfTpneK-mKIj5L4nrNL2B9YZYSKxIDUVQ1SJtVSaCGkbSTR_SDJ0m84ehDzJiOAjXJHzbcLALs_jxBeh_EsujPhHqHKwo20Jlir8nLraBksMiUjarzqig2vkVztjoBCmlVttwhdXoIj-uRfFjEP74Kmby9Gbyyj9gqxsYmVxocJM7y2SrUo6Eg&licenseId=LIC4357&projectName=New+project/";
             ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("devicefarm:networkLogEnable", true);
             browserOptions.setCapability("fireflink:deviceType", "public");
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("136");
+            browserOptions.setPlatformName("mac Tahoe");
+            browserOptions.setBrowserVersion("140");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
+
+
 
             //Fetch system info
             Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -96,7 +98,7 @@ public class _01_Web_Windows_10_Script
 		@AfterMethod
 		public void QuitBrowser() throws InterruptedException {
 //            Thread.sleep(10000);
-            driver.quit();
+//            driver.quit();
             System.out.println("driver quit successfully");
 		}
 		

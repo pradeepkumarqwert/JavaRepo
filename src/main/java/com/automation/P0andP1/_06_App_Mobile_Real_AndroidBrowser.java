@@ -23,9 +23,9 @@ public class _06_App_Mobile_Real_AndroidBrowser {
         //            caps.setCapability("appium:deviceType","private");
 
         try {
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8Tcsdwspy69KdKXw6ambPGMs6LQazDAA8okbIssJb7YGMDCKJMTB7VsBrV4hUIOuGV6I3wCwpK2CbuNIwIVnSswS5CbMRArfP5qm59IgrRxHwhSx_RywypctI-EwuF2TlQs7Dsq38CpF24sHUVJrCSi8v1VvwYjO3LKlPp5054Ji4dtzt3EtbdVyIAlwauBFkx-1YufbwuVWT-AOLN0MlQLdqjA0bzHDwpSZUzk2LeE7GFJ6rBwsOsTQrpU6HNU2W3kRm70a6nvLdV91z6Hm-kxlb_Rd8l4i_Pt52_nZUtFT5BYDEGZiGIrR_yOMRSnQtp5ojsY6bWnoVA&licenseId=LIC2026615&projectName=16-03-2026_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=Piaoi9Rukcll4_ePJlpe2kskhQ6miDBxxQ8epowa5zQFpX-zm68xDd4R8MDgWtc6QykUct4MamLt6ZXzM_BO5ZCyHzxA3VqMJWkCJYPAL1NR9MZm5wss8PIeHPYo7dgqEYHd7RS4f-2ixnJAjGmNvNNI15Ak29Z063JT5MoHMq33GW97N_jafNlNfY1rqdk6BPqJn05ZM43wWsz-G7SJyoxrVAd4RA-QvJ6PeryumpJaOh3W6rrIyjen0zSBVnF4zKitZLEA36XqhgR0YVXoRWtIswxjlyf7VrzXP2avI9vOLFKqX-mX8Q&licenseId=LIC4362&projectName=New+project/";
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("appium:deviceName", "Vivo X 100 Pro");
+            caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
             caps.setCapability("platformName", "Android");
             caps.setCapability("appium:platformVersion", "14");
             caps.setCapability("appium:browserName", "Chrome");

@@ -5,6 +5,7 @@ import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -33,15 +34,15 @@ public class _01_Web_Windows_10_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=aQpjsUKxiW6BpECdh9rYZ6yEXniY8WrZ-9JxdknFurvWkS3YFVeEKw4gTRnxTS_WVlUClTP_sLB-EpEz1pRqk1e5Bt2yNvjoNHUpWyds1oChCikEJsCQWdE3uyxZz9akDRSdeX_CTLdCu03Y6uy_VJwQA0FGdhG_8Ej-3Ohcm0ZphYKh26qsoqXaWbu-TYnXM0UQnTxdMO7Crb9iML8ve-6RGaFc5Aff-zbvrIOe3iI0yhzgg9MQc6lDPC1Ze4uuARO7MzvmlNIj8yJQb_yon1NO-lRrYgCMbyOm9tw_daCL18ufp5W4TgJSZe4ugHOxrFKRcna0KnEjCQ&licenseId=LIC2026615&projectName=16-03-2026_Testing/";
-            ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", false);
-            browserOptions.setCapability("fireflink:deviceType", "public");
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("143");
-            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
-            driver.manage().window().setSize(new Dimension(1024, 768));
-
+//            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=Coc1zfzDi9zzFtP6grx9a-w2nxpobCC67VOXW9BNJv378c-Krnl7lI9CgCDiL-p4TF_HfbBWSMTtKxUd5qPR4E57vjSirLbBFLFLFDwc-XfKtshO2s4dw1lzi4WfXodyKZvHUenLa_RP8Eym20Nu8JmJS-NYKot9x73hpnXffG_L4yZxlvHISsdupSQWnZBOuhBxNNafr7XiI0o5qyyMGZYxaJW5VHdIzWx-TMcspNafe3bXUlFSjjUvLWMvRScutDWf0MB82IGFyeC5uf1N1uiLUAyzJmgNQIr7XdVxgANFlJ4k_196Wcpa3Lw6uw&licenseId=LIC4033&projectName=Recheck+Project/";
+//            ChromeOptions browserOptions = new ChromeOptions();
+//            browserOptions.setCapability("devicefarm:networkLogEnable", true);
+//            browserOptions.setCapability("fireflink:deviceType", "public");
+//            browserOptions.setPlatformName("mac Tahoe");
+//            browserOptions.setBrowserVersion("140");
+//            driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
+//            driver.manage().window().setSize(new Dimension(1024, 768));
+            driver = new ChromeDriver();
 
             //Fetch system info
 		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
@@ -90,7 +91,6 @@ public class _01_Web_Windows_10_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			SearchScenarios(products);
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-            driver.get("https://www.jiomart.com");
             Thread.sleep(5000);
 
 
