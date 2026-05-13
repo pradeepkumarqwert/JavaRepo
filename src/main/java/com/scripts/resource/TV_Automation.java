@@ -1,0 +1,282 @@
+package com.scripts.resource;
+
+import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import org.openqa.selenium.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+public class TV_Automation {
+
+    AndroidDriver driver;
+
+    @Test(invocationCount = 1)
+    public void androidMainSteps() throws Exception {
+
+        try {
+            initializeDriver();
+            log("Execution Started");
+
+            Thread.sleep(3000);
+
+            validateDateText();
+            takeScreenshot(driver,"Captured");
+
+            press(AndroidKey.DPAD_DOWN, 2);
+
+            String randomText = RandomDataUtil.generateSentence(15);
+
+            // Navigation continues (keeping your flow intact)
+            press(AndroidKey.DPAD_UP, 2);
+
+            press(AndroidKey.DPAD_RIGHT, 2);
+            takeScreenshot(driver,"Failure_State");
+
+            pressKey(AndroidKey.DPAD_CENTER);
+            pressKey(AndroidKey.DPAD_UP);
+            takeScreenshot(driver,"Failure_State");
+
+            //  Long Press + Stress
+            for (int i = 0; i <= 200; i++) {
+                longPress(AndroidKey.DPAD_RIGHT);
+                log("Long Press RIGHT (fast scroll)");
+
+                pressKey(AndroidKey.DPAD_DOWN);
+                pressKey(AndroidKey.DPAD_DOWN);
+                pressKey(AndroidKey.DPAD_DOWN);
+            }
+
+//            pressKey(AndroidKey.BACK);
+
+            // Volume actions
+            pressKey(AndroidKey.VOLUME_UP);
+            log("Volume Increased");
+            pressKey(AndroidKey.VOLUME_UP);
+            log("Volume Increased");
+            pressKey(AndroidKey.VOLUME_UP);
+            log("Volume Increased");
+
+            //ADB Commends via appium
+//            driver.executeScript("mobile: shell", ImmutableMap.of(
+//                    "command", "input",
+//                    "args", Arrays.asList("keyevent", "24") // Volume Up
+//            ));
+
+            pressKey(AndroidKey.VOLUME_DOWN);
+            log("Volume Decreased");
+            pressKey(AndroidKey.VOLUME_DOWN);
+            log("Volume Decreased");
+            pressKey(AndroidKey.VOLUME_DOWN);
+            log("Volume Decreased");
+
+
+
+            for(int i = 0 ; i<=100 ; i ++) {
+                pressKey(AndroidKey.VOLUME_DOWN);
+                log("Volume down for "+i+" th time");
+                takeScreenshot(driver,"Volume down");
+            }
+
+            for(int i = 0 ; i<=100 ; i ++) {
+                longPress(AndroidKey.VOLUME_UP);
+                log("Volume up for "+i+" th time");
+                takeScreenshot(driver,"Vloume Up");
+
+
+
+            }
+
+            for(int i = 0 ; i<=200 ; i ++) {
+                pressKey(AndroidKey.VOLUME_MUTE);
+                log("Volume Muted for "+i+" th time");
+                takeScreenshot(driver,"Volume mute");
+
+            }
+
+            // Switch Layout Navigation
+            handleSwitchLayout();
+
+
+
+            //ADB Commends via appium(Use it only if aware of package name)
+//            driver.executeScript("mobile: shell", Map.of(
+//                    "command", "am",
+//                    "args", List.of("start", "-n", "package/.MainActivity")
+//            ));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+                quitDriver();
+                System.out.println("Driver quit successfully");
+        }
+    }
+
+    //Set-up
+    public void initializeDriver() throws Exception {
+//        String url = "http://103.182.210.84:4444/";
+//        DesiredCapabilities caps = new DesiredCapabilities();
+//        caps.setCapability("appium:deviceName", "Redmi TV");
+//        caps.setCapability("platformName", "Android");
+//        caps.setCapability("appium:platformVersion", "11");
+//        caps.setCapability("appium:app", "https://testyantrademourl.s3.ap-south-1.amazonaws.com/dump/OG_Notes_TVAPP.apk");
+//        caps.setCapability("appium:deviceType", "public");
+//        caps.setCapability("appium:isVirtual", false);
+//        driver = new AndroidDriver(new URL(url), caps);
+        String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8Tcsdwspy69KdKXw6ambPGMs6LQazDAA8okbIssJb7YGMDCKJMTB7VsBrV4hUIOuGV6I3wCwpK2CbuNIwIVnSswS5CbMRArfP5qm59IgrRxHwhSx_RywypctI-EwuF2TlQs7Dsq38CpF24sHUVJrCSi8v1VvwYjO3LKlPp5054Ji4dtzt3EtbdVyIAlwauBFkx-1YufbwuVWT-AOLN0MlQLdqjA0bzHDwpSZUzk2LeE7GFJ6rBwsOsTQrpU6HNU2W3kRm70a6nvLdV91z6Hm-kxlb_Rd8l4i_Pt52_nZUtFT5BYDEGZiGIrR_yOMRSnQtp5ojsY6bWnoVA&licenseId=LIC2026615&projectName=30032026_Testing/";
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("appium:deviceName", "Redmi TV");
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("appium:platformVersion", "11");
+        caps.setCapability("appium:app", "OG_Notes_TVAPP.apk");
+        caps.setCapability("appium:deviceType", "public");
+        caps.setCapability("appium:isVirtual", false);
+        driver = new AndroidDriver(new URL(device_farm_hub_url), caps);
+
+
+    }
+
+    // Date Validation
+    public void validateDateText() {
+        try {
+            WebElement dateElement = driver.findElement(
+                    By.xpath("//android.widget.Button[contains(@text,'Today is')]")
+            );
+
+            if (isFocused(dateElement)) {
+
+                LocalDate today = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMMM yyyy");
+                String expectedDate = today.format(formatter);
+
+                String actualText = dateElement.getText();
+
+                log("Actual Text: " + actualText);
+                log("Expected Date: " + expectedDate);
+
+                if (!actualText.contains(expectedDate)) {
+                    throw new RuntimeException("Date mismatch: " + actualText);
+                }
+
+                log("Date is correct");
+            }
+
+        } catch (Exception e) {
+            log("Mismatch in text");
+            throw new RuntimeException(e);
+        }
+    }
+
+    // Key Actions
+    public void pressKey(AndroidKey key) throws InterruptedException {
+        driver.pressKey(new KeyEvent(key));
+        log("Pressed: " + key);
+        Thread.sleep(200);
+    }
+
+    public void press(AndroidKey key, int count) throws InterruptedException {
+        for (int i = 0; i < count; i++) {
+            pressKey(key);
+        }
+    }
+
+    public void longPress(AndroidKey key) {
+        driver.longPressKey(new KeyEvent(key));
+    }
+
+
+    // Focus Utility
+    public boolean isFocused(WebElement el) {
+        try {
+            return "true".equals(el.getAttribute("focused"));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
+    // Switch Layout Handler
+    public void handleSwitchLayout() throws InterruptedException {
+
+        // Move to expected position
+        press(AndroidKey.DPAD_DOWN, 3);
+
+        WebElement btn = driver.findElement(
+                By.xpath("//android.widget.Button[@text='SWITCH LAYOUT']")
+        );
+
+        if (isFocused(btn)) {
+            btn.click();
+            log("Clicked SWITCH LAYOUT");
+        } else {
+            log("SWITCH LAYOUT not focused");
+        }
+    }
+
+    // Screenshot
+    public static void takeScreenshot(WebDriver driver, String fileName)
+    {
+        if (driver == null) {
+            return;
+        }
+        try {
+            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File dest = new File("C:\\Selenium Grid\\Screenshots\\" + fileName + ".png");
+            dest.getParentFile().mkdirs(); // Ensure folder exists
+            Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Screenshot saved: " + dest.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Failed to save screenshot: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Screenshot capture failed: " + e.getMessage());
+        }
+    }
+
+    // Cleanup
+    public void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            log("Driver quit successfully");
+        }
+    }
+
+
+    // Logger
+    public void log(String msg) {
+        System.out.println(msg);
+    }
+
+    // Random Data
+    public static class RandomDataUtil {
+
+        static String[] words = {
+                "hello", "world", "automation", "testing", "tv", "appium",
+                "selenium", "remote", "control", "video", "music", "search",
+                "play", "pause", "settings", "network", "device", "cloud"
+        };
+
+        public static String generateSentence(int count) {
+            Random r = new Random();
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < count; i++) {
+                sb.append(words[r.nextInt(words.length)]).append(" ");
+            }
+            return sb.toString().trim();
+        }
+    }
+}

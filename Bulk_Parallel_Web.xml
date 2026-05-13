@@ -1,59 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "resource/testng-1.0.dtd">
-<suite name="FireflinkCloudSuite" verbose="1"  parallel="true">
+<suite name="FireflinkCloudSuite" verbose="1"  parallel="classes">
     <test name="FireflinkCloudTest">
         <classes>
-            <class name="com.bulk.execution.Web_4_BMWHomePage"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage2"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage3"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage5"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage6"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage7"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage8"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage9"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage10"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage11"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage12"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage13"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage14"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage15"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage16"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage17"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage18"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage19"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage20"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage21"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage22"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage23"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage24"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage25"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage26"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage27"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage28"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage29"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage30"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage31"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage32"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage33"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage34"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage35"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage36"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage37"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage38"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage39"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage40"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage41"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage42"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage43"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage44"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage45"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage46"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage47"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage48"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage49"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage50"/>
-            <class name="com.bulk.execution.Web_4_BMWHomePage51"/>
-           
+            <class name="com.scripts.resource.GroundedScript"/>
+            <class name="com.scripts.resource.GroundedScript2"/>
+            <class name="com.scripts.resource.GroundedScript3"/>
+            <class name="com.scripts.resource.FalseScript"/>
         </classes>
     </test>
 </suite>

@@ -1,0 +1,159 @@
+package com.masterSanityPack;
+
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.ios.IOSDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.time.Duration;
+import java.util.Arrays;
+
+public class _07_App_Mobile_Real_iOS
+{
+    Actions act;
+    IOSDriver driver;
+
+
+
+    @Test
+    public void steps() throws InterruptedException {
+        try {
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8Tcsdwspy69KdKXw6ambPGMs6LQazDAA8okbIssJb7YGMDCKJMTB7VsBrV4hUIOuGV6I3wCwpK2CbuNIwIVnSswS5CbMRArfP5qm59IgrRxHwhSx_RywypctI-EwuF2TlQs7Dsq38CpF24sHUVJrCSi8v1VvwYjO3LKlPp5054Ji4dtzt3EtbdVyIAlwauBFkx-1YufbwuVWT-AOLN0MlQLdqjA0bzHDwpSZUzk2LeE7GFJ6rBwsOsTQrpU6HNU2W3kRm70a6nvLdV91z6Hm-kxlb_Rd8l4i_Pt52_nZUtFT5BYDEGZiGIrR_yOMRSnQtp5ojsY6bWnoVA&licenseId=LIC2026615&projectName=06042026_Testing/";
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("appium:deviceName", "iPhone 14");
+            caps.setCapability("platformName", "iOS");
+            caps.setCapability("appium:platformVersion", "18.5");
+            caps.setCapability("appium:app", "Meesho 2.84.1.ipa");
+            caps.setCapability("appium:deviceType", "public");
+            caps.setCapability("appium:isVirtual", false);
+            caps.setCapability("appium:bundleId", "com.meesho.Meesho");
+
+            caps.setCapability("appium:automationName", "XCUITest");
+            caps.setCapability("appium:autoAcceptAlerts", true); // automatically tap Allow for popups
+            caps.setCapability("appium:fullReset", true);
+            driver = new IOSDriver(new URL(device_farm_hub_url), caps);
+
+
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                WebElement cancelBtn = wait.until(ExpectedConditions.presenceOfElementLocated(
+                        AppiumBy.iOSNsPredicateString("label == 'Cancel'")
+                ));
+                cancelBtn.click();
+            } catch (Exception e) {
+                System.out.println("App Store popup not displayed");
+            }
+
+            act = new Actions(driver);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 271, 520));
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            takeScreenshot(driver, "Android_MobileApp_RealDevice");
+
+            driver.perform(Arrays.asList(tap));
+            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Continue as Guest']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Categories']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Categories']/following::XCUIElementTypeStaticText[contains(@name,'Breakfast')][2]")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            Thread.sleep(20000);
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@value='All']/following::XCUIElementTypeOther[@name='offerTag'][1]")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='addButtonProduct']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            // Tap at x=344, y=747
+//            Sequence tap2 = new Sequence(finger, 2);
+//            tap2.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 344, 747));
+//            tap2.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+//            tap2.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//
+//            driver.perform(Arrays.asList(tap2));
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='decrementProductButton']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='backButton']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='backButton']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            Thread.sleep(10000);
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Categories']/following::XCUIElementTypeStaticText[contains(@name,'Breakfast')][2]")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Breakfast Cereals']/following::XCUIElementTypeStaticText[@name='Flakes']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            Thread.sleep(20000);
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@value='All']/following::XCUIElementTypeOther[@name='offerTag'][1]")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='addButtonProduct']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            // Tap at x=344, y=747
+//            Sequence tap3 = new Sequence(finger, 2);
+//            tap2.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 344, 747));
+//            tap2.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+//            tap2.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.perform(Arrays.asList(tap3));
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='decrementProductButton']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='backButton']")).click();
+//            takeScreenshot(driver, "iOS_MobileApp_RealDevice");
+        }catch (NoSuchElementException | MalformedURLException e){
+            System.out.println("Main Catch block triggered");
+            e.printStackTrace();
+        }finally {
+            if (driver != null) {
+                driver.quit();
+                System.out.println("Driver closed.");
+            } else {
+                System.out.println("Driver not initialized. Session creation failed.");
+            }
+        }
+
+
+
+
+
+
+    }
+
+    public static void takeScreenshot(IOSDriver driver, String fileName)
+    {
+        if (driver == null) {
+            return;
+        }
+        try {
+            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File dest = new File("C:\\Selenium Grid\\Screenshots\\" + fileName + ".png");
+            dest.getParentFile().mkdirs(); // Ensure folder exists
+            Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Screenshot saved: " + dest.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Failed to save screenshot: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Screenshot capture failed: " + e.getMessage());
+        }
+    }
+
+
+
+}

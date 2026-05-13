@@ -5,6 +5,7 @@ import com.scripts.basefolder.BaseMethodsCloud;
 import com.scripts.basefolder.BaseObjectsCloud;
 import com.scripts.repository.PantaloonsLandingPage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
@@ -31,27 +32,27 @@ public class _01_Web_Windows_10_Edge
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=2XpX0pCCa5sZ4t42o2SQX7vVo3eapYfPDT-9I23oKiqp_DvSuFM7Wm54CZ8w07m4S0Q5hrpgNjeLO-gLBOyum4dn2ZczCYUFb25CzoAaTITZGr6fdL_AAriC4iMwJOBx3Ym9GXYg0kNy7ijkRDtqUF12GB_gjeElLM6ilD7Wbc98mhpUJgnemzbel-dPbkDYUxvZ5HMvQhKG4VuQogRYrOPrd_NXXKGypsEY0Fj3B8Fhmr4yBFKBn3-ig1ia9gtwwW8iUXrHr4QXHWJJ5CF94ozXB3nDOnOiE00V8iiC7pH9gzqOk1GS&licenseId=LIC4047&projectName=12022026_Testing/";
-            EdgeOptions browserOptions = new EdgeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", true);
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8Tcsdwspy69KdKXw6ambPGMs6LQazDAA8okbIssJb7YGMDCKJMTB7VsBrV4hUIOuGV6I3wCwpK2CbuNIwIVnSswS5CbMRArfP5qm59IgrRxHwhSx_RywypctI-EwuF2TlQs7Dsq38CpF24sHUVJrCSi8v1VvwYjO3LKlPp5054Ji4dtzt3EtbdVyIAlwauBFkx-1YufbwuVWT-AOLN0MlQLdqjA0bzHDwpSZUzk2LeE7GFJ6rBwsOsTQrpU6HNU2W3kRm70a6nvLdV91z6Hm-kxlb_Rd8l4i_Pt52_nZUtFT5BYDEGZiGIrR_yOMRSnQtp5ojsY6bWnoVA&licenseId=LIC2026615&projectName=16-03-2026_Testing/";
+            ChromeOptions browserOptions = new ChromeOptions();
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("116");
+            browserOptions.setPlatformName("mac Tahoe");
+            browserOptions.setBrowserVersion("140");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
             //Fetch system info
-		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
-		    String browserName = caps.getBrowserName();
-		    String browserVersion = caps.getBrowserVersion();
-		    Platform platform = caps.getPlatformName();
-
-		    System.out.println("Browser: " + browserName);
-		    System.out.println("Version: " + browserVersion);
-		    System.out.println("Platform: " + platform);
-			
+            Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
+            String browserName = caps.getBrowserName();
+            String browserVersion = caps.getBrowserVersion();
+            Platform platform = caps.getPlatformName();
+            String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
 
 
+            System.out.println("Browser: " + browserName);
+            System.out.println("Version: " + browserVersion);
+            System.out.println("Platform: " + platform);
+            System.out.println("Session ID is: " + sessionId);
 			
 			
 			
@@ -107,9 +108,7 @@ public class _01_Web_Windows_10_Edge
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
 			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
-			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
-			takeScreenshot(driver, "04_After_Search_Result_Click");
-			
+
 			
 			
 		}

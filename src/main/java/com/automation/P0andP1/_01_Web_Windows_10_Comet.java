@@ -31,25 +31,28 @@ public class _01_Web_Windows_10_Comet
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=VO7SddA_MV9dlUTtEGMyrLac5NAqGJXdkhoePIOlLGVPpXiYqjpuEBoZqmM1WpU-SmVNNDvmUFwebf1Vnmue1KtzrNQmw5xiMTytlNmwuX6A0XkLLgYJ1P-iwT46Kby9ttyUxEdit0utfqoaqh5sLiliuTK3DKwRokw_SnUVeBJ6PIvQTDGXw7QADkY4Djt-8PLAf_ep-TrHYjDi2eHBgcOy16JY5INS0HQ5oeKhs53EsTM5yA1SWrjvhrcwieQ2W5dun2ZzO_COmXp6DKtGXofMTuvNIi17CKgUGAJxqlyRGAC2lk6UOii3LoaPazMoSTg_&licenseId=LIC2026615&projectName=03022026_Sanity_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=Piaoi9Rukcll4_ePJlpe2kskhQ6miDBxxQ8epowa5zQFpX-zm68xDd4R8MDgWtc6QykUct4MamLt6ZXzM_BO5ZCyHzxA3VqMJWkCJYPAL1NR9MZm5wss8PIeHPYo7dgqEYHd7RS4f-2ixnJAjGmNvNNI15Ak29Z063JT5MoHMq33GW97N_jafNlNfY1rqdk6BPqJn05ZM43wWsz-G7SJyoxrVAd4RA-QvJ6PeryumpJaOh3W6rrIyjen0zSBVnF4zKitZLEA36XqhgR0YVXoRWtIswxjlyf7VrzXP2avI9vOLFKqX-mX8Q&licenseId=LIC4362&projectName=New+project/";
             ChromeOptions browserOptions = new ChromeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", false);
+            browserOptions.setCapability("devicefarm:networkLogEnable", true);
             browserOptions.setCapability("fireflink:deviceType", "public");
-            browserOptions.setPlatformName("Windows 11");
-            browserOptions.setBrowserVersion("142.0");
+            browserOptions.setPlatformName("mac Tahoe");
+            browserOptions.setBrowserVersion("136");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
+
             //Fetch system info
-		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
-		    String browserName = caps.getBrowserName();
-		    String browserVersion = caps.getBrowserVersion();
-		    Platform platform = caps.getPlatformName();
+            Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
+            String browserName = caps.getBrowserName();
+            String browserVersion = caps.getBrowserVersion();
+            Platform platform = caps.getPlatformName();
+            String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
 
-		    System.out.println("Browser: " + browserName);
-		    System.out.println("Version: " + browserVersion);
-		    System.out.println("Platform: " + platform);
 
+            System.out.println("Browser: " + browserName);
+            System.out.println("Version: " + browserVersion);
+            System.out.println("Platform: " + platform);
+            System.out.println("Session ID is: " + sessionId);
 
 
 
@@ -109,9 +112,7 @@ public class _01_Web_Windows_10_Comet
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
 			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
-			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
-			takeScreenshot(driver, "04_After_Search_Result_Click");
-			
+
 			
 			
 		}

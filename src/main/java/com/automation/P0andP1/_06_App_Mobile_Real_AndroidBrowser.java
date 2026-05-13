@@ -23,7 +23,7 @@ public class _06_App_Mobile_Real_AndroidBrowser {
         //            caps.setCapability("appium:deviceType","private");
 
         try {
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=Piaoi9Rukcll4_ePJlpe2kskhQ6miDBxxQ8epowa5zQFpX-zm68xDd4R8MDgWtc6QykUct4MamLt6ZXzM_BO5ZCyHzxA3VqMJWkCJYPAL1NR9MZm5wss8PIeHPYo7dgqEYHd7RS4f-2ixnJAjGmNvNNI15Ak29Z063JT5MoHMq33GW97N_jafNlNfY1rqdk6BPqJn05ZM43wWsz-G7SJyoxrVAd4RA-QvJ6PeryumpJaOh3W6rrIyjen0zSBVnF4zKitZLEA36XqhgR0YVXoRWtIswxjlyf7VrzXP2avI9vOLFKqX-mX8Q&licenseId=LIC4362&projectName=New+project/";
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("appium:deviceName", "OnePlus Nord CE 2 Lite 5G");
             caps.setCapability("platformName", "Android");
@@ -32,6 +32,7 @@ public class _06_App_Mobile_Real_AndroidBrowser {
             caps.setCapability("appium:deviceType", "public");
             caps.setCapability("appium:isVirtual", false);
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), caps);
+
 
             //caps.setCapability("appium:chromedriverAutodownload", true);
 
@@ -46,7 +47,7 @@ public class _06_App_Mobile_Real_AndroidBrowser {
             System.out.println("Clicked.");
             takeScreenshot(driver, "02_After_Click_Search_Icon");
 
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 
             driver.findElement(By.xpath("//input[@placeholder='Search for products,brands and more...']")).sendKeys("Shirt");
             System.out.println("Entered.");

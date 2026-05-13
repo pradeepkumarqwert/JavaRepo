@@ -97,25 +97,27 @@ public class ZZ_Browserstack_compare
 	
 	//-----------------Browser Related Methods----------------
 		@Test(priority = 1)
-		public void browserRelatedMethods()
-		{
+		public void browserRelatedMethods() throws InterruptedException {
 			System.out.println("browserRelatedMethods Started !!---");
 			// get(URL)
 			baseMethod.getString(baseData.getBrowserURL(),"Landed on Google website");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
-
+            Thread.sleep(6000);
 			// navigate().to(URL)
 			baseMethod.Navigateinto(baseData.getPantaloonspageURL(),"Navigate to pantaloons landing page");
 			takeScreenshot(driver, "04_After_Search_Result_Click");
+            Thread.sleep(6000);
 
 			// wait until browser page loads
 			waitUntilPageLoadComplete();
+            Thread.sleep(6000);
 
 			// navigate().back() 
 			driver.navigate().back();
 
 			// navigate().forward() 
 			driver.navigate().forward();
+            Thread.sleep(6000);
 
 			// navigate().refresh() 
 			driver.navigate().refresh();

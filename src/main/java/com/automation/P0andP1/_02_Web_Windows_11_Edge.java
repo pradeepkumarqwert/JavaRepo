@@ -31,9 +31,9 @@ public class _02_Web_Windows_11_Edge
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=aL-4N8cIdycxuzVhMkTTB2iEBrjsUnIH1vd86DDL-W7jn8KqCxObf_4dp_yn8AONM2sRtu73HV_twh2f42xiWfJKSJMfGpo-IWPqqtTqplrosm_WYDOtPIE3FwrD3Yg-lR6U9MqqdNHGooq16JCq3t1hm6y5RCpTVli-6EvTjzzjC7hZ1XQMYz3xYqTOKR8y9bWogR2lwaflZBseFzl0wWKwFoQoGj3_HOCTSRbiZdHbuY8BkJanG8DOXyoBatSH8XjY0HFWFZptlIrGp3WYAup1k8P9ky4PMMDJMQC8MdZZMbg8L0xV&licenseId=LIC4047&projectName=12022026_Testing/";
+            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=71HsbGkWHHq1x81k37LbPyqeZ53wOhpe-MDVHzWv_y2_p2z2reJBd6CyDdzML8Xl-SmNw_NJyykp8LzfHDbRmFXGLQCA4pmZXwiC4iPepm24aEv0inOYPSI0BRjw9sD6VVkCHj0kIh6BWw3zkL9EzJtV8IK9o6gMknNeSQ6UwXMDpkoJFBDupAtHDBLjDJH3PjhMm2u610yK3wdt3iDyxUUno2m_7CGaLx1HOEP-VKdAaXOd5ufc1f7WH3ptsC1iTMEOjuZmdve0jIK42vi4NOo7lqICkcrXtokA2QlAmag7jLCsQiWzKTwAK0HDy2w&licenseId=LIC4139&projectName=18022026_Testing/";
             EdgeOptions browserOptions = new EdgeOptions();
-            browserOptions.setCapability("devicefarm:networkLogEnable", true);
+            browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("Windows 10");
             browserOptions.setBrowserVersion("136");
@@ -42,18 +42,17 @@ public class _02_Web_Windows_11_Edge
 
 
             //Fetch system info
-		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
-		    String browserName = caps.getBrowserName();
-		    String browserVersion = caps.getBrowserVersion();
-		    Platform platform = caps.getPlatformName();
-
-		    System.out.println("Browser: " + browserName);
-		    System.out.println("Version: " + browserVersion);
-		    System.out.println("Platform: " + platform);
-			
+            Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
+            String browserName = caps.getBrowserName();
+            String browserVersion = caps.getBrowserVersion();
+            Platform platform = caps.getPlatformName();
+            String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
 
 
-			
+            System.out.println("Browser: " + browserName);
+            System.out.println("Version: " + browserVersion);
+            System.out.println("Platform: " + platform);
+            System.out.println("Session ID is: " + sessionId);
 			
 			
 			this.baseMethod = new BaseMethodsCloud(driver);
@@ -110,9 +109,8 @@ public class _02_Web_Windows_11_Edge
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
 			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
-			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
-			takeScreenshot(driver, "04_After_Search_Result_Click");
-			
+
+
 			
 			
 		}

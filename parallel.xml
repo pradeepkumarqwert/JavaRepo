@@ -3,10 +3,10 @@
 <suite name="FireflinkCloudSuite" verbose="1"  parallel="classes">
     <test name="FireflinkCloudTest">
         <classes>
-           <class name="com.automation.P0andP1._01_Web_Windows_10_Firefox"/>
-           <class name="com.automation.P0andP1._02_Web_Windows_11_Chrome" />
+            <class name="com.masterSanityPack._01_Web_Windows_10_Script"/>
+            <class name="com.masterSanityPack._02_Web_Windows_11_Script"/>
+            <class name="com.masterSanityPack._03_Web_mac_Script"/>
+            <class name="com.masterSanityPack._04_Web_Linux_Script"/>
         </classes>
     </test>
 </suite>
-
-

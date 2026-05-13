@@ -31,27 +31,27 @@ public class _04_Web_mac_Chrome
 		@BeforeClass
 		public void driverinitiation() throws InterruptedException, MalformedURLException
 		{
-            String device_farm_hub_url = "https://fireflinkcloudtest.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=vQRrDb67MMMVRTSuGmBVEeIGNiNDbpdfAwGxgbJApIXKOWnsYLOit0Lt-nQxfqwofzKgJSgMTKIBScsiKH1KQQiFOXqNpWyUHNfeGGTdTJ4_8_IrOb36YRGUcMJ-cKjW3P62TW8deuquV2qAYMU0IxskQQgvDYgUObbQTMsiByYd3hOUn-oSXZUguVXlBmmXa7mBMhrKmwtORd8jqVVwZsBDh6buRnnzEPLseZBrI-tDH15qkomQ2oEoKZgHEc0SVIVf1WP1ypuTRabZNjVoI5QfiDmcDenZfYYubO47wzlZEC7fOqmK69mLaN_JEgo&licenseId=LIC4139&projectName=Web+Project/";
+            String device_farm_hub_url = "https://devicefarm.fireflink.com/backend/fireflinkcloud/wd/hub?accessKey=8Tcsdwspy69KdKXw6ambPGMs6LQazDAA8okbIssJb7YGMDCKJMTB7VsBrV4hUIOuGV6I3wCwpK2CbuNIwIVnSswS5CbMRArfP5qm59IgrRxHwhSx_RywypctI-EwuF2TlQs7Dsq38CpF24sHUVJrCSi8v1VvwYjO3LKlPp5054Ji4dtzt3EtbdVyIAlwauBFkx-1YufbwuVWT-AOLN0MlQLdqjA0bzHDwpSZUzk2LeE7GFJ6rBwsOsTQrpU6HNU2W3kRm70a6nvLdV91z6Hm-kxlb_Rd8l4i_Pt52_nZUtFT5BYDEGZiGIrR_yOMRSnQtp5ojsY6bWnoVA&licenseId=LIC2026615&projectName=270326_Testing/";
             ChromeOptions browserOptions = new ChromeOptions();
             browserOptions.setCapability("devicefarm:networkLogEnable", false);
             browserOptions.setCapability("fireflink:deviceType", "public");
             browserOptions.setPlatformName("mac Tahoe");
-            browserOptions.setBrowserVersion("140");
+            browserOptions.setBrowserVersion("143");
             driver = new RemoteWebDriver(new URL(device_farm_hub_url), browserOptions);
             driver.manage().window().setSize(new Dimension(1024, 768));
 
             //Fetch system info
-		    Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
-		    String browserName = caps.getBrowserName();
-		    String browserVersion = caps.getBrowserVersion();
-		    Platform platform = caps.getPlatformName();
-
-		    System.out.println("Browser: " + browserName);
-		    System.out.println("Version: " + browserVersion);
-		    System.out.println("Platform: " + platform);
+            Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
+            String browserName = caps.getBrowserName();
+            String browserVersion = caps.getBrowserVersion();
+            Platform platform = caps.getPlatformName();
+            String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
 
 
-
+            System.out.println("Browser: " + browserName);
+            System.out.println("Version: " + browserVersion);
+            System.out.println("Platform: " + platform);
+            System.out.println("Session ID is: " + sessionId);
 
 
 
@@ -104,8 +104,6 @@ public class _04_Web_mac_Chrome
 			takeScreenshot(driver, "04_After_Search_Result_Click");
 			//baseMethod.MouseHoverOnElement(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered on the Shirt product on searched product list");
 			//baseMethod.MouseHoverOnElementAndClick(pantaloonsLandingPage.getPantaloonsProductShirt1(),"Mouse hovered and clicked on the Shirt product on searched product list");
-			baseMethod.ClickByPresenceString(pantaloonsLandingPage.PantaloonsFilterClearAllandSelectAllElement(6));
-			takeScreenshot(driver, "04_After_Search_Result_Click");
 
 
 
@@ -113,7 +111,7 @@ public class _04_Web_mac_Chrome
 		@AfterClass
 		public void QuitBrowser()
 		{
-			driver.quit();
+//			driver.quit();
             System.out.println("driver quit successfully");
 		}
 
